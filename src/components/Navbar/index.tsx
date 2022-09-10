@@ -13,7 +13,7 @@ function Navbar() {
         <styled.NavbarLinkContainer>
           <styled.NavbarLink to="/"> Home</styled.NavbarLink>
           <styled.NavbarLink to="/products"> Products</styled.NavbarLink>
-          <styled.NavbarLink to="/contact"> Contact Us</styled.NavbarLink>
+          <styled.NavbarLink to="/login"> Login </styled.NavbarLink>
           <styled.NavbarLink to="/about"> About Us</styled.NavbarLink>
           <styled.OpenLinksButton
             onClick={() => {
