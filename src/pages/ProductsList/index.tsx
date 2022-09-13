@@ -1,3 +1,4 @@
+import { SearchIcon } from "assets/icons";
 import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 
@@ -5,13 +6,15 @@ const ProductsList = () => {
   return (
     <div>
       <Styled.LaterMenu />
-      <div>
-        <div>
-          <i className="bi bi-search"></i>
+      <Styled.HeaderProductList>
+        <Styled.SearchProductList>
+          <div>
+            <SearchIcon />
+          </div>
           <input type="text" />
-        </div>
+        </Styled.SearchProductList>
         <button>Sort By</button>
-      </div>
+      </Styled.HeaderProductList>
       <ProductsCard />
     </div>
   );

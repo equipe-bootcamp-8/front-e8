@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const ProductsCardList = styled.div`
   width: 17rem;
@@ -32,5 +32,6 @@ export const ProductsCardList = styled.div`
     border-radius: 1rem;
     background-color: #3c41f5;
     color: white;
+    cursor: pointer;
   }
 `;
