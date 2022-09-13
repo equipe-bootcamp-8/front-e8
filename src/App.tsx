@@ -5,10 +5,10 @@ import './App.css';
 function App() {
   return (
     <>
-    <Router/>
-    <Navbar/>
+      <Navbar />
+      <Router />
     </>
-    );
+  );
 }
 
 export default App;
