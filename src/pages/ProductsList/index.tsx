@@ -6,9 +6,12 @@ const ProductsList = () => {
     <div>
       <Styled.LaterMenu />
       <div>
-        <input type="text" />
+        <div>
+          <i className="bi bi-search"></i>
+          <input type="text" />
+        </div>
+        <button>Sort By</button>
       </div>
-
       <ProductsCard />
     </div>
   );
