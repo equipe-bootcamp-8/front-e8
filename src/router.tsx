@@ -1,4 +1,4 @@
-import ProductsList from "components/ProductsList";
+import ProductsList from "pages/ProductsList";
 import { Routes, Route } from "react-router-dom";
 import { RoutePath } from "types/routes";
 
