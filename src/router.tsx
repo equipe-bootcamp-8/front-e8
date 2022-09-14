@@ -1,6 +1,8 @@
+import BulkUpdateSettings from 'pages/BulkUpdateSettings';
+import ProductSettings from 'pages/ProductSettings';
+import UserSettings from 'pages/UserSettings';
 import { Routes, Route } from 'react-router-dom';
 import { RoutePath } from 'types/routes';
-
 
 const Router = () => {
     return (
@@ -10,7 +12,9 @@ const Router = () => {
             <Route path={RoutePath.CREATE_USER}  />
             <Route path={RoutePath.ABOUT_US}  />
             <Route path={RoutePath.PRODUCTS}  />
-            <Route path={RoutePath.SETTINGS}  />
+            <Route path={RoutePath.SETTINGS_PRODUCTS} element={<ProductSettings/>} />
+            <Route path={RoutePath.SETTINGS_USER} element={<UserSettings/>} />
+            <Route path={RoutePath.SETTINGS_UPDATE} element={<BulkUpdateSettings/>} />
         </Routes>
     );
 }
