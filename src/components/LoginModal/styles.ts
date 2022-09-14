@@ -34,7 +34,8 @@ export const FormLogin = styled.form`
 
 export const Title = styled.div`
   width: 323px;
-  margin-bottom: 43px;
+  margin-bottom: 33px;
+  margin-top: -20px;
 `;
 
 export const FormInternal = styled.div`
