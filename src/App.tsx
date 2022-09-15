@@ -1,12 +1,18 @@
 import Navbar from 'components/Navbar';
+
+import AboutUs from 'components/slider';
+import { data } from 'components/slider/data';
 import Router from 'router';
 import './App.css';
+
+
 
 function App() {
   return (
     <>
     <Router/>
     <Navbar/>
+    <AboutUs key={data.length}/>
     </>
     );
 }
