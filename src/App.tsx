@@ -10,11 +10,11 @@ import './App.css';
 function App() {
   return (
     <>
-    <Router/>
-    <Navbar/>
-    <AboutUs key={data.length}/>
+      <Navbar />
+      <Router />
+      <AboutUs key={data.length}/>
     </>
-    );
+  );
 }
 
 export default App;

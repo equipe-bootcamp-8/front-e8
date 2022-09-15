@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav className="nav">
       <a href="#" className="nav__brand">
-        <LogoIcon/>
+        <LogoIcon />
       </a>
       <ul className={active}>
         <li className="nav__item">
@@ -32,7 +32,7 @@ function Navbar() {
           </a>
         </li>
         <li className="nav__item">
-          <a href="#" className="nav__link">
+          <a href="/products" className="nav__link">
             Products
           </a>
         </li>
