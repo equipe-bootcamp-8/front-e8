@@ -328,3 +328,23 @@ export const LogoIcon = () => {
     </svg>
   );
 };
+
+export const RightArrow = () => {
+  return ( <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14.5148 4.51477L13.6239 5.40567L17.5882 9.37004H0V10.63H17.5882L13.6239 14.5943L14.5148 15.4852L20 9.99996L14.5148 4.51477Z" fill="#0a9e88"/>
+  </svg>
+  ); 
+};
+
+export const LeftArrow = () => { 
+  return ( <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.48524 4.51477L6.3761 5.40567L2.41178 9.37004H20V10.63H2.41178L6.3761 14.5943L5.48524 15.4852L0 9.99996L5.48524 4.51477Z" fill="#0a9e88"/>
+  </svg>
+   );
+};
+
+export const UserPrototype = () => {
+  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="50" height="50" rx="25" fill="#791616"/>
+</svg>
+}
