@@ -1,4 +1,3 @@
-import Button from "components/Button";
 import * as Styled from "./styles";
 
 const LoginModal = () => {
@@ -15,7 +14,7 @@ const LoginModal = () => {
             <label>Password</label>
             <input type="text" placeholder="Enter your password" />
           </Styled.FormInternal>
-          <Button text="Log in" />
+          <button>Log in</button>
         </Styled.FormLogin>
       </div>
     </div>

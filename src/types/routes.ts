@@ -6,3 +6,4 @@ export enum RoutePath {
     PRODUCTS = '/products',
     SETTINGS = '/settings',
 }
+

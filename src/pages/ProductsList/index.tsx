@@ -2,7 +2,14 @@ import { SearchIcon } from "assets/icons";
 import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 
-const ProductsList = () => {
+interface ProductsListProps {
+  setLogged?: any
+}
+
+const ProductsList = ({setLogged}: ProductsListProps) => {
+
+  setLogged(true)
+
   return (
     <div>
       <Styled.LaterMenu />
