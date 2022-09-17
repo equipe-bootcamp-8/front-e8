@@ -23,7 +23,10 @@ const Router = () => {
           path={RoutePath.PRODUCTS}
           element={<ProductsList setLogged={setLogged} />}
         />
-        <Route path={RoutePath.SETTINGS} />
+        <Route path={RoutePath.SETTINGS} element={<Settings/>} />
+            <Route path={RoutePath.SETTINGS_PRODUCTS} element={<ProductSettings/>} />
+            <Route path={RoutePath.SETTINGS_USER} element={<UserSettings/>} />
+            <Route path={RoutePath.SETTINGS_UPDATE} element={<BulkUpdateSettings/>} />
       </Routes>
     </div>
   );

@@ -5,5 +5,8 @@ export enum RoutePath {
     ABOUT_US = '/about-us',
     PRODUCTS = '/products',
     SETTINGS = '/settings',
+    SETTINGS_PRODUCTS = '/settings/products',
+    SETTINGS_USER = '/settings/user',
+    SETTINGS_UPDATE = '/settings/bulk#update',
 }
 
