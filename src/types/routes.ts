@@ -9,3 +9,4 @@ export enum RoutePath {
     SETTINGS_USER = '/settings/user',
     SETTINGS_UPDATE = '/settings/bulk#update',
 }
+

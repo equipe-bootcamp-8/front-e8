@@ -1,0 +1,93 @@
+.main__aboutUs__wrapper {
+    font-family: "Patrick Hand", cursive;
+    background-position: center;
+    background-size: cover;
+    padding-top: 15rem;
+  }
+  
+  .swiper-container {
+    width: 100%;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  .swiper-slide {
+    display: grid;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    background: rgb(240, 240, 240);
+    width: 30.75rem;
+    height: 30.75rem;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 6rem;
+    justify-self: center;
+    border-radius: 50%;
+    margin-top: 0.6rem;
+  }
+  
+  h5 {
+    font-family: "GFS Didot", serif;
+    font-weight: bold;
+    color: #292f33;
+  }
+  
+  P {
+    color: #141823;
+  }
+    
+  /* .quote-parent {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quote {
+    height: 200px;
+    width: 200px;
+    background-color: #3C41F5;
+    border-radius: 50px;
+    transition: all 0.5s;
+  }
+  
+  .quote:hover {
+    background-color: #ebecf0;
+    background: #ebecf0;
+    box-shadow: 5px 5px 0px #cacbce, -5px -5px 0px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .quote:hover > h1 {
+    display: none;
+  }
+  
+  .quote:hover > .quote-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quote h1 {
+    font-family: "Rubik", sans-serif;
+    color: #f1faee;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .quote-content {
+    display: none;
+  } */

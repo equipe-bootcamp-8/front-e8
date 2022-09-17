@@ -1,11 +1,20 @@
-import * as styled from "./styles";
-import { LogoIcon } from "../../assets/icons/index";
+import { LogoIcon } from "assets/icons";
 import { useState } from "react";
-
+import "./styles.css";
 
 function Navbar() {
-  const [extendNavbar, setExtendNavbar] = useState<boolean>(true);
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
+  const navToggle = () => {
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else setActive("nav__menu");
 
+
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+    } else setIcon("nav__toggler");
+  };
   return (
     <styled.NavbarContainer extendNavbar={extendNavbar}>
     <styled.NavbarInnerContainer>
