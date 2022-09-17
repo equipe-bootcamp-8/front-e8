@@ -16,44 +16,39 @@ function Navbar() {
     } else setIcon("nav__toggler");
   };
   return (
-    <nav className="nav">
-      <a href="#" className="nav__brand">
+    <styled.NavbarContainer extendNavbar={extendNavbar}>
+    <styled.NavbarInnerContainer>
+      <styled.RightContainer>
+        <styled.NavbarLinkContainer>
+          <styled.NavbarLink to="/"> Home</styled.NavbarLink>
+          <styled.NavbarLink to="/products"> Products</styled.NavbarLink>
+          <styled.NavbarLink to="/login"> Login </styled.NavbarLink>
+          <styled.NavbarLink to="/about"> About Us</styled.NavbarLink>
+          <styled.NavbarLink to="/settings"> Settings</styled.NavbarLink>
+          <styled.OpenLinksButton
+            onClick={() => {
+              setExtendNavbar((curr) => !curr);
+            }}
+          >
+            {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
+          </styled.OpenLinksButton>
+        </styled.NavbarLinkContainer>
+      </styled.RightContainer>
+      <styled.LeftContainer>
         <LogoIcon />
-      </a>
-      <ul className={active}>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Home
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            About us
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="/products" className="nav__link">
-            Products
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Login
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Register
-          </a>
-        </li>
-      </ul>
-      <div onClick={navToggle} className={icon}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-      </div>
-    </nav>
-  );
+      </styled.LeftContainer>
+    </styled.NavbarInnerContainer>
+    {extendNavbar && (
+      <styled.NavbarExtendedContainer>
+        <styled.NavbarLinkExtended to="/"> Home</styled.NavbarLinkExtended>
+        <styled.NavbarLinkExtended to="/products"> Products</styled.NavbarLinkExtended>
+        <styled.NavbarLinkExtended to="/login"> Login </styled.NavbarLinkExtended>
+        <styled.NavbarLinkExtended to="/about"> About Us</styled.NavbarLinkExtended>
+          <styled.NavbarLinkExtended to="/settings"> Settings</styled.NavbarLinkExtended>
+      </styled.NavbarExtendedContainer>
+    )}
+  </styled.NavbarContainer>
+);
 }
 
 export default Navbar;

@@ -1,8 +1,9 @@
+
+import theme from 'assets/styles/theme';
 import Navbar from 'components/Navbar';
 
-import AboutUs from 'components/slider';
-import { data } from 'components/slider/data';
 import Router from 'router';
+import { ThemeProvider } from 'styled-components';
 import './App.css';
 
 
@@ -10,9 +11,14 @@ import './App.css';
 function App() {
   return (
     <>
-      <Navbar />
+
+    <ThemeProvider theme={theme}>
+    <Navbar/>
+    <Router/>
+    </ThemeProvider>
+
       <Router />
-      <AboutUs key={data.length}/>
+
     </>
   );
 }

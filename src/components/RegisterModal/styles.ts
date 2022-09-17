@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
+export const FormOverlay = styled.div`
+  width: 100%;
+
+  p {
+    width: 400px;
+    padding: 10px 0 0 30px;
+    font-size: 17px;
+  }
+`;
+
+
 export const FormLogin = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 420px;
-  height: 387px;
+  height: 486px;
   background-color: #003aaa25;
   border-radius: 34px;
 
@@ -34,7 +45,7 @@ export const FormLogin = styled.form`
   button {
     width: 323px;
     height: 50px;
-    background-color: #434bfd;
+    background-color: #107C10;
     border-radius: 10px;
     color: white;
     font-size: 17px;

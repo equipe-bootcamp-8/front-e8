@@ -8,8 +8,11 @@ export const colors = {
     baseBg2: "#1F1D2B",
     baseForm: "#E3DDDD",
     baseLine: "#393C49",
+    baseSoftBlue: "#035295",
+    baseDarkBlue: "#03223C",
   
     textColor: "#ffffff",
+    textColor2: "#fafafa",
     textBoxColor: "#000000",
     textLight: "#ABBBC2",
     textButtonColor: "#0067B8",
@@ -17,5 +20,5 @@ export const colors = {
     textLighter: "#E0E6E9",
     textNeutral: "#889898",
     textDark: "#3B5162",
-  };
+};
   

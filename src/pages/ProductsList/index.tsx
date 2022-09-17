@@ -3,7 +3,14 @@ import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
 
-const ProductsList = () => {
+interface ProductsListProps {
+  setLogged?: any
+}
+
+const ProductsList = ({setLogged}: ProductsListProps) => {
+
+  setLogged(true)
+
   return (
     <div>
       <Styled.LaterMenu>
