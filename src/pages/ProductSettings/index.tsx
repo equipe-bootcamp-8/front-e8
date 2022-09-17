@@ -6,12 +6,9 @@ const ProductSettings = () => {
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"products"} />
-    
-
       <styled.EditEntitiesContainer>
         <h2>Manage Products</h2>
         <styled.SearchInputContainer>
-            
             <input
              /*  value={searchInputValue}
               onChange={(e) => setSearchInputValue(e.target.value)}

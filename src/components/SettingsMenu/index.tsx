@@ -2,7 +2,7 @@ import * as styled from "./styles";
 import { useNavigate } from "react-router-dom";
 
 interface MenuSettingsProps {
-  path: "products" | "user" | "excel";
+  path: "products" | "user" | "update" | "settings";
 }
 
 const SettingsMenu = ({ path }: MenuSettingsProps) => {
@@ -36,10 +36,10 @@ const SettingsMenu = ({ path }: MenuSettingsProps) => {
         </styled.SettingsNavigationButtonsContainer>
 
         <styled.SettingsNavigationButtonsContainer
-         active={path === "excel"}
-         onClick={() => navigate("/settings/excel")}
+         active={path === "update"}
+         onClick={() => navigate("/settings/bulk#update")}
          >
-          <styled.SettingsNavigationButtonSelected active={path === "excel"}>
+          <styled.SettingsNavigationButtonSelected active={path === "update"}>
            
             <h2>Excel</h2>
 

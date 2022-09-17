@@ -33,7 +33,7 @@ export const ProductSettingsEditCardButton = styled.button`
     height: 3.25rem;
     width: 50%;
     border-radius: 0px 0px 0px 8px;
-    background-color: ${theme.colors.primaryColorOpacity};
+    background-color:#035295;
     border: 1px solid ${theme.colors.primaryColor};
     color: ${theme.colors.primaryColor};
     display: flex;

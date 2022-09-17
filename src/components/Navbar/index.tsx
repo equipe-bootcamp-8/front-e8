@@ -15,7 +15,7 @@ function Navbar() {
           <styled.NavbarLink to="/products"> Products</styled.NavbarLink>
           <styled.NavbarLink to="/login"> Login </styled.NavbarLink>
           <styled.NavbarLink to="/about"> About Us</styled.NavbarLink>
-          <styled.NavbarLink to="/settings/products"> Settings</styled.NavbarLink>
+          <styled.NavbarLink to="/settings"> Settings</styled.NavbarLink>
           <styled.OpenLinksButton
             onClick={() => {
               setExtendNavbar((curr) => !curr);
@@ -35,7 +35,7 @@ function Navbar() {
         <styled.NavbarLinkExtended to="/products"> Products</styled.NavbarLinkExtended>
         <styled.NavbarLinkExtended to="/login"> Login </styled.NavbarLinkExtended>
         <styled.NavbarLinkExtended to="/about"> About Us</styled.NavbarLinkExtended>
-          <styled.NavbarLinkExtended to="/settings/products"> Settings</styled.NavbarLinkExtended>
+          <styled.NavbarLinkExtended to="/settings"> Settings</styled.NavbarLinkExtended>
       </styled.NavbarExtendedContainer>
     )}
   </styled.NavbarContainer>
