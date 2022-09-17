@@ -11,14 +11,9 @@ import './App.css';
 function App() {
   return (
     <>
-
-    <ThemeProvider theme={theme}>
-    <Navbar/>
-    <Router/>
-    </ThemeProvider>
-
-      <Router />
-
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
     </>
   );
 }

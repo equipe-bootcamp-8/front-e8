@@ -1,7 +1,14 @@
 import * as Styled from "./styles";
 import LoginModal from "components/LoginModal";
 
-const Login = () => {
+
+interface LoginProps {
+  logged?: boolean | any;
+}
+
+const Login = ({ logged }: LoginProps) => {
+  logged(false);
+
   return (
     <div>
       <Styled.Background>
