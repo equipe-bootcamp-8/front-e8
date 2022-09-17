@@ -7,6 +7,7 @@ import Navbar from "components/Navbar";
 import NavBarLoginRegister from "components/NavBarLoginRegister";
 import { useState } from "react";
 
+
 const Router = () => {
   const [logged, setLogged] = useState(false);
 
@@ -21,7 +22,7 @@ const Router = () => {
         <Route path={RoutePath.ABOUT_US} />
         <Route
           path={RoutePath.PRODUCTS}
-          element={<ProductsList setLogged={setLogged} />}
+          element={<ProductsList logged={setLogged} />}
         />
         <Route path={RoutePath.SETTINGS} />
       </Routes>
