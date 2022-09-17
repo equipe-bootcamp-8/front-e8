@@ -1,15 +1,17 @@
 import { SearchIcon } from "assets/icons";
 import ProductsCard from "components/ProductsCard";
+
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
 
 interface ProductsListProps {
-  setLogged?: any
+  logged?: boolean | any
 }
 
-const ProductsList = ({setLogged}: ProductsListProps) => {
 
-  setLogged(true)
+const ProductsList = ({logged}: ProductsListProps ) => {
+
+  logged(true)
 
   return (
     <div>
