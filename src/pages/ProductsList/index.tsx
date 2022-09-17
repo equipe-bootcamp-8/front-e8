@@ -3,20 +3,20 @@ import ProductsCard from "components/ProductsCard";
 
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
+import Particle from "components/Particle";
 
 interface ProductsListProps {
-  logged?: boolean | any
+  logged?: boolean | any;
 }
 
-
-const ProductsList = ({logged}: ProductsListProps ) => {
-
-  logged(true)
+const ProductsList = ({ logged }: ProductsListProps) => {
+  logged(true);
 
   return (
     <div>
       <Styled.LaterMenu>
-        <img src={meeting} alt="Meeting image" />
+        <Particle />
+        <img src={meeting} alt="Metting foto" />
         <Styled.LaterMenuLetters>
           <h1>
             CloudWalk
