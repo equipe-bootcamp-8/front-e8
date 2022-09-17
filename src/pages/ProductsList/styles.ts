@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 export const LaterMenu = styled.div`
   width: 100%;
-  height: 20rem;
+  height: 30rem;
   background-color: #3c41f5;
+  display: flex;
+  img {
+    width: 50rem;
+    height: 33.35rem;
+  }
 `;
 
 export const HeaderProductList = styled.header`
@@ -39,11 +44,33 @@ export const SearchProductList = styled.div`
   justify-content: flex-start;
   border-radius: 1rem;
   div {
-    margin: 0 1rem;
+    margin: 0 0.5rem 0 1rem;
   }
   input {
     border: none;
     width: 21rem;
-    margin: 0 1rem;
+    margin: 0 1rem 0 1.3rem;
+    outline: none;
+    font-size: 1.6rem;
+  }
+`;
+
+export const LaterMenuLetters = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  h1 {
+    margin: 1rem 0;
+    hr {
+      border: none;
+    }
+  }
+
+  h4 {
+    margin: 1rem 0;
+    hr {
+      border: none;
+    }
   }
 `;
