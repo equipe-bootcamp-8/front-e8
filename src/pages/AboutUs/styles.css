@@ -1,0 +1,31 @@
+img {
+    width: 100%;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
+    background: rgba(60, 156, 245, 0.08);
+    margin-bottom: 2rem;
+  }
+  .card__two {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
+    margin-bottom: 2rem;
+  }
+
+
+  h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color:  #3c41f5;
+    font-family: "Patrick Hand", cursive;
+    margin: 2rem 0 2rem 0;
+  }
+
+  p {
+    margin-top: 2rem;
+    font-family:  cursive;
+  }

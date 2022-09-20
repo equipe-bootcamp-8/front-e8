@@ -46,6 +46,11 @@ function Navbar() {
             Register
           </a>
         </li>
+        <li className="nav__item">
+          <a href={RoutePath.ABOUT_US} className="nav__link">
+            About us
+          </a>
+        </li>
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>

@@ -10,6 +10,7 @@ import BulkUpdateSettings from "pages/BulkUpdateSettings";
 import UserSettings from "pages/UserSettings";
 import ProductSettings from "pages/ProductSettings";
 import Settings from "pages/Settings";
+import AboutUs from "pages/AboutUs";
 
 const Router = () => {
   const [logged, setLogged] = useState(false);
@@ -25,7 +26,8 @@ const Router = () => {
           path={RoutePath.CREATE_USER}
           element={<Createuser logged={setLogged} />}
         />
-        <Route path={RoutePath.ABOUT_US} />
+        <Route path={RoutePath.ABOUT_US}  element={<AboutUs />}
+        />
         <Route
           path={RoutePath.PRODUCTS}
           element={<ProductsList logged={setLogged} />}
