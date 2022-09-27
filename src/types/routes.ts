@@ -7,6 +7,6 @@ export enum RoutePath {
     SETTINGS = '/settings',
     SETTINGS_PRODUCTS = '/settings/products',
     SETTINGS_USER = '/settings/user',
-    SETTINGS_UPDATE = '/settings/bulk#update',
+    SETTINGS_UPDATE = '/settings/spreadsheet',
 }
 

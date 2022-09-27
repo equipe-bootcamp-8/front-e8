@@ -15,7 +15,9 @@ export const ProductSettingsCardContainer = styled.div`
     text-align: center;
     div {
       display: flex;
-      width: 100%;
+      margin: 1rem;
+      gap: .3rem; 
+      width: 90%;
     }
     img {
       width: 10.25rem;
@@ -32,7 +34,7 @@ export const ProductSettingsEditCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
     width: 50%;
-    border-radius: 0px 0px 0px 8px;
+    border-radius: 8px;
     background-color:#035295;
     border: 1px solid ${theme.colors.primaryColor};
     color: ${theme.colors.primaryColor};
@@ -49,7 +51,7 @@ export const ProductSettingsDeleteCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
     width: 50%;
-    border-radius: 0px 0px 8px 0px;
+    border-radius: 8px;
     background-color: ${theme.colors.baseBg2};
     color: ${theme.colors.secondaryColor};
     border: 1px solid ${theme.colors.secondaryColor};

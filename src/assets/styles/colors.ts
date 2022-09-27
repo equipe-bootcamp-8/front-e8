@@ -4,14 +4,14 @@ export const colors = {
   
     primaryColorOpacity: "rgba(108, 234, 105, 0.4)",
   
-    baseBg1: "#107C10",
-    baseBg2: "#1F1D2B",
+    baseBg1: "#FAFAFA",
+    baseBgDark: "#1F1D2B",
     baseForm: "#E3DDDD",
     baseLine: "#393C49",
     baseSoftBlue: "#035295",
     baseDarkBlue: "#03223C",
   
-    textColor: "#ffffff",
+    textColor: "#00000",
     textColor2: "#fafafa",
     textBoxColor: "#000000",
     textLight: "#ABBBC2",

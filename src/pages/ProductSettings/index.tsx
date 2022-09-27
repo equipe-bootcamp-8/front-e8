@@ -18,7 +18,7 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
           <input
           /*  value={searchInputValue}
               onChange={(e) => setSearchInputValue(e.target.value)}
-              placeholder="Procure pelo sabor" */
+              placeholder="Procure pelo sabor"  */
           />
         </styled.SearchInputContainer>
         <styled.EntitiesEditList>

@@ -19,8 +19,8 @@ export const SettingsContainer = styled.div`
 export const SearchInputContainer = styled.div`
   input {
     background: #2d303e;
-    width: 102px;
-    height: 29px;
+    width: 30rem;
+    height: 4rem;
     color: #ffffff;
     font-size: 14px;
     background: rgba(0, 0, 0, 0.15);

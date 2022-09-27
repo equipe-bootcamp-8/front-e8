@@ -9,11 +9,15 @@ const SettingsMenu = ({ path }: MenuSettingsProps) => {
   const navigate = useNavigate();
   return (
     <styled.SettingsNavigationContainer>
-
       <h2>Settings</h2>
+      <styled.UserInfos> 
 
       <h3>Company Name</h3>
       <h3>company@mail.com</h3>
+
+      </styled.UserInfos>
+     
+
       <styled.SettingsNavigationButtonsList>
         <styled.SettingsNavigationButtonsContainer
           active={path === "products"}
@@ -37,11 +41,11 @@ const SettingsMenu = ({ path }: MenuSettingsProps) => {
 
         <styled.SettingsNavigationButtonsContainer
          active={path === "update"}
-         onClick={() => navigate("/settings/bulk#update")}
+         onClick={() => navigate("/settings/spreadsheet")}
          >
           <styled.SettingsNavigationButtonSelected active={path === "update"}>
            
-            <h2>Excel</h2>
+            <h2>Spreadsheet Update</h2>
 
           </styled.SettingsNavigationButtonSelected>
         </styled.SettingsNavigationButtonsContainer> 
