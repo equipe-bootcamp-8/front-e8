@@ -13,6 +13,7 @@ const NavBarLoginRegister = () => {
           Don't have an account?
           <p>Sign up</p>
         </a>
+  
       </Styled.NavBarRegister>
     </Styled.NavBarContainer>
   );
