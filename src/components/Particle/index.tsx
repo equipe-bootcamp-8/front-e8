@@ -46,10 +46,10 @@ const Particle = () => {
         },
         move: {
           enable: true,
-          speed: { min: 10, max: 11 },
+          speed: { min: 3, max: 5 },
         },
         opacity: {
-          value: { min: 1, max: 2 },
+          value: { min: 1.74, max: 2 },
         },
         size: {
           value: { min: 2, max: 4 },

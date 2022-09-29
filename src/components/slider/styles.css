@@ -2,7 +2,7 @@
     font-family: "Patrick Hand", cursive;
     background-position: center;
     background-size: cover;
-    padding-top: 15rem;
+    padding: 5rem 0 5rem 0;
   }
   
   .swiper-container {
@@ -16,7 +16,7 @@
     text-align: center;
     padding: 1.5rem 1rem;
     border-radius: 10px;
-    background: rgb(240, 240, 240);
+    background: rgba(60, 156, 245, 0.08);
     width: 30.75rem;
     height: 30.75rem;
   }
@@ -39,55 +39,18 @@
     color: #141823;
   }
     
-  /* .quote-parent {
-    height: 100vh;
-    width: 100%;
-    display: flex;
+
+.img__linkedin  {
+  width: 100%;
+  }
+
+  .img__github {
+    width: 40%;
+  }
+
+  .links{
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
     align-items: center;
-    justify-content: center;
+    grid-template-columns: 20.33% 33.33% 33.33% 33.33%;
   }
-  
-  .quote {
-    height: 200px;
-    width: 200px;
-    background-color: #3C41F5;
-    border-radius: 50px;
-    transition: all 0.5s;
-  }
-  
-  .quote:hover {
-    background-color: #ebecf0;
-    background: #ebecf0;
-    box-shadow: 5px 5px 0px #cacbce, -5px -5px 0px;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .quote:hover > h1 {
-    display: none;
-  }
-  
-  .quote:hover > .quote-content {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .quote h1 {
-    font-family: "Rubik", sans-serif;
-    color: #f1faee;
-    font-weight: bold;
-    text-transform: uppercase;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .quote-content {
-    display: none;
-  } */
