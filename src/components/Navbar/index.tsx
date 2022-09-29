@@ -48,8 +48,8 @@ function Navbar() {
           </a>
         </li>
         <li className="nav__item">
-          <a href={RoutePath.ABOUT_US} className="nav__link">
-            About us
+          <a href={RoutePath.SETTINGS} className="nav__link">
+            Settings
           </a>
         </li>
       </ul>

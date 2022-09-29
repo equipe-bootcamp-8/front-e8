@@ -13,6 +13,7 @@ const UserSettings = ({ logged }: UserSettingProps) => {
 
       <styled.EditEntityContainer>
         <h2>Personal informations</h2>
+        <styled.Bar/>
         <styled.EntityEditList>
           <styled.ButtonUpload>Upload image</styled.ButtonUpload>
 
