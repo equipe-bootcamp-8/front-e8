@@ -11,6 +11,15 @@ export const SettingsContainer = styled.div`
 	`}
 `;
 
+export const Bar = styled.div`
+  ${() => css`
+    width: 20%;
+    margin: 1rem 1rem 1rem 1rem;
+    height: 0.3rem;
+    background-color: #3C41F5;
+  `}
+`;
+
 export const Container = styled.div`
 	${() => css`
 		width: 80%;
@@ -30,7 +39,7 @@ export const Container = styled.div`
 				width: 50rem;
 			}
 			p {
-				margin-top: 2rem;
+				margin-top: 4rem;
 				font-size: 30px;
 				width: 40rem;
 			}

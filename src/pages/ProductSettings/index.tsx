@@ -14,6 +14,7 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
       <SettingsMenu path={"products"} />
       <styled.EditEntitiesContainer>
         <h2>Manage Products</h2>
+        <styled.Bar/>
         <styled.SearchInputContainer>
           <input
           /*  value={searchInputValue}
@@ -21,6 +22,7 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
               placeholder="Procure pelo sabor"  */
           />
         </styled.SearchInputContainer>
+       
         <styled.EntitiesEditList>
           <styled.AddEntitieCard>
             <h2>+</h2>

@@ -2,30 +2,31 @@ import styled, { css } from "styled-components";
 
 export const ProductSettingsCardContainer = styled.div`
   ${({ theme }) => css`
-    width: 13.75rem;
-    height: 18.75rem;
-    border-radius: 8px;
-    border: 1px solid ${theme.colors.baseLine};
+    background-color: #0C0E4F;
+    width: 18rem;
+    height: 25rem;
+    border-radius: 21px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     font-size: 12px;
-    color: ${theme.colors.textColor};
+    color: ${theme.colors.textColor2};
     text-align: center;
     div {
       display: flex;
-      margin: 1rem;
-      gap: .3rem; 
-      width: 90%;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      padding: 1rem;
+      gap: .5rem; 
+
     }
     img {
-      width: 10.25rem;
+      width: 100%;
+      border-radius: 20px 20px 0px 0px;
       height: 13rem;
       object-fit: cover;
-    }
-    p {
-      color: ${theme.colors.textLight};
     }
   `}
 `;
@@ -33,32 +34,29 @@ export const ProductSettingsCardContainer = styled.div`
 export const ProductSettingsEditCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
-    background-color:#035295;
-    border: 1px solid ${theme.colors.primaryColor};
-    color: ${theme.colors.primaryColor};
+    background-color:#3C41F5;
+    border: 1px solid #3C41F5;
+    color: ${theme.colors.textColor2};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
     cursor: pointer;
-    
   `}
 `;
 
 export const ProductSettingsDeleteCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
-    background-color: ${theme.colors.baseBg2};
-    color: ${theme.colors.secondaryColor};
-    border: 1px solid ${theme.colors.secondaryColor};
+    background-color: #FF3232;
+    color: ${theme.colors.textColor2};
+    border: 1px solid #FF3232;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
     cursor: pointer;
   `}
 `;

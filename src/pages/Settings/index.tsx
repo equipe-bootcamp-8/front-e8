@@ -15,6 +15,7 @@ const Settings = ({ logged }: SettingsProps) => {
         <div>
           <section>
             <h1>Welcome to the settings page!</h1>
+            <styled.Bar/>
             <p>
               <strong>Change</strong> your account settings,
               <strong>manage</strong> your products and <strong>perform</strong> batch update on your product list.

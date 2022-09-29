@@ -14,6 +14,7 @@ const BulkUpdateSettings = ({ logged }: BulkUpdateSettingsProps) => {
       
       <styled.EditEntityContainer>
       <h2>Spreadsheet massive update</h2>
+      <styled.Bar/>
         <styled.EntityEditList>
         <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
         <styled.ButtonUpload>Download File</styled.ButtonUpload>

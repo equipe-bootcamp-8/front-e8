@@ -12,7 +12,15 @@ export const SettingsContainer = styled.div`
     min-height: 90%;
     color: ${theme.colors.textColor};
     display: flex;
-    font-family: "Roboto";
+  `}
+`;
+
+export const Bar = styled.div`
+  ${() => css`
+    width: 100%;
+    margin: 1rem 1rem 1rem 1rem;
+    height: 0.3rem;
+    background-color: #0C0E4F;
   `}
 `;
 
@@ -82,9 +90,9 @@ export const EntitiesEditList = styled.div`
 
 export const AddEntitieCard = styled.div`
   ${({ theme }) => css`
-    width: 13.75rem;
-    height: 18.75rem;
-    border-radius: 8px;
+    width: 18rem;
+    height: 25rem;
+    border-radius: 21px;
     background-color: ${theme.colors.baseDarkBlue};
     display: flex;
     flex-direction: column;
