@@ -11,9 +11,14 @@ const BulkUpdateSettings = ({ logged }: BulkUpdateSettingsProps) => {
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"update"} />
-
+      
       <styled.EditEntityContainer>
-        <styled.EntityEditList></styled.EntityEditList>
+      <h2>Spreadsheet massive update</h2>
+      <styled.Bar/>
+        <styled.EntityEditList>
+        <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
+        <styled.ButtonUpload>Download File</styled.ButtonUpload>
+        </styled.EntityEditList>
       </styled.EditEntityContainer>
     </styled.SettingsContainer>
   );

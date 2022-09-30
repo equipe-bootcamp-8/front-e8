@@ -1,6 +1,5 @@
 
 import theme from 'assets/styles/theme';
-import Navbar from 'components/Navbar';
 
 import Router from 'router';
 import { ThemeProvider } from 'styled-components';
@@ -19,3 +18,4 @@ function App() {
 }
 
 export default App;
+

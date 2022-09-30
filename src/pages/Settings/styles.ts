@@ -1,43 +1,51 @@
 import styled, { css } from "styled-components";
+import backgroundSettings from "../../assets/imgs/settings-bg.png"
 
 
 export const SettingsContainer = styled.div`
-	${({ theme }) => css`
-		background-color: #035295;
+	${() => css`
+		background-image: url(${backgroundSettings}); 
 		min-width: 80%;
 		min-height: 80%;
-		color: ${theme.colors.textColor2};
 		display:flex;
-		
 	`}
+`;
+
+export const Bar = styled.div`
+  ${() => css`
+    width: 20%;
+    margin: 1rem 1rem 1rem 1rem;
+    height: 0.3rem;
+    background-color: #3C41F5;
+  `}
 `;
 
 export const Container = styled.div`
 	${() => css`
 		width: 80%;
-		height: 80%;
+		height: 100vh;
 		padding: 1rem;
-		margin-top: 3rem;
+		margin-top: 10rem;
 		margin-bottom: 1.5rem;
 		border-radius: 8px;
 		margin-left: 2rem;
-		margin-right: 2rem;
 		box-sizing: border-box;
 		div { 
 			display: flex;
-			flex-direction: column;
-			gap: 2rem;
+			flex-direction: row;
+			justify-content: baseline;
 			h1 {
-				font-size: 40px;
+				font-size: 50px;
+				width: 50rem;
 			}
 			p {
+				margin-top: 4rem;
 				font-size: 30px;
-				width: 25%;
+				width: 40rem;
 			}
 		}
 		img { 
-			width: 80%;
-			top: 2;
+			width: 40%;
 		}
 	`}
 `;
