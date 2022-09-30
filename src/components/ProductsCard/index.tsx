@@ -1,12 +1,18 @@
 import * as Styled from "./styles";
+import { Product } from "../../types";
 
-const ProductsCard = () => {
+interface SettingsProductCardProps {
+  product: Product; 
+}
+
+const ProductsCard = () => ({
+  product
+}: SettingsProductCardProps) => {
   return (
     <Styled.ProductsCardList>
-      <img src="https://www.infomoney.com.br/wp-content/uploads/2022/01/FJkLjuCXMAYC1MO.jpg?resize=916%2C515&quality=50&strip=all" alt="img-test" />
-      <h3>Product Name</h3>
-      <h5>Product Category</h5>
-      {/* <p>Product descri aslkjdh çasldjas alsdkjasd asldkjasd asldkjasd ...</p> */}
+      <img src={product.image} alt={product.name}/>
+      <h3>{ProductsCard.name}</h3>
+      <p>{product.description}</p>
       <button> See details</button>
     </Styled.ProductsCardList>
   );
