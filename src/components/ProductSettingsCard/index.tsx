@@ -1,10 +1,18 @@
+import { Product } from "types";
 import * as styled from "./styles";
 
-const ProductSettingsCard = () => {
+interface SettingsProductCardProps {
+  product: Product; 
+}
+
+
+const ProductSettingsCard = ({
+  product
+}: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>
-      <img /> 
-      <h3>Product</h3>
+      <img src={product.image}/> 
+      <h3>{product.name}</h3>
       <div>
         <styled.ProductSettingsEditCardButton>
           Edit
