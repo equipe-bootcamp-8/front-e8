@@ -1,4 +1,4 @@
-
+import { Toaster } from "react-hot-toast";
 import theme from 'assets/styles/theme';
 
 import Router from 'router';
@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+      <Toaster position="bottom-center" reverseOrder={false} />
         <Router />
       </ThemeProvider>
     </>
