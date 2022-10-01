@@ -2,7 +2,7 @@ import { Product } from "types";
 import * as styled from "./styles";
 
 interface SettingsProductCardProps {
-  product: Product; 
+  product: Product | any; 
 }
 
 

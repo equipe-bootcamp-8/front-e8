@@ -2,7 +2,6 @@ import ProductSettingsCard from "components/ProductSettingsCard";
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 
-
 interface ProductSettingsProps {
   logged?: boolean | any;
 }
@@ -14,7 +13,7 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
       <SettingsMenu path={"products"} />
       <styled.EditEntitiesContainer>
         <h2>Manage Products</h2>
-        <styled.Bar/>
+        <styled.Bar />
         <styled.SearchInputContainer>
           <input
           /*  value={searchInputValue}
@@ -22,14 +21,19 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
               placeholder="Procure pelo sabor"  */
           />
         </styled.SearchInputContainer>
-       
+
         <styled.EntitiesEditList>
           <styled.AddEntitieCard>
             <h2>+</h2>
             <p>Add Product</p>
           </styled.AddEntitieCard>
 
-          <ProductSettingsCard />
+          <ProductSettingsCard
+            product={{
+              image: "nada",
+              name: "nada",
+            }}
+          />
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
     </styled.SettingsContainer>
