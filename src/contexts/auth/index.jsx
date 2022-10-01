@@ -11,7 +11,9 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const createAuth = async (email, password) => {
-    return api.post("/auth", { email, password });
+    return api.post("/auth", { email, password }).catch(() =>{
+      toast.error("Usuário ou Senha inválido");
+    });
   };
 
   useEffect(() => {
@@ -24,21 +26,22 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    console.log("dentro auth");
-
     const response = await createAuth(email, password);
+
+    if (response.status === 404) {
+
+    }
 
     const loggedUser = response.data.user;
     const token = response.data.token;
 
     localStorage.setItem("user", JSON.stringify(loggedUser));
-    console.log(loggedUser);
+    console.log(response);
 
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
-
-    setUser(loggedUser);
+    setUser(response);
     navigate("/settings");
     toast.success(`Bem vindo(a) ${user.name} `, { duration: 5000 });
   };

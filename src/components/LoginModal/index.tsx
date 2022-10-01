@@ -11,13 +11,6 @@ const LoginModal = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     login(email, password);
-    if (email === "") {
-      toast.error("Digite seu e-mail");
-    } else if (password === "") {
-      toast.error("Digite sua senha");
-  } else {
-      toast.error("Usuário ou Senha inválido");
-    }
   };
 
   return (
