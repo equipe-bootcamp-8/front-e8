@@ -36,10 +36,7 @@ const ProductsList = ({ logged }: ProductsListProps) => {
         </Styled.SearchProductList>
         <button>Sort By</button>
       </Styled.HeaderProductList>
-      <ProductsCard product={{
-        image: "nada",
-        name: "nada",
-        description: "nada"
+      <ProductsCard product={{ ProductsCard
       }} />
     </div>
   );

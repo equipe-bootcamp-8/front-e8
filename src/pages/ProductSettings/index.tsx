@@ -1,10 +1,13 @@
 import ProductSettingsCard from "components/ProductSettingsCard";
 import SettingsMenu from "components/SettingsMenu";
+import { useState } from "react";
+import { Product } from "types";
 import * as styled from "./styles";
 
 interface ProductSettingsProps {
   logged?: boolean | any;
 }
+
 
 const ProductSettings = ({ logged }: ProductSettingsProps) => {
   logged(true);
@@ -27,13 +30,7 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
             <h2>+</h2>
             <p>Add Product</p>
           </styled.AddEntitieCard>
-        
-
-
-          <ProductSettingsCard
-            product={{ ProductSettingsCard
-            }}
-          />
+          <ProductSettingsCard product={{ProductSettingsCard}} />
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
     </styled.SettingsContainer>
