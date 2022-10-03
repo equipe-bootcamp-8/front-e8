@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const createAuth = async (email, password) => {
     return api.post("/auth", { email, password }).catch(() =>{
-      toast.error("Usuário ou Senha inválido");
+      toast.error("Invalid username or password");
     });
   };
 
@@ -28,10 +28,6 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const response = await createAuth(email, password);
 
-    if (response.status === 404) {
-
-    }
-
     const loggedUser = response.data.user;
     const token = response.data.token;
 
@@ -43,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setUser(response);
     navigate("/settings");
-    toast.success(`Bem vindo(a) ${user.name} `, { duration: 5000 });
+    toast.success(`Welcome ${user.name} `, { duration: 5000 });
   };
 
   const logout = () => {
