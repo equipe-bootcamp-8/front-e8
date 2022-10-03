@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import * as Styled from "./styles";
 import { AuthContext } from "contexts/auth";
-import toast from "react-hot-toast";
 const LoginModal = () => {
   const { login } = useContext(AuthContext);
 
