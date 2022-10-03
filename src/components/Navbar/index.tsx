@@ -1,5 +1,4 @@
 import { LogoIcon } from "assets/icons";
-import DarkMode from "components/DarkMode";
 import { useState } from "react";
 import { RoutePath } from "types/routes";
 import "./styles.css";
@@ -58,9 +57,6 @@ function Navbar() {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-      <DarkMode toggleTheme={ function (): void {
-        throw new Error("Function not implemented.");
-      } } />
     </nav>
   );
 }

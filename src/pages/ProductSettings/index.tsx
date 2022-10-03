@@ -27,11 +27,11 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
             <h2>+</h2>
             <p>Add Product</p>
           </styled.AddEntitieCard>
+        
+
 
           <ProductSettingsCard
-            product={{
-              image: "nada",
-              name: "nada",
+            product={{ ProductSettingsCard
             }}
           />
         </styled.EntitiesEditList>
