@@ -12,6 +12,7 @@ import ProductSettings from "pages/ProductSettings";
 import Settings from "pages/Settings";
 import AboutUs from "pages/AboutUs";
 import { AuthProvider, AuthContext } from "contexts/auth";
+import ProductDetails from "pages/ProductDetails";
 
 const Router = () => {
   const [logged, setLogged] = useState(false);
@@ -87,6 +88,14 @@ const Router = () => {
             element={
               <Private>
                 <BulkUpdateSettings logged={setLogged} />
+              </Private>
+            }
+          />
+            <Route
+            path={RoutePath.PRODUCT_DETAILS}
+            element={
+              <Private>
+                <ProductDetails logged={setLogged} />
               </Private>
             }
           />

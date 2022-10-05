@@ -1,5 +1,6 @@
 import ProductSettingsCard from "components/ProductSettingsCard";
 import SettingsMenu from "components/SettingsMenu";
+import { useProducts } from "contexts/products";
 import { useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
@@ -10,7 +11,10 @@ interface ProductSettingsProps {
 
 
 const ProductSettings = ({ logged }: ProductSettingsProps) => {
+  const { products } = useProducts();
+  const [ product, setProduct] = useState<Product | undefined>(undefined);
   logged(true);
+
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"products"} />
@@ -30,7 +34,16 @@ const ProductSettings = ({ logged }: ProductSettingsProps) => {
             <h2>+</h2>
             <p>Add Product</p>
           </styled.AddEntitieCard>
-          <ProductSettingsCard product={{ProductSettingsCard}} />
+
+          {products.map((element) => (
+              <ProductSettingsCard
+              setProduct={setProduct}
+              product={element}
+              key={element.id}
+
+              />
+          ))}
+         
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
     </styled.SettingsContainer>
