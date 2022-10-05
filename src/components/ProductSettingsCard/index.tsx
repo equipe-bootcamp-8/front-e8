@@ -2,12 +2,13 @@ import { Product } from "types";
 import * as styled from "./styles";
 
 interface SettingsProductCardProps {
-  product: Product | any; 
+  product: Product;
+  setProduct: React.Dispatch<React.SetStateAction<Product | undefined>>;
 }
 
 
 const ProductSettingsCard = ({
-  product
+  product, setProduct
 }: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>

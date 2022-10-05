@@ -1,6 +1,7 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 import settingsIcon from "assets/imgs/settings-icon.png";
+import "aos/dist/aos.css";
 
 interface SettingsProps {
   logged?: boolean | any;
@@ -11,7 +12,9 @@ const Settings = ({ logged }: SettingsProps) => {
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"settings"} />
-      <styled.Container>
+      <styled.Container data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
         <div>
           <section>
             <h1>Welcome to the settings page!</h1>
