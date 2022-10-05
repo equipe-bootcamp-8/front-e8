@@ -1,17 +1,24 @@
 import * as Styled from "./styles";
 import { Product } from "../../types";
+import { useNavigate } from "react-router-dom";
 
-interface SettingsProductCardProps {
-  product: Product | any;
+interface ProductCardProps {
+  product: Product;
 }
 
-const ProductsCard = ({ product }: SettingsProductCardProps) => {
+const ProductsCard = ({ product }: ProductCardProps) => {
+let Navigate = useNavigate();
+
   return (
-    <Styled.ProductsCardList>
+    <Styled.ProductsCardList >
       <img src={product.image} alt={product.name} />
-      <h3>{ProductsCard.name}</h3>
+      <h3>{product.name}</h3>
       <p>{product.description}</p>
       <button> See details</button>
+      <button
+      onClick={()=> {
+        Navigate(`/productdetails/`);
+      }}> details test </button>
     </Styled.ProductsCardList>
   );
 };

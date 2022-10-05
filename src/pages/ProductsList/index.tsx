@@ -2,6 +2,9 @@ import { SearchIcon } from "assets/icons";
 import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
+import { useProducts } from "contexts/products";
+import { useState } from "react";
+import { Product } from "types";
 
 
 interface ProductsListProps {
@@ -9,6 +12,9 @@ interface ProductsListProps {
 }
 
 const ProductsList = ({ logged }: ProductsListProps) => {
+  const { products } = useProducts();
+  const [product, setProduct] = useState<Product | undefined>(undefined);
+  
   logged(true);
 
   return (
@@ -36,8 +42,16 @@ const ProductsList = ({ logged }: ProductsListProps) => {
         </Styled.SearchProductList>
         <button>Sort By</button>
       </Styled.HeaderProductList>
-      <ProductsCard product={{ ProductsCard
-      }} />
+      <Styled.ProductList>
+      {products.map((element) =>
+       <ProductsCard 
+       product={element}
+       key={element.id}
+       />
+      )}
+      </Styled.ProductList>
+      
+     
     </div>
   );
 };
