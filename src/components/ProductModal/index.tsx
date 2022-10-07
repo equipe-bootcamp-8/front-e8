@@ -1,0 +1,158 @@
+import { useForm } from "react-hook-form";
+import * as Styled from "./styles";
+import * as yup from "yup";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useProducts } from "contexts/products";
+import { Product, Category } from "types";
+import api from "services";
+import { yupResolver } from "@hookform/resolvers/yup";
+import ButtonLarge from "components/ButtonLarge";
+
+/* HOOKFORM */
+interface ProductModalProps { 
+  handleOpenModal: () => void;
+  product?: Product;
+  category?: Category;
+  setProduct: React.Dispatch<React.SetStateAction<Product | undefined>>;
+}
+
+interface ProductData {
+  name?: string;
+  description?: string;
+  categoryId?: string;
+  price?: number;
+  image?: string;
+}
+
+const newProductSchema = yup.object().shape({
+  name: yup.string().required("Product name is required"),
+
+  description: yup.string().required("Product description is required"),
+
+  price: yup.number().required("Price is required"),
+
+  image: yup.string().url("Invalid URL format").required("Product cover image is required"),
+});
+
+const updateProductSchema = yup.object().shape({
+  name: yup.string(),
+
+  description: yup.string(),
+
+  price: yup.number(),
+
+  image: yup.string(),
+
+});
+
+const ProductModal = ({handleOpenModal, product, setProduct}: ProductModalProps  ) => { 
+  const { handleGetProducts } = useProducts();
+  /* const {  categories , handleGetCategories } = useCategories(); */
+  const [categoryId, setCategoryIdId] = useState<string>(
+    product ? product.categoryId: ""
+    );
+
+  /* useForm */
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ProductData>({ resolver: yupResolver(product? updateProductSchema: newProductSchema) });
+
+  const token = localStorage.getItem("token");
+
+    const headers = { 
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+  const handleNewProduct = (data: ProductData) => {
+    data.categoryId = categoryId;
+    api
+    .post(`/products`, data, headers)
+    .then(() => {
+      toast.success("Product added succesfully!");
+      handleGetProducts();
+      handleOpenModal();
+      setProduct(undefined);
+    })
+    .catch(() => toast.error("Select a category!"));
+  }; 
+
+  const handleUpdateProduct = (data: ProductData) => {
+    data.categoryId = categoryId;
+    api.
+    patch(`/products/${product?.id}`, data, headers)
+    .then(() => {
+      toast.success("Product updated succesfully!");
+      handleGetProducts();
+      handleOpenModal();
+      setProduct(undefined);
+    });
+  };
+
+  return (
+    <Styled.Modal>
+      <Styled.ModalContainer 
+      onSubmit={
+          product
+        ? handleSubmit(handleUpdateProduct)
+        : handleSubmit(handleNewProduct)
+      } 
+      >
+        <h2>{product
+         ? "Update Product"
+          : "Register a new product"
+          }
+        </h2>
+        
+        <Styled.Input 
+        defaultValue={product ? product.name : ""}
+        placeholder="Name" 
+        {...register("name")}/>
+
+        <Styled.Input
+        defaultValue={product ? product.description : ""}
+        placeholder="Description" 
+        {...register("description")}/>
+
+        {/*  <Styled.Select 
+        value={categoryId} 
+        onChange={(e) => 
+        setCategoryId(e.target.value)}>
+          <option>Select a category </option>
+          {category.map((element) => (
+          <option value={element.category}>{element.category}
+          </option> 
+           ))}
+        </Styled.Select>  */}
+      
+        <Styled.Input 
+        defaultValue={product ? product.price : ""}
+        placeholder="Price" 
+        {...register("price")}
+        />
+
+        <Styled.Input 
+        defaultValue={product ? product.image : ""}
+        placeholder="Image URL" 
+        {...register("image")}
+        />
+
+        <div>
+          <ButtonLarge value={"Send"} type="submit"/>
+          <ButtonLarge value={"Cancel"} variant="cancel" onClick={()=> {
+            handleOpenModal();
+            setProduct(undefined);
+          }
+          } />
+        </div> 
+      </Styled.ModalContainer>
+    </Styled.Modal>
+  );
+};
+
+export default ProductModal;
+

@@ -17,7 +17,7 @@ let Navigate = useNavigate();
       <button> See details</button>
       <button
       onClick={()=> {
-        Navigate(`/productdetails/`);
+        Navigate(`/productdetails/${product.id}`);
       }}> details test </button>
     </Styled.ProductsCardList>
   );
