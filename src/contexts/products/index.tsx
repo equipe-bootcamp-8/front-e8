@@ -32,9 +32,7 @@ import { Product } from "types";
         },
       };
       api.get("/products", headers).then((res) => {
-      
         setProduct(res.data);
-        console.log(products);
       })
     };
   
