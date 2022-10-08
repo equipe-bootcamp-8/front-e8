@@ -165,8 +165,10 @@ const ProductModal = ({
         
         type="checkbox" 
         placeholder="Available"
-    
-        ></input>
+        defaultChecked={product ? product.available : true}
+        {...register("available")}
+
+        />
 
         <div>
           <ButtonLarge value={"Send"} type="submit" />
