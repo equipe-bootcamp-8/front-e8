@@ -1,33 +1,36 @@
 import styled from "styled-components";
 
 export const ProductsCardList = styled.div`
+  cursor: pointer;
   width: 23rem;
-  height: 25rem;
+  height: 35rem;
   border: none black solid;
   border-radius: 0.563rem;
   text-align: center;
-  margin: 10rem 3rem 0 10rem;
+  margin: 4rem 1rem 0 5rem;
   transition: all 0.3s;
   background: #F8F8F8;
   box-shadow: 0px 4px 4px #000000;
+  text-align: left;
   img {
     border-radius: 0.563rem 0.563rem 0 0 ;
+    width: 23rem;
+    height: 25rem;
+    object-fit: cover;
   }
   :hover {
-    transform: scale(1.2);
-  }
-  h3 {
-    margin: 1.4rem 0 0 0;
+    transform: scale(1.1);
   }
 
-  h5 {
-    margin: 1.4rem 0 0 0;
+  h3 { 
+    margin: .5rem 0 0 1rem;
   }
 
-  p {
-    margin: 1.4rem 0 0 0;
+  div {
+    margin: 1rem 1rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
   }
-
   button {
     margin: 1.4rem 0 0 0;
     width: 90%;

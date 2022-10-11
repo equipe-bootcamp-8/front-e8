@@ -9,7 +9,7 @@ export const SettingsContainer = styled.div`
   ${({ theme }) => css`
     background-image: url(${backgroundProduct});
     min-width: 90%;
-    min-height: 90%;
+    min-height: calc(100% - 72.5px);
     color: ${theme.colors.textColor};
     display: flex;
   `}
