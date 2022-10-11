@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import * as Styled from "./styles";
 import { AuthContext } from "contexts/auth";
+
 const LoginModal = () => {
   const { login } = useContext(AuthContext);
 

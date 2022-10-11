@@ -17,7 +17,7 @@ export const FormLogin = styled.form`
   justify-content: center;
   flex-direction: column;
   width: 420px;
-  height: 486px;
+  min-height: 486px;
   background-color: #003aaa25;
   border-radius: 34px;
 
@@ -51,13 +51,14 @@ export const FormLogin = styled.form`
     font-size: 17px;
     border: none;
     cursor: pointer;
+    margin-bottom: 30px;
   }
 `;
 
 export const Title = styled.div`
   width: 323px;
   margin-bottom: 33px;
-  margin-top: -20px;
+  padding-top: 20px;
 `;
 
 export const FormInternal = styled.div`
@@ -68,5 +69,12 @@ export const FormInternal = styled.div`
     display: flex;
     align-items: initial;
     justify-content: initial;
+  }
+
+  .error {
+    text-align: justify;
+    color: #AB1E00 ;
+    margin-top: 5px;
+    max-width: 323px;
   }
 `;
