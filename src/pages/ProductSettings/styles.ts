@@ -8,10 +8,11 @@ interface ActiveButtonProps {
 export const SettingsContainer = styled.div`
   ${({ theme }) => css`
     background-image: url(${backgroundProduct});
-    min-width: 90%;
-    min-height: calc(100% - 72.5px);
+    min-width: 90vw;
+    height: calc(100vh - 72.5px);
     color: ${theme.colors.textColor};
     display: flex;
+
   `}
 `;
 
@@ -20,7 +21,7 @@ export const Bar = styled.div`
     width: 100%;
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
-    background-color: #0C0E4F;
+    background-color: #0c0e4f;
   `}
 `;
 
@@ -50,6 +51,7 @@ export const EditEntitiesContainer = styled.div`
     margin-left: 2rem;
     margin-right: 2rem;
     box-sizing: border-box;
+
     h2 {
       margin-bottom: 2rem;
     }
@@ -78,7 +80,7 @@ export const EditEntitiesButton = styled.button<ActiveButtonProps>`
 export const EntitiesEditList = styled.div`
   ${({ theme }) => css`
     width: 95%;
-    height: 85%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem;
