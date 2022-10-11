@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "services";
 import { Product } from "types";
@@ -25,7 +25,7 @@ const handleGetProductById = () => {
   
   api.
   get(`/products/${productId}`, headers)
-  .then((res) => {
+  .then((res: { data: SetStateAction<Product>; }) => {
     setProduct(res.data);
   });
 }

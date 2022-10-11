@@ -4,6 +4,7 @@ import {
     ReactNode,
     useState,
     useEffect,
+    SetStateAction,
   } from "react";
 import api from "services";
 import { Category } from "types";
@@ -31,7 +32,7 @@ import { Category } from "types";
           Authorization: `Bearer ${token}`,
         },
       };
-      api.get("/categories", headers).then((res) => {
+      api.get("/categories", headers).then((res: { data: SetStateAction<Category[]>; }) => {
         setCategory(res.data);
       })
     };

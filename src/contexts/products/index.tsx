@@ -4,6 +4,7 @@ import {
     ReactNode,
     useState,
     useEffect,
+    SetStateAction,
   } from "react";
 import api from "services";
 import { Product } from "types";
@@ -31,7 +32,7 @@ import { Product } from "types";
           Authorization: `Bearer ${token}`,
         },
       };
-      api.get("/products", headers).then((res) => {
+      api.get("/products", headers).then((res: { data: SetStateAction<Product[]>; }) => {
         setProduct(res.data);
       })
     };
