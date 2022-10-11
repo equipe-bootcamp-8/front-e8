@@ -4,21 +4,33 @@ import * as styled from "./styles";
 interface SettingsProductCardProps {
   product: Product;
   setProduct: React.Dispatch<React.SetStateAction<Product | undefined>>;
+  handleOpenModal: () => void;
+  handleOpenDeleteModal: () => void;
 }
 
 
 const ProductSettingsCard = ({
-  product, setProduct
+  product, setProduct, handleOpenModal, handleOpenDeleteModal
 }: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>
       <img src={product.image}/> 
       <h3>{product.name}</h3>
       <div>
-        <styled.ProductSettingsEditCardButton>
+        <styled.ProductSettingsEditCardButton
+        onClick={() => {
+          setProduct(product);
+          handleOpenModal();
+        }}
+        >
           Edit
         </styled.ProductSettingsEditCardButton>
-        <styled.ProductSettingsDeleteCardButton>
+        <styled.ProductSettingsDeleteCardButton
+         onClick={() => {
+          setProduct(product);
+          handleOpenDeleteModal();
+        }}
+        >
           Delete
         </styled.ProductSettingsDeleteCardButton>
       </div>

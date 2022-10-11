@@ -9,7 +9,7 @@ export const SettingsContainer = styled.div`
   ${({ theme }) => css`
     background-image: url(${backgroundProduct});
     min-width: 90%;
-    min-height: 90%;
+    min-height: calc(100% - 72.5px);
     color: ${theme.colors.textColor};
     display: flex;
   `}
@@ -61,7 +61,7 @@ export const EditEntitiesButton = styled.button<ActiveButtonProps>`
     height: 100%;
     padding: 0 0.2rem;
     box-sizing: border-box;
-    background-color: ${theme.colors.baseBg2};
+    background-color: ${theme.colors.baseBgDark};
     margin-right: 1.5rem;
     cursor: pointer;
     :hover {

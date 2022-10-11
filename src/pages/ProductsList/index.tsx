@@ -29,7 +29,7 @@ const ProductsList = ({ logged }: ProductsListProps) => {
           </h1>
           <h4>
             Register new products, create <hr />
-            promotions and update infromation on <hr />a single platform.
+            promotions and update information on <hr />a single platform.
           </h4>
         </Styled.LaterMenuLetters>
       </Styled.LaterMenu>
