@@ -1,5 +1,7 @@
-import { LogoIcon } from "assets/icons";
+import { LogoIcon, LogoutIcon } from "assets/icons";
+
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { RoutePath } from "types/routes";
 import "./styles.css";
 
@@ -15,6 +17,9 @@ function Navbar() {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
   };
+
+  
+
   return (
     <nav className="nav">
       <a href={RoutePath.HOME} className="nav__brand">
@@ -32,25 +37,16 @@ function Navbar() {
           </a>
         </li>
         <li className="nav__item">
-          <a href={RoutePath.PRODUCTS} className="nav__link">
-            Products
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href={RoutePath.LOGIN} className="nav__link">
-            Login
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href={RoutePath.CREATE_USER} className="nav__link">
-            Register
-          </a>
-        </li>
-        <li className="nav__item">
           <a href={RoutePath.SETTINGS} className="nav__link">
             Settings
           </a>
         </li>
+        <a  onClick={() => {
+            logout();
+            toast.success("GoodBye!");
+          }} className="nav__out">
+        <LogoutIcon />
+      </a>
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>
@@ -58,7 +54,12 @@ function Navbar() {
         <div className="line3"></div>
       </div>
     </nav>
+   
   );
 }
 
 export default Navbar;
+
+function logout() {
+  throw new Error("Function not implemented.");
+}

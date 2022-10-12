@@ -7,15 +7,15 @@ import { useState } from "react";
 import { Product } from "types";
 
 
-interface ProductsListProps {
-  logged?: boolean | any;
-}
+// interface ProductsListProps {
+//   logged?: boolean | any;
+// }
 
-const ProductsList = ({ logged }: ProductsListProps) => {
+ const ProductsList = () => {
   const { products } = useProducts();
   const [product, setProduct] = useState<Product | undefined>(undefined);
   
-  logged(true);
+  // logged(false);
 
   return (
     <div>

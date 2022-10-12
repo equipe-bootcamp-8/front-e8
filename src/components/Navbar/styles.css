@@ -11,6 +11,10 @@
   text-transform: uppercase;
 }
 
+.nav__out {
+  cursor: pointer;
+}
+
 .nav__menu {
   display: flex;
   align-items: center;
