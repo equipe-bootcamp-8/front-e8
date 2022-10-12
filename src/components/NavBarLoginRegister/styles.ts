@@ -12,12 +12,17 @@ export const NavBarRegister = styled.nav`
   margin: 0 2rem;
 
   div {
-    margin: 0.7rem 0;
+    margin: 0.7rem 2rem;
   }
 
   a {
+    margin: 2rem 1rem;
     text-decoration: none;
     color: #fafafa;
-    margin: 0.7rem 0;
+
+    p {
+      margin: 0;
+      color: #fafafa;
+    }
   }
 `;
