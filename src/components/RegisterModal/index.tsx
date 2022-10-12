@@ -54,7 +54,7 @@ const RegisterModal = () => {
 
     api
       .post("/users", data)
-      .then((res) => {
+      .then(() => {
         navigate("/");
         toast.success("Successfully registered user");
       })

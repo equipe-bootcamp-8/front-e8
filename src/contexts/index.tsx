@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { AuthProvider } from './auth';
+import { CategoryProvider } from './categories';
 import { ProductProvider } from './products';
 
 interface ProviderProps{
@@ -15,7 +16,9 @@ const Providers = ({children}: ProviderProps) => {
     <ThemeProvider theme={theme}>
         <AuthProvider>
             <ProductProvider>
-                {children}
+              <CategoryProvider>
+              {children}
+              </CategoryProvider>
             </ProductProvider>
         </AuthProvider>
     </ThemeProvider>

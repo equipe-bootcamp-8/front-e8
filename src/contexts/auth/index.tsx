@@ -1,17 +1,45 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services";
 import toast from "react-hot-toast";
 
-export const AuthContext = createContext();
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+interface AuthProviderData {
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
+  authenticated: React.ReactNode;
+  user: User;
+  loading: boolean
+}
+
+export interface User {
+  id?: string;
+  name: string;
+  email: string;
+  password?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export const AuthContext = createContext<AuthProviderData>(
+  {} as AuthProviderData
+);
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const createAuth = async (email, password) => {
-    return api.post("/auth", { email, password }).catch(() =>{
+  const createAuth = async (email: string, password: string) => {
+    return api.post("/auth", { email, password }).catch(() => {
       toast.error("Invalid username or password");
     });
   };
@@ -25,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = async (email, password) => {
+  const login = async (email: string, password: string) => {
     const response = await createAuth(email, password);
 
     const loggedUser = response.data.user;
