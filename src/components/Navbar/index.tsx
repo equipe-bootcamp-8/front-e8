@@ -1,5 +1,5 @@
 import { LogoIcon, LogoutIcon } from "assets/icons";
-
+import { useAuth } from "contexts/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { RoutePath } from "types/routes";
@@ -18,7 +18,7 @@ function Navbar() {
     } else setIcon("nav__toggler");
   };
 
-  
+  const { logout } = useAuth();
 
   return (
     <nav className="nav">
@@ -59,7 +59,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-function logout() {
-  throw new Error("Function not implemented.");
-}

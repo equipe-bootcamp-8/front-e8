@@ -5,8 +5,9 @@
   box-sizing: border-box;
 }
 html {
-  overflow: hidden;
   font-size: 62.5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 body {
   font-size: 1.6rem;

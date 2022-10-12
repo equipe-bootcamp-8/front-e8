@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
+
 export const FormOverlay = styled.div`
   width: 100%;
-
+  
   p {
     width: 400px;
     padding: 10px 0 0 30px;
@@ -10,6 +11,17 @@ export const FormOverlay = styled.div`
   }
 `;
 
+export const a = styled.a`
+  color: #bdbdbd;
+  width: 400px;
+  padding: 10px 0 0 30px;
+  font-size: 17px;
+  text-decoration: underline;
+`
+
+export const body = styled.div `
+  margin: 0px 0 0 0px;
+`
 
 export const FormLogin = styled.form`
   display: flex;
@@ -20,7 +32,7 @@ export const FormLogin = styled.form`
   min-height: 486px;
   background-color: #003aaa25;
   border-radius: 34px;
-
+  
   label {
     font-size: 17px;
   }

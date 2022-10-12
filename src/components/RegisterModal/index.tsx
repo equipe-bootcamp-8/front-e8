@@ -7,6 +7,7 @@ import * as Styled from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { RoutePath } from "types/routes";
 
 interface LoginData {
   email: string;
@@ -64,7 +65,7 @@ const RegisterModal = () => {
   };
 
   return (
-    <div>
+      <Styled.body>
       <Styled.FormOverlay>
         <Styled.FormLogin onSubmit={handleSubmit(onSubmit)}>
           <Styled.Title>
@@ -100,7 +101,10 @@ const RegisterModal = () => {
           By signing up you agree to the Terms of Service and Privacy Policy
         </p>
       </Styled.FormOverlay>
-    </div>
+      <Styled.a href={RoutePath.LOGIN}>
+        I already have an account
+      </Styled.a>
+      </Styled.body>
   );
 };
 

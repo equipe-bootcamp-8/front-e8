@@ -3,6 +3,7 @@ import React, {
   useState,
   useEffect,
   ReactNode,
+  useContext,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services";
@@ -86,3 +87,5 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);
