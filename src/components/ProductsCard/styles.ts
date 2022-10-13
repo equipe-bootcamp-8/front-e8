@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ProductsCardList = styled.div`
+  ${({theme }) => css`
   cursor: pointer;
   width: 23rem;
   height: 35rem;
@@ -30,6 +31,9 @@ export const ProductsCardList = styled.div`
     margin: 1rem 1rem 0 1rem;
     display: flex;
     justify-content: space-between;
+    h4 { 
+      color: ${theme.colors.textLight};
+    }
   }
   button {
     margin: 1.4rem 0 0 0;
@@ -41,4 +45,6 @@ export const ProductsCardList = styled.div`
     color: white;
     cursor: pointer;
   }
+  `}
+
 `;

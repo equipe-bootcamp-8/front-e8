@@ -20,7 +20,7 @@ let Navigate = useNavigate();
       <h3>Product Category</h3>
       <div>
       <h4>Price:</h4>
-      <h4>{product.price}</h4>
+      <h3>${product.price}</h3>
       </div>
       
     </Styled.ProductsCardList>
