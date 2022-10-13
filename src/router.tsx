@@ -38,10 +38,7 @@ const Router = () => {
             path={RoutePath.LOGIN}
             element={<Login logged={setLogged} />}
           />
-          <Route path={RoutePath.HOME}             element={
-                <ProductsList />
-    
-            }/>
+          <Route path={RoutePath.HOME} element={<ProductsList />} />
           <Route
             path={RoutePath.CREATE_USER}
             element={<Createuser logged={setLogged} />}
@@ -50,7 +47,7 @@ const Router = () => {
             path={RoutePath.ABOUT_US}
             element={
               <Private>
-                <AboutUs />
+                <AboutUs logged={setLogged} />
               </Private>
             }
           />
@@ -86,7 +83,7 @@ const Router = () => {
               </Private>
             }
           />
-            <Route
+          <Route
             path={RoutePath.PRODUCT_DETAILS}
             element={
               <Private>
