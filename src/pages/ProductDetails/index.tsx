@@ -36,14 +36,22 @@ useEffect(() => {
 []);
 
   return (
-    <styled.DetailsContainer>
-    <img src={product?.image} />
-    <h1>{product.name}</h1>
+    <div>
+<styled.DetailsContainer>
+        <styled.ProductHeader>
+        <styled.ProductImage src={product?.image} />
+         <h1>{product.name}</h1>
+        </styled.ProductHeader>
+        <styled.ProductDetails> 
+        <div>
     <h2>{product.price}</h2>
     <h5>{product.categoryId}</h5>
     <p>{product.description}</p>
-
+      </div> 
+      </styled.ProductDetails>
     </styled.DetailsContainer>
+    </div>
+    
   )
 }
 

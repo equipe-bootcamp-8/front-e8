@@ -14,7 +14,7 @@ export const colors = {
   textColor: "#00000",
   textColor2: "#fafafa",
   textBoxColor: "#000000",
-  textLight: "#ABBBC2",
+  textLight: "#535151",
   textButtonColor: "#0067B8",
   textColorInput: "#967F7F",
   textLighter: "#E0E6E9",
