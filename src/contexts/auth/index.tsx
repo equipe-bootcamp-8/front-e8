@@ -16,7 +16,6 @@ interface AuthProviderProps {
 interface AuthProviderData {
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
-  authenticated: React.ReactNode;
   user: User;
   loading: boolean;
   logged: boolean
@@ -85,7 +84,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{ authenticated: !!user, user, loading, login, logout, logged }}
+      value={{ user, loading, login, logout, logged }}
     >
       {children}
     </AuthContext.Provider>
