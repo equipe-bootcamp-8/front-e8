@@ -15,7 +15,6 @@ import { AuthProvider, AuthContext } from "contexts/auth";
 import ProductDetails from "pages/ProductDetails";
 
 const Router = () => {
-  const [logged, setLogged] = useState(false);
   const Private = ({ children }: any) => {
     const { authenticated, loading } = useContext(AuthContext);
     if (loading) {
@@ -38,18 +37,18 @@ const Router = () => {
         <Routes>
           <Route
             path={RoutePath.LOGIN}
-            element={<Login logged={setLogged} />}
+            element={<Login  />}
           />
           <Route path={RoutePath.HOME} element={<ProductsList />} />
           <Route
             path={RoutePath.CREATE_USER}
-            element={<Createuser logged={setLogged} />}
+            element={<Createuser />}
           />
           <Route
             path={RoutePath.ABOUT_US}
             element={
               <Private>
-                <AboutUs logged={setLogged} />
+                <AboutUs  />
               </Private>
             }
           />
@@ -57,7 +56,7 @@ const Router = () => {
             path={RoutePath.SETTINGS}
             element={
               <Private>
-                <Settings logged={setLogged} />
+                <Settings  />
               </Private>
             }
           />
@@ -65,7 +64,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_PRODUCTS}
             element={
               <Private>
-                <ProductSettings logged={setLogged} />
+                <ProductSettings  />
               </Private>
             }
           />
@@ -73,7 +72,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_USER}
             element={
               <Private>
-                <UserSettings logged={setLogged} />
+                <UserSettings  />
               </Private>
             }
           />
@@ -81,7 +80,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_UPDATE}
             element={
               <Private>
-                <BulkUpdateSettings logged={setLogged} />
+                <BulkUpdateSettings  />
               </Private>
             }
           />
@@ -89,7 +88,7 @@ const Router = () => {
             path={RoutePath.PRODUCT_DETAILS}
             element={
               <Private>
-                <ProductDetails logged={setLogged} />
+                <ProductDetails />
               </Private>
             }
           />
