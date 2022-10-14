@@ -27,28 +27,18 @@ const Router = () => {
     return children;
   };
 
-  const token = localStorage.getItem('token');
-
   return (
     <div>
-      { token ? <Navbar /> : <NavBarLoginRegister />}
-
       <AuthProvider>
         <Routes>
-          <Route
-            path={RoutePath.LOGIN}
-            element={<Login  />}
-          />
+          <Route path={RoutePath.LOGIN} element={<Login />} />
           <Route path={RoutePath.HOME} element={<ProductsList />} />
-          <Route
-            path={RoutePath.CREATE_USER}
-            element={<Createuser />}
-          />
+          <Route path={RoutePath.CREATE_USER} element={<Createuser />} />
           <Route
             path={RoutePath.ABOUT_US}
             element={
               <Private>
-                <AboutUs  />
+                <AboutUs />
               </Private>
             }
           />
@@ -56,7 +46,7 @@ const Router = () => {
             path={RoutePath.SETTINGS}
             element={
               <Private>
-                <Settings  />
+                <Settings />
               </Private>
             }
           />
@@ -64,7 +54,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_PRODUCTS}
             element={
               <Private>
-                <ProductSettings  />
+                <ProductSettings />
               </Private>
             }
           />
@@ -72,7 +62,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_USER}
             element={
               <Private>
-                <UserSettings  />
+                <UserSettings />
               </Private>
             }
           />
@@ -80,7 +70,7 @@ const Router = () => {
             path={RoutePath.SETTINGS_UPDATE}
             element={
               <Private>
-                <BulkUpdateSettings  />
+                <BulkUpdateSettings />
               </Private>
             }
           />
@@ -91,12 +81,7 @@ const Router = () => {
                 <ProductDetails />
               </Private>
             }
-        />
-        <Route
-        path="*"
-        element={<Navigate to={token ? "/home" : "/login"} replace />}
-      />
-          
+          />
         </Routes>
       </AuthProvider>
     </div>

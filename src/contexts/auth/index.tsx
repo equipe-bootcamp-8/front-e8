@@ -18,7 +18,8 @@ interface AuthProviderData {
   logout: () => void;
   authenticated: React.ReactNode;
   user: User;
-  loading: boolean
+  loading: boolean;
+  logged: boolean
 }
 
 export interface User {
@@ -37,6 +38,7 @@ export const AuthContext = createContext<AuthProviderData>(
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [logged, setLogged] = useState(false);
   const navigate = useNavigate();
 
   const createAuth = async (email: string, password: string) => {
@@ -67,6 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setUser(response);
+    setLogged(true)
     navigate("/home");
     toast.success(`Welcome ${user.name} `, { duration: 5000 });
   };
@@ -76,12 +79,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
+    setLogged(false)
     navigate("/home");
   };
 
   return (
     <AuthContext.Provider
-      value={{ authenticated: !!user, user, loading, login, logout }}
+      value={{ authenticated: !!user, user, loading, login, logout, logged }}
     >
       {children}
     </AuthContext.Provider>
