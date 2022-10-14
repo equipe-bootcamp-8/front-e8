@@ -2,12 +2,9 @@ import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 
 
-interface BulkUpdateSettingsProps {
-  logged?: boolean | any;
-}
 
-const BulkUpdateSettings = ({ logged }: BulkUpdateSettingsProps) => {
-  logged(true);
+const BulkUpdateSettings = () => {
+
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"update"} />

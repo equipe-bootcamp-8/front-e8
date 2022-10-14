@@ -5,14 +5,12 @@ import { Product } from "types";
 import * as styled from "./styles";
 
 
-interface ProductDetailsProps {
-    logged?: boolean | any;
-}
 
-const ProductDetails = ({ logged }: ProductDetailsProps) => {
+
+const ProductDetails = () => {
 const [product, setProduct] = useState<Product>({} as Product);
 const {productId} = useParams();
-logged(true);
+
 
 const handleGetProductById = () => {
   const token = localStorage.getItem("token");

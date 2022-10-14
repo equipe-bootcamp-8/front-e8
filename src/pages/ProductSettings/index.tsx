@@ -7,14 +7,11 @@ import { useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
 
-interface ProductSettingsProps {
-  logged?: boolean | any;
-}
 
-const ProductSettings = ({ logged }: ProductSettingsProps) => {
+const ProductSettings = () => {
   const { products } = useProducts();
   const [product, setProduct] = useState<Product | undefined>(undefined);
-  logged(true);
+
 
   /* ----MODAL---    */
   const [openModal, setOpenModal] = useState<boolean>(false);
