@@ -8,12 +8,10 @@ import "aos/dist/aos.css";
 AOS.init();
 
 
-interface AboutUsProps {
-  logged?: boolean | any;
-}
 
-function AboutUs({ logged }: AboutUsProps) {
-  logged(true);
+
+function AboutUs() {
+
   return (
     <>
       <div className="text n-box1 flex-with-center">

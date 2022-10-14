@@ -91,7 +91,12 @@ const Router = () => {
                 <ProductDetails />
               </Private>
             }
-          />
+        />
+        <Route
+        path="*"
+        element={<Navigate to={token ? "/home" : "/login"} replace />}
+      />
+          
         </Routes>
       </AuthProvider>
     </div>

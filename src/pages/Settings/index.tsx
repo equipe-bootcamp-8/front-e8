@@ -3,12 +3,10 @@ import * as styled from "./styles";
 import settingsIcon from "assets/imgs/settings-icon.png";
 import "aos/dist/aos.css";
 
-interface SettingsProps {
-  logged?: boolean | any;
-}
 
-const Settings = ({ logged }: SettingsProps) => {
-  logged(true);
+
+const Settings = () => {
+
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"settings"} />

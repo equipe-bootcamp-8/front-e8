@@ -2,12 +2,10 @@ import * as Styled from "./styles";
 import LoginModal from "components/LoginModal";
 
 
-interface LoginProps {
-  logged?: boolean | any;
-}
 
-const Login = ({ logged }: LoginProps) => {
-  logged(false);
+
+const Login = () => {
+ 
 
   return (
     <div>

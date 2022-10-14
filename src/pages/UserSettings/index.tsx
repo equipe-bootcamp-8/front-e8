@@ -1,12 +1,10 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 
-interface UserSettingProps {
-  logged?: boolean | any;
-}
 
-const UserSettings = ({ logged }: UserSettingProps) => {
-  logged(true);
+
+const UserSettings = () => {
+ 
   return (
     <styled.SettingsContainer>
       <SettingsMenu path={"user"} />
