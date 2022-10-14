@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setUser(response);
-    navigate("/settings");
+    navigate("/home");
     toast.success(`Welcome ${user.name} `, { duration: 5000 });
   };
 
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
-    navigate("/");
+    navigate("/home");
   };
 
   return (

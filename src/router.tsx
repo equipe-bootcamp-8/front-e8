@@ -28,9 +28,11 @@ const Router = () => {
     return children;
   };
 
+  const token = localStorage.getItem('token');
+
   return (
     <div>
-      {logged ? <Navbar /> : <NavBarLoginRegister />}
+      { token ? <Navbar /> : <NavBarLoginRegister />}
 
       <AuthProvider>
         <Routes>
