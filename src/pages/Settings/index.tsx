@@ -19,7 +19,7 @@ const Settings = () => {
             <styled.Bar/>
             <p>
               <strong>Change</strong> your account settings,
-              <strong> manage</strong> your products and <strong>perform</strong> batch update on your product list.
+              <strong>manage</strong> your products and <strong>perform</strong> batch update on your product list.
             </p>
           </section>
           <img src={settingsIcon} alt="a" />
