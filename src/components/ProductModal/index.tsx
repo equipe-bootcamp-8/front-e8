@@ -22,10 +22,10 @@ interface ProductData {
   code?: string;
   name?: string;
   description?: string;
-  categoryId?: string;
+  categoryName?: string;
   price?: number;
   image?: string;
-  available?:boolean;
+  available?: boolean;
 }
 
 const newProductSchema = yup.object().shape({
@@ -42,7 +42,9 @@ const newProductSchema = yup.object().shape({
     .url("Invalid URL format")
     .required("Product cover image is required"),
 
-  available: yup.boolean().required("Choose if the product is available or not.")
+  available: yup
+    .boolean()
+    .required("Choose if the product is available or not."),
 });
 
 const updateProductSchema = yup.object().shape({
@@ -66,8 +68,8 @@ const ProductModal = ({
 }: ProductModalProps) => {
   const { handleGetProducts } = useProducts();
   const { categories, handleGetCategories } = useCategories();
-  const [categoryId, setCategoryId] = useState<string>(
-    product ? product.categoryId : ""
+  const [categoryName, setCategoryName] = useState<string>(
+    product ? product.categoryName : ""
   );
 
   /* useForm */
@@ -88,7 +90,7 @@ const ProductModal = ({
   };
 
   const handleNewProduct = (data: ProductData) => {
-    data.categoryId = categoryId;
+    data.categoryName = categoryName;
     api
       .post(`/products`, data, headers)
       .then(() => {
@@ -101,7 +103,7 @@ const ProductModal = ({
   };
 
   const handleUpdateProduct = (data: ProductData) => {
-    data.categoryId = categoryId;
+    data.categoryName = categoryName;
     api.patch(`/products/${product?.id}`, data, headers).then(() => {
       toast.success("Product updated succesfully!");
       handleGetProducts();
@@ -140,12 +142,12 @@ const ProductModal = ({
         />
 
         <Styled.Select
-          value={categoryId}
-          onChange={(e) => setCategoryId(e.target.value)}
+          value={categoryName}
+          onChange={(e) => setCategoryName(e.target.value)}
         >
           <option>Select a category </option>
           {categories.map((element) => (
-            <option value={element.id}>{element.id}</option>
+            <option value={element.name}>{element.name}</option>
           ))}
         </Styled.Select>
 
@@ -162,12 +164,10 @@ const ProductModal = ({
         />
 
         <input
-        
-        type="checkbox" 
-        placeholder="Available"
-        defaultChecked={product ? product.available : true}
-        {...register("available")}
-
+          type="checkbox"
+          placeholder="Available"
+          defaultChecked={product ? product.available : true}
+          {...register("available")}
         />
 
         <div>
