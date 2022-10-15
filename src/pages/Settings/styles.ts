@@ -23,10 +23,8 @@ export const Bar = styled.div`
 export const Container = styled.div`
 	${() => css`
 		width: 80%;
-		height: 100vh;
-		padding: 1rem;
-		margin-top: 10rem;
-		margin-bottom: 1.5rem;
+		height: calc(100vh - 10vh);
+		padding: 12rem;
 		border-radius: 8px;
 		margin-left: 2rem;
 		box-sizing: border-box;

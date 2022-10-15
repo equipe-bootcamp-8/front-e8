@@ -8,7 +8,7 @@ interface ActiveButtonProps {
 export const SettingsNavigationContainer = styled.div`
 	${({ theme }) => css`
 		width: 15%;
-		height: calc(100vh - 72.5px);
+		height: calc(100vh - 10vh);
 		padding: 1.5rem;
 		background-image: url(${backgroundMenu}); 
 		color: ${theme.colors.textColor2};
@@ -29,7 +29,7 @@ export const UserInfos = styled.div`
 export const SettingsNavigationButtonsList = styled.div`
 	${() => css`
 		width: 100%;
-		height: 45.188rem;
+		height: 37rem;
 		box-sizing: border-box;
 		margin: 1.5rem ;
 		overflow: hidden;
