@@ -29,7 +29,7 @@ export const FormLogin = styled.form`
   justify-content: center;
   flex-direction: column;
   width: 420px;
-  min-height: 486px;
+  height: 450px;
   background-color: #003aaa25;
   border-radius: 34px;
   
