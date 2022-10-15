@@ -29,7 +29,7 @@ export const UserInfos = styled.div`
 export const SettingsNavigationButtonsList = styled.div`
 	${() => css`
 		width: 100%;
-		height: 45.188rem;
+		height: 37rem;
 		box-sizing: border-box;
 		margin: 1.5rem ;
 		overflow: hidden;
