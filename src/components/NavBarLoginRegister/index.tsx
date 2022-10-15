@@ -1,8 +1,10 @@
 import { LogoIcon } from "assets/icons";
+import { useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
 import * as Styled from "./styles";
 
 const NavBarLoginRegister = () => {
+  const navigate = useNavigate();
   return (
     <Styled.NavBarContainer>
       <Styled.NavBarRegister>
@@ -19,10 +21,9 @@ const NavBarLoginRegister = () => {
           <a href={RoutePath.LOGIN} className="nav__link">
             Login
           </a>
-        <a href={RoutePath.CREATE_USER}>
-          Don't have an account?
+        <Styled.SingUp onClick={() => navigate("/register")}>
           <p>Sign up</p>
-        </a>
+        </Styled.SingUp>
         </Styled.NavBarLink>
       </Styled.NavBarRegister>
     </Styled.NavBarContainer>

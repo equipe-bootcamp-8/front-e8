@@ -11,95 +11,44 @@ import UserSettings from "pages/UserSettings";
 import ProductSettings from "pages/ProductSettings";
 import Settings from "pages/Settings";
 import AboutUs from "pages/AboutUs";
-import { AuthProvider, AuthContext } from "contexts/auth";
 import ProductDetails from "pages/ProductDetails";
 
 const Router = () => {
-  const Private = ({ children }: any) => {
-    const { authenticated, loading } = useContext(AuthContext);
-    if (loading) {
-      return <div className="loading">carregando...</div>;
-    }
-    if (!authenticated) {
-      return <Navigate to="/" />;
-    }
-
-    return children;
-  };
-
-  const token = localStorage.getItem('token');
-
+  const token = localStorage.getItem("token");
   return (
-    <div>
-      { token ? <Navbar /> : <NavBarLoginRegister />}
-
-      <AuthProvider>
-        <Routes>
-          <Route
-            path={RoutePath.LOGIN}
-            element={<Login  />}
-          />
+    <Routes>
+      {token ? (
+        <>
           <Route path={RoutePath.HOME} element={<ProductsList />} />
-          <Route
-            path={RoutePath.CREATE_USER}
-            element={<Createuser />}
-          />
-          <Route
-            path={RoutePath.ABOUT_US}
-            element={
-              <Private>
-                <AboutUs  />
-              </Private>
-            }
-          />
-          <Route
-            path={RoutePath.SETTINGS}
-            element={
-              <Private>
-                <Settings  />
-              </Private>
-            }
-          />
+          <Route path={RoutePath.SETTINGS} element={<Settings />} />
           <Route
             path={RoutePath.SETTINGS_PRODUCTS}
-            element={
-              <Private>
-                <ProductSettings  />
-              </Private>
-            }
+            element={<ProductSettings />}
           />
-          <Route
-            path={RoutePath.SETTINGS_USER}
-            element={
-              <Private>
-                <UserSettings  />
-              </Private>
-            }
-          />
+          <Route path={RoutePath.SETTINGS_USER} element={<UserSettings />} />
           <Route
             path={RoutePath.SETTINGS_UPDATE}
-            element={
-              <Private>
-                <BulkUpdateSettings  />
-              </Private>
-            }
+            element={<BulkUpdateSettings />}
           />
           <Route
             path={RoutePath.PRODUCT_DETAILS}
-            element={
-              <Private>
-                <ProductDetails />
-              </Private>
-            }
-        />
-        <Route
+            element={<ProductDetails />}
+          />
+          <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
+        </>
+      ) : (
+        <>
+          <Route path={RoutePath.HOME} element={<ProductsList />} />
+          <Route path={RoutePath.LOGIN} element={<Login />} />
+          <Route path={RoutePath.CREATE_USER} element={<Createuser />} />
+          <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
+        </>
+      )}
+       <Route
         path="*"
-        element={<Navigate to={token ? "/home" : "/login"} replace />}
+        element={<Navigate to={token ? "/home" : "/home"} replace />}
       />
-          
-        </Routes>
-      </AuthProvider>
-    </div>
+    </Routes>
   );
 };
 

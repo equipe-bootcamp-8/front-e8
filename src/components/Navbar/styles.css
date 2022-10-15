@@ -1,9 +1,9 @@
-
 .nav {
+  padding: 10px 0;
+  max-height: 10rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 72.5px;
   background: #3C41F5;
 }
 .nav__brand {
