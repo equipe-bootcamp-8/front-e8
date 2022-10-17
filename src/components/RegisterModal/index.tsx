@@ -15,6 +15,10 @@ interface LoginData {
   name: string;
 }
 
+export type RegisterProps = {
+  erro?: boolean;
+};
+
 const loginSchema = yup.object().shape({
   email: yup
     .string()
@@ -65,7 +69,7 @@ const RegisterModal = () => {
   };
 
   return (
-      <Styled.body>
+    <Styled.body>
       <Styled.FormOverlay>
         <Styled.FormLogin onSubmit={handleSubmit(onSubmit)}>
           <Styled.Title>
@@ -73,27 +77,38 @@ const RegisterModal = () => {
           </Styled.Title>
           <Styled.FormInternal>
             <label>E-mail address*</label>
-            <input
+            <Styled.Input
               type="email"
-              placeholder="Enter your email address"
+              placeholder={
+                errors.email
+                  ? errors.email?.message
+                  : "Enter your email address"
+              }
+              erro={errors.email ? true : false}
               {...register("email")}
             />
-            <div className="error">{errors.email?.message}</div>
             <label>Company name</label>
-            <input
+            <Styled.Input
               type="text"
-              placeholder="Enter your name"
+              placeholder={
+                errors.name
+                  ? errors.name?.message
+                  : "Enter your name"
+              }
+              erro={errors.name ? true : false}
               {...register("name")}
             />
-            <div className="error">{errors.name?.message}</div>
             <label>Password</label>
-            <input
+            <Styled.Input
               type="password"
-              placeholder="Enter your password"
+              placeholder={
+                errors.password
+                  ? errors.password?.message
+                  : "Enter your password"
+              }
+              erro={errors.password ? true : false}
               {...register("password")}
             />
-            <div className="error">{errors.password?.message}</div>
-            {/* <div>{errors.email?.message || errors.name?.message || errors.password?.message}</div> */}
           </Styled.FormInternal>
           <button type="submit">Create</button>
         </Styled.FormLogin>
@@ -101,10 +116,8 @@ const RegisterModal = () => {
           By signing up you agree to the Terms of Service and Privacy Policy
         </p>
       </Styled.FormOverlay>
-      <Styled.a href={RoutePath.LOGIN}>
-        I already have an account
-      </Styled.a>
-      </Styled.body>
+      <Styled.a href={RoutePath.LOGIN}>I already have an account</Styled.a>
+    </Styled.body>
   );
 };
 
