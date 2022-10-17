@@ -69,7 +69,7 @@ const RegisterModal = () => {
             <h2>Create your account</h2>
           </Styled.Title>
           <Styled.FormInternal>
-            <label>E-mail address*</label>
+            <label>E-mail address</label>
             <Styled.Input
               type="email"
               placeholder={
