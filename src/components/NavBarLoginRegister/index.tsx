@@ -18,9 +18,9 @@ const NavBarLoginRegister = () => {
         <a href={RoutePath.ABOUT_US} className="nav__link">
             About us
           </a>
-          <a href={RoutePath.LOGIN} className="nav__link">
+          <Styled.Links onClick={() => navigate("/")} className="nav__link">
             Login
-          </a>
+          </Styled.Links>
         <Styled.SingUp onClick={() => navigate("/register")}>
           <p>Sign up</p>
         </Styled.SingUp>

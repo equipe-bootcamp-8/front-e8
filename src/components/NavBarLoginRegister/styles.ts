@@ -47,3 +47,8 @@ export const SingUp = styled.div`
     margin-bottom: 2px;
   }
 `;
+
+export const Links = styled.div`
+  color: white;
+  cursor: pointer;
+`
