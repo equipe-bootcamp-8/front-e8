@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-globals */
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import api from "services";
@@ -7,7 +5,6 @@ import * as Styled from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { RoutePath } from "types/routes";
 
 interface LoginData {
   email: string;
@@ -46,10 +43,6 @@ const RegisterModal = () => {
 
   const navigate = useNavigate();
 
-  // const [email, setEmail] = useState("");
-  // const [name, setName] = useState("");
-  // const [password, setPassword] = useState("");
-
   const onSubmit = ({ email, name, password }: LoginData) => {
     const data = {
       email,
@@ -69,7 +62,7 @@ const RegisterModal = () => {
   };
 
   return (
-    <Styled.body>
+    <Styled.Body>
       <Styled.FormOverlay>
         <Styled.FormLogin onSubmit={handleSubmit(onSubmit)}>
           <Styled.Title>
@@ -91,9 +84,7 @@ const RegisterModal = () => {
             <Styled.Input
               type="text"
               placeholder={
-                errors.name
-                  ? errors.name?.message
-                  : "Enter your name"
+                errors.name ? errors.name?.message : "Enter your name"
               }
               erro={errors.name ? true : false}
               {...register("name")}
@@ -103,12 +94,13 @@ const RegisterModal = () => {
               type="password"
               placeholder={
                 errors.password
-                  ? errors.password?.message
+                  ? "Error read the instructions below"
                   : "Enter your password"
               }
               erro={errors.password ? true : false}
               {...register("password")}
             />
+            <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
           <button type="submit">Create</button>
         </Styled.FormLogin>
@@ -116,8 +108,10 @@ const RegisterModal = () => {
           By signing up you agree to the Terms of Service and Privacy Policy
         </p>
       </Styled.FormOverlay>
-      <Styled.a href={RoutePath.LOGIN}>I already have an account</Styled.a>
-    </Styled.body>
+      <Styled.a onClick={() => navigate("/")}>
+        I already have an account
+      </Styled.a>
+    </Styled.Body>
   );
 };
 

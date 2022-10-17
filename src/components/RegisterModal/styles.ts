@@ -11,15 +11,16 @@ export const FormOverlay = styled.div`
   }
 `;
 
-export const a = styled.a`
+export const a = styled.div`
   color: #bdbdbd;
   width: 400px;
   padding: 10px 0 0 30px;
   font-size: 17px;
   text-decoration: underline;
+  cursor: pointer;
 `;
 
-export const body = styled.div`
+export const Body = styled.div`
   margin: 0px 0 0 0px;
 `;
 
@@ -80,7 +81,7 @@ export const FormInternal = styled.div`
     color: #ab1e00;
     margin-top: 5px;
     max-width: 323px;
-    font-size: x-small;
+    font-size: 12px;
   }
 `;
 
