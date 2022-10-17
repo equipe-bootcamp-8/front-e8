@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
-  max-height: 10rem;
+  height: 10vh;
   background: #3c41f5;
 `;
 

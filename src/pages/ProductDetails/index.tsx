@@ -32,14 +32,22 @@ const ProductDetails = () => {
     <styled.DetailsContainer>
       <styled.ProductHeader>
         <styled.ProductImage src={product?.image} />
-        <h1>{product.name}</h1>
+        <div>
+          <h5>{product.categoryName}</h5>
+          <h1>{product.name}</h1>
+          <p>Preço</p>
+          <h2>{product.price} C$</h2>
+        </div>
       </styled.ProductHeader>
       <styled.ProductDetails>
         <div>
-          <h2>{product.price}</h2>
-          <h5>{product.categoryName}</h5>
           <p>{product.description}</p>
         </div>
+        <h1>
+          {product.available
+            ? "Disponivel em estoque"
+            : "Nao esta disponivel em estoque"}
+        </h1>
       </styled.ProductDetails>
     </styled.DetailsContainer>
   );

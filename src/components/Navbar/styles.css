@@ -1,6 +1,6 @@
 .nav {
   padding: 10px 0;
-  max-height: 10rem;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
