@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-globals */
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import api from "services";
@@ -7,13 +5,16 @@ import * as Styled from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { RoutePath } from "types/routes";
 
 interface LoginData {
   email: string;
   password: string;
   name: string;
 }
+
+export type RegisterProps = {
+  erro?: boolean;
+};
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -42,10 +43,6 @@ const RegisterModal = () => {
 
   const navigate = useNavigate();
 
-  // const [email, setEmail] = useState("");
-  // const [name, setName] = useState("");
-  // const [password, setPassword] = useState("");
-
   const onSubmit = ({ email, name, password }: LoginData) => {
     const data = {
       email,
@@ -65,35 +62,45 @@ const RegisterModal = () => {
   };
 
   return (
-      <Styled.body>
+    <Styled.Body>
       <Styled.FormOverlay>
         <Styled.FormLogin onSubmit={handleSubmit(onSubmit)}>
           <Styled.Title>
             <h2>Create your account</h2>
           </Styled.Title>
           <Styled.FormInternal>
-            <label>E-mail address*</label>
-            <input
+            <label>E-mail address</label>
+            <Styled.Input
               type="email"
-              placeholder="Enter your email address"
+              placeholder={
+                errors.email
+                  ? errors.email?.message
+                  : "Enter your email address"
+              }
+              erro={errors.email ? true : false}
               {...register("email")}
             />
-            <div className="error">{errors.email?.message}</div>
             <label>Company name</label>
-            <input
+            <Styled.Input
               type="text"
-              placeholder="Enter your name"
+              placeholder={
+                errors.name ? errors.name?.message : "Enter your name"
+              }
+              erro={errors.name ? true : false}
               {...register("name")}
             />
-            <div className="error">{errors.name?.message}</div>
             <label>Password</label>
-            <input
+            <Styled.Input
               type="password"
-              placeholder="Enter your password"
+              placeholder={
+                errors.password
+                  ? "Error read the instructions below"
+                  : "Enter your password"
+              }
+              erro={errors.password ? true : false}
               {...register("password")}
             />
             <div className="error">{errors.password?.message}</div>
-            {/* <div>{errors.email?.message || errors.name?.message || errors.password?.message}</div> */}
           </Styled.FormInternal>
           <button type="submit">Create</button>
         </Styled.FormLogin>
@@ -101,10 +108,10 @@ const RegisterModal = () => {
           By signing up you agree to the Terms of Service and Privacy Policy
         </p>
       </Styled.FormOverlay>
-      <Styled.a href={RoutePath.LOGIN}>
+      <Styled.a onClick={() => navigate("/")}>
         I already have an account
       </Styled.a>
-      </Styled.body>
+    </Styled.Body>
   );
 };
 
