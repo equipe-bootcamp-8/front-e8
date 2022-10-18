@@ -18,6 +18,9 @@ export const AddIcon = () => {
   );
 };
 
+
+
+
 export const BackIcon = () => {
   return (
     <svg
@@ -348,3 +351,13 @@ export const UserPrototype = () => {
 <rect width="50" height="50" rx="25" fill="#791616"/>
 </svg>
 }
+
+
+export const CloseIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+      <path d="M18.313 12.625l-5.688 5.688L44.313 50 12.436 81.938l5.626 5.624L50 55.689l31.875 31.874 5.688-5.687L55.686 50l31.688-31.688-5.688-5.687L50 44.313zm0 0" fill="#fff"/>
+      </svg>
+  )
+}
+

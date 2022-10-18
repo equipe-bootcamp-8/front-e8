@@ -4,7 +4,7 @@ import * as Styled from "./styles";
 type ButtonType = ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonLargeProps = {
   value: string;
-  variant?: "disabled" | "cancel";
+  variant?: "disabled" | "cancel" | "delete";
 } & ButtonType;
 
 const ButtonLarge = ({ variant, value, ...props }: ButtonLargeProps) => {

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 interface StyledButtonProps {
   theme: Theme;
-  variant?: "disabled" | "cancel";
+  variant?: "disabled" | "cancel" | "delete";
 }
 
 export const ButtonLarge = styled.button<StyledButtonProps>`
@@ -20,11 +20,20 @@ export const ButtonLarge = styled.button<StyledButtonProps>`
     font-size: 20px;
     line-height: 35px;
 
+    ${variant === "delete" &&
+    css`
+      background-color: ${theme.colors.baseBgRed};
+      color: ${theme.colors.baseBg1};
+      border-radius: 8px;
+      box-shadow: none;
+    `}
+
     ${variant === "cancel" &&
     css`
-      background-color: ${theme.colors.baseBgDark};
-      color: ${theme.colors.secondaryColor};
-      border: 1px solid ${theme.colors.secondaryColor};
+      background-color: ${theme.colors.baseBg1};
+      border-radius: 8px;
+      color: ${theme.colors.textColor};
+      border: 2px solid ${theme.colors.baseBgRed};
       box-shadow: none;
     `}
   `}

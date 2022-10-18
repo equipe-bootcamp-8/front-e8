@@ -145,7 +145,7 @@ const ProductModal = ({
         >
           <option>Select a category </option>
           {categories.map((element) => (
-            <option value={element.id}>{element.id}</option>
+            <option value={element.id}>{element.name}</option>
           ))}
         </Styled.Select>
 
