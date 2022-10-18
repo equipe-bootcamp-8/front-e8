@@ -12,7 +12,6 @@ export const SettingsContainer = styled.div`
     height: calc(100vh - 10vh);
     color: ${theme.colors.textColor};
     display: flex;
-
   `}
 `;
 
@@ -99,6 +98,9 @@ export const AddEntitieCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    p {
+      color: ${theme.colors.textColor2};
+    }
     color: ${theme.colors.textColor2};
     cursor: pointer;
   `}

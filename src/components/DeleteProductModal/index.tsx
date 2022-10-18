@@ -1,3 +1,5 @@
+import { TrashIcon } from "assets/icons";
+import CloseIcon from "assets/icons/closeicon.svg";
 import { ModalOverlay } from "assets/styles/globalstyles";
 import ButtonLarge from "components/ButtonLarge";
 import { useProducts } from "contexts/products";
@@ -41,9 +43,27 @@ const DeleteProductModal = ({
   return (
     <ModalOverlay>
       <Styled.DeleteModalContainer>
-        <h2>Delete Product</h2>
-        <div>
-          <ButtonLarge value={"Delete"} onClick={handleDeleteProduct} />
+        <Styled.ModalHeader>
+          <h2>Confirmation</h2>
+          <img
+            src={CloseIcon}
+            alt="close-icon"
+            onClick={() => {
+              handleOpenDeleteModal();
+            }}
+          />
+        </Styled.ModalHeader>
+        <section>
+          <TrashIcon />
+          <h3>This action cannot be undone.</h3>
+        </section>
+
+        <Styled.ButtonList>
+          <ButtonLarge
+            value={"Delete"}
+            variant="delete"
+            onClick={handleDeleteProduct}
+          />
           <ButtonLarge
             onClick={() => {
               setProduct(undefined);
@@ -52,7 +72,7 @@ const DeleteProductModal = ({
             value="Cancel"
             variant="cancel"
           />
-        </div>
+        </Styled.ButtonList>
       </Styled.DeleteModalContainer>
     </ModalOverlay>
   );

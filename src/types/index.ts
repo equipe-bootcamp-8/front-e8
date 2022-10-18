@@ -17,3 +17,13 @@ export interface Category {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface User {
+  id?: string;
+  name: string;
+  email: string;
+  password: string;
+  image?:string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}

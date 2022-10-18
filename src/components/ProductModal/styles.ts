@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 
 export const Modal = styled.section`
-  ${({ theme}) => css`
+  ${() => css`
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -10,50 +10,64 @@ export const Modal = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
- 
+  `}
+`;
+
+export const ModalHeader = styled.div`
+  ${({ theme }) => css`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  height: 5rem;
+  border-radius: 8px 8px 0 0;
+  background-color: ${theme.colors.baseDarkBlue};
+img {
+  width: 3rem;
+  cursor: pointer;
+}
+  h2 {
+    color: ${theme.colors.textColor2};
+  }
   `}
 `;
 
 export const ModalContainer = styled.form`
   ${({ theme }) => css`
     background-color: ${theme.colors.baseBg1};
-    padding: 1.5rem;
-    width: 40rem;
-    height: 40rem;
+    margin-bottom: 15rem;
+    width: 45rem;
+    height: 65rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
     color: ${theme.colors.textColor};
     border-radius: 10px;
-    div {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
   `}
 `;
 
-export const Select = styled.select`
+
+export const InputContainer = styled.div`
   ${({ theme }) => css`
-    all: unset;
-    padding: 0.8rem 1rem;
-    box-sizing: border-box;
-    width: 18.625rem;
-    height: 3rem;
-    background-color: ${theme.colors.baseLine};
-    border: 1px solid ${theme.colors.baseLine};
-    border-radius: 8px;
-    color: ${theme.colors.textColor};
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding: 0 2rem;
+    gap: 2rem;
+    align-items: center;
+    label { 
+      font-size: 1.8rem;
+    }
+   
   `}
 `;
 
 export const Input = styled.input`
   ${({ theme}) => css`
     all: unset;
+    min-width: 30rem;
     padding: 0 1rem;
     box-sizing: border-box;
-    width: 18.625rem;
     min-height: 3rem;
     background-color: ${theme.colors.baseForm};
     border: 1px solid ${theme.colors.baseLine};
@@ -62,3 +76,39 @@ export const Input = styled.input`
   `}
 `;
 
+export const DescriptionInput = styled.textarea`
+  ${({ theme}) => css`
+    overflow-wrap
+    all: unset;
+    min-width: 30rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    min-height: 10rem;
+    background-color: ${theme.colors.baseForm};
+    border: 1px solid ${theme.colors.baseLine};
+    border-radius: 8px;
+    color: ${theme.colors.baseLine};
+
+  `}
+`;
+
+export const Select = styled.select`
+  ${({ theme }) => css`
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    min-width: 30rem;
+    height: 4rem;
+    background-color: ${theme.colors.textColorInput};
+    border: 1px solid ${theme.colors.baseLine};
+    border-radius: 8px;
+    color: ${theme.colors.textColor};
+  `}
+`;
+
+export const ButtonsContainer = styled.div`
+  ${({ theme }) => css`
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4rem;
+  `}
+`;
