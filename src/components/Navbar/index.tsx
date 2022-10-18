@@ -43,7 +43,6 @@ function Navbar() {
         </li>
         <a  onClick={() => {
             logout();
-            toast.success("GoodBye!");
           }} className="nav__out">
         <LogoutIcon />
       </a>

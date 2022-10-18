@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUser(response);
     setLogged(true)
     navigate("/home");
-    toast.success(`Welcome ${user.name} `, { duration: 5000 });
+    toast.success(`Welcome`, { duration: 5000, icon: "🤗" });
   };
 
   const logout = () => {
@@ -80,6 +80,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUser(null);
     setLogged(false)
     navigate("/home");
+    toast.success(`GoodBye`, { duration: 5000, icon: "👋" });
   };
 
   return (
