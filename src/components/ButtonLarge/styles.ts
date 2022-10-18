@@ -8,13 +8,14 @@ interface StyledButtonProps {
 
 export const ButtonLarge = styled.button<StyledButtonProps>`
   ${({ theme, variant }) => css`
-    background: ${theme.colors.textButtonColor};
+    background: ${theme.colors.baseDarkBlue};
     border: none;
-    color: ${theme.colors.textColor};
+    color: ${theme.colors.textColor2};
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 8px;
     width: 150px;
     font-weight: 400;
     font-size: 20px;
@@ -32,7 +33,7 @@ export const ButtonLarge = styled.button<StyledButtonProps>`
     css`
       background-color: ${theme.colors.baseBg1};
       border-radius: 8px;
-      color: ${theme.colors.textColor};
+      color: ${theme.colors.textDark};
       border: 2px solid ${theme.colors.baseBgRed};
       box-shadow: none;
     `}
