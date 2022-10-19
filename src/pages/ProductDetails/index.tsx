@@ -4,34 +4,29 @@ import api from "services";
 import { Product } from "types";
 import * as styled from "./styles";
 
-
-
-
 const ProductDetails = () => {
-const [product, setProduct] = useState<Product>({} as Product);
-const {productId} = useParams();
+  const [product, setProduct] = useState<Product>({} as Product);
+  const { productId } = useParams();
 
+  const handleGetProductById = () => {
+    const token = localStorage.getItem("token");
 
-const handleGetProductById = () => {
-  const token = localStorage.getItem("token");
-  
-  const headers = { 
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    api
+      .get(`/products/${productId}`, headers)
+      .then((res: { data: SetStateAction<Product> }) => {
+        setProduct(res.data);
+      });
   };
-  
-  api.
-  get(`/products/${productId}`, headers)
-  .then((res: { data: SetStateAction<Product>; }) => {
-    setProduct(res.data);
-  });
-}
 
-useEffect(() => {
-  handleGetProductById();
-},
-[]);
+  useEffect(() => {
+    handleGetProductById();
+  }, []);
 
   return (
     <div>
@@ -52,5 +47,6 @@ useEffect(() => {
     
   )
 }
+
 
 export default ProductDetails;

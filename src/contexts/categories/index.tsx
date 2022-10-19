@@ -1,50 +1,54 @@
 import {
-    createContext,
-    useContext,
-    ReactNode,
-    useState,
-    useEffect,
-    SetStateAction,
-  } from "react";
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+  SetStateAction,
+} from "react";
 import api from "services";
 import { Category } from "types";
-  
-  interface CategoryProviderProps {
-    children: ReactNode;
-  }
-  
-  interface CategoryProviderData {
-    categories: Category[];
-    handleGetCategories: () => void;
-  }
-  
-  const CategoryContext = createContext<CategoryProviderData>({} as CategoryProviderData);
-  
-  export const CategoryProvider = ({ children }: CategoryProviderProps) => {
-  
-    const [categories, setCategory] = useState<Category[]>([]);
-  
-    const handleGetCategories = () => {
-      const token = localStorage.getItem("token");
-    
-      const headers = { 
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      api.get("/categories", headers).then((res: { data: SetStateAction<Category[]>; }) => {
-        setCategory(res.data);
-      })
+
+interface CategoryProviderProps {
+  children: ReactNode;
+}
+
+interface CategoryProviderData {
+  categories: Category[];
+  handleGetCategories: () => void;
+}
+
+const CategoryContext = createContext<CategoryProviderData>(
+  {} as CategoryProviderData
+);
+
+export const CategoryProvider = ({ children }: CategoryProviderProps) => {
+  const [categories, setCategory] = useState<Category[]>([]);
+
+  const handleGetCategories = () => {
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     };
-  
-    useEffect(() => {
-      handleGetCategories();
-    }, []);
-  
-    return (
-      <CategoryContext.Provider value={{ categories, handleGetCategories }}>{children}</CategoryContext.Provider>
-    );
+    api
+      .get("/categories", headers)
+      .then((res: { data: SetStateAction<Category[]> }) => {
+        setCategory(res.data);
+      });
   };
-  
-  export const useCategories = () => useContext(CategoryContext);
-  
+
+  useEffect(() => {
+    handleGetCategories();
+  }, []);
+
+  return (
+    <CategoryContext.Provider value={{ categories, handleGetCategories }}>
+      {children}
+    </CategoryContext.Provider>
+  );
+};
+
+export const useCategories = () => useContext(CategoryContext);

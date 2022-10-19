@@ -9,5 +9,5 @@ export const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 845px;
+  height: calc(100vh - 10vh);
 `;

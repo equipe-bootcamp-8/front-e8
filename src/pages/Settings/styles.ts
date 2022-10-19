@@ -29,6 +29,7 @@ export const Container = styled.div`
 		padding: 1rem;
 		margin-top: 10rem;
 		margin-bottom: 1.5rem;
+		height: calc(100vh - 10vh);
 		border-radius: 8px;
 		margin-left: 2rem;
 		box-sizing: border-box;

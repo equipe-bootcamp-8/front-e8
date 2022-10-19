@@ -9,7 +9,7 @@ export const SettingsContainer = styled.div`
   ${({ theme }) => css`
     background-image: url(${backgroundProduct});
     min-width: 90vw;
-    height: calc(100vh - 72.5px);
+    height: calc(100vh - 10vh);
     color: ${theme.colors.textColor};
     display: flex;
   `}
@@ -42,7 +42,7 @@ export const SearchInputContainer = styled.div`
 export const EditEntitiesContainer = styled.div`
   ${() => css`
     width: 80%;
-    height: 80%;
+    height: 77%;
     padding: 1rem;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
@@ -78,7 +78,6 @@ export const EditEntitiesButton = styled.button<ActiveButtonProps>`
 
 export const EntitiesEditList = styled.div`
   ${({ theme }) => css`
-    width: 95%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;

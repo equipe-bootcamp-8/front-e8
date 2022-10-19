@@ -2,60 +2,69 @@ import { LogoIcon, LogoutIcon } from "assets/icons";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { RoutePath } from "types/routes";
-import "./styles.css";
+import {
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
+import { IconContext } from "react-icons";
+import * as S from "./styles";
+import { Link } from "react-router-dom";
 
-function Navbar() {
-  const [active, setActive] = useState("nav__menu");
-  const [icon, setIcon] = useState("nav__toggler");
-  const navToggle = () => {
-    if (active === "nav__menu") {
-      setActive("nav__menu nav__active");
-    } else setActive("nav__menu");
 
-    if (icon === "nav__toggler") {
-      setIcon("nav__toggler toggle");
-    } else setIcon("nav__toggler");
-  };
-
+const Navbar = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { logout } = useAuth();
 
+    
   return (
-    <nav className="nav">
-      <a href={RoutePath.HOME} className="nav__brand">
-        <LogoIcon />
-      </a>
-      <ul className={active}>
-        <li className="nav__item">
-          <a href={RoutePath.HOME} className="nav__link">
-            Home
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href={RoutePath.ABOUT_US} className="nav__link">
-            About us
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href={RoutePath.SETTINGS} className="nav__link">
-            Settings
-          </a>
-        </li>
-        <a  onClick={() => {
+    <S.Container>
+        <S.Wrapper>
+        <IconContext.Provider value={{ style: { fontSize: "2em" } }} >
+            <S.LogoContainer>
+            <Link to="/home">
+                <LogoIcon />
+            </Link>
+            </S.LogoContainer>
+
+                
+          <S.MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            {showMobileMenu ? <FaTimes /> : <FaBars />}
+          </S.MobileIcon>
+          
+            <S.Menu  open={showMobileMenu}>
+                <S.MenuItem>
+                    <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <Link to="/products">HOME</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                     <Link to="/settings">SETTINGS</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <Link to="/about-us">ABOUT US</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                  <a onClick={() => {
             logout();
             toast.success("GoodBye!");
-          }} className="nav__out">
-        <LogoutIcon />
-      </a>
-      </ul>
-      <div onClick={navToggle} className={icon}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-      </div>
-    </nav>
+          }}> 
+                    <LogoutIcon />
+                  </a>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+
+            </S.Menu>
+            </IconContext.Provider>
+        </S.Wrapper>
+
+    </S.Container>
+  )
    
-  );
 }
 
 export default Navbar;

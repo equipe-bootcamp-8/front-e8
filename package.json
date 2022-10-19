@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
-    "@hookform/resolvers": "^2.9.8",
-
     "@hookform/resolvers": "^2.9.7",
-
     "@swiper/core": "^0.0.21",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -28,11 +24,13 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.1",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.6.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-switch": "^7.0.0",
     "react-tsparticles": "^2.3.1",
     "styled-components": "^5.3.6",
+    "styled-media-query": "^2.1.2",
     "styled-theming": "^2.2.0",
     "swiper": "^8.4.1",
     "tsparticles-slim": "^2.3.1",
