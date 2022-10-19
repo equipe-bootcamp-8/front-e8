@@ -55,4 +55,4 @@ const NavBarLoginRegister = () => {
   )
 }
 
-export default Navbar;
+export default NavBarLoginRegister;
