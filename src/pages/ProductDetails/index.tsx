@@ -29,28 +29,24 @@ const ProductDetails = () => {
   }, []);
 
   return (
-    <styled.DetailsContainer>
-      <styled.ProductHeader>
+    <div>
+<styled.DetailsContainer>
+        <styled.ProductHeader>
         <styled.ProductImage src={product?.image} />
+         <h1>{product.name}</h1>
+        </styled.ProductHeader>
+        <styled.ProductDetails> 
         <div>
-          <h5>{product.categoryName}</h5>
-          <h1>{product.name}</h1>
-          <p>Preço</p>
-          <h2>{product.price} C$</h2>
-        </div>
-      </styled.ProductHeader>
-      <styled.ProductDetails>
-        <div>
-          <p>{product.description}</p>
-        </div>
-        <h1>
-          {product.available
-            ? "Disponivel em estoque"
-            : "Nao esta disponivel em estoque"}
-        </h1>
+    <h2>{product.price}</h2>
+    <h5>{product.categoryName}</h5>
+    <p>{product.description}</p>
+      </div> 
       </styled.ProductDetails>
     </styled.DetailsContainer>
-  );
-};
+    </div>
+    
+  )
+}
+
 
 export default ProductDetails;
