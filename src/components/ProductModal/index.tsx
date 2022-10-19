@@ -9,6 +9,7 @@ import api from "services";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ButtonLarge from "components/ButtonLarge";
 import { useCategories } from "contexts/categories";
+import CloseIcon from "assets/icons/closeicon.svg";
 
 /* HOOKFORM */
 interface ProductModalProps {
@@ -25,7 +26,7 @@ interface ProductData {
   categoryId?: string;
   price?: number;
   image?: string;
-  available?:boolean;
+  available?: boolean;
 }
 
 const newProductSchema = yup.object().shape({
@@ -42,7 +43,9 @@ const newProductSchema = yup.object().shape({
     .url("Invalid URL format")
     .required("Product cover image is required"),
 
-  available: yup.boolean().required("Choose if the product is available or not.")
+  available: yup
+    .boolean()
+    .required("Choose if the product is available or not."),
 });
 
 const updateProductSchema = yup.object().shape({
@@ -119,58 +122,87 @@ const ProductModal = ({
             : handleSubmit(handleNewProduct)
         }
       >
-        <h2>{product ? "Update Product" : "Register a new product"}</h2>
+        <Styled.ModalHeader>
+          <h2>{product ? "Update Product" : "Register a new product"}</h2>
+          <img
+            src={CloseIcon}
+            alt="close-icon"
+            onClick={() => {
+              handleOpenModal();
+            }}
+          />
+        </Styled.ModalHeader>
 
-        <Styled.Input
-          defaultValue={product ? product.code : ""}
-          placeholder="Code"
-          {...register("code")}
-        />
+        <Styled.InputContainer>
+          <label>Product Code</label>
+          <Styled.Input
+            defaultValue={product ? product.code : ""}
+            placeholder="Code"
+            {...register("code")}
+          />
+        </Styled.InputContainer>
 
-        <Styled.Input
-          defaultValue={product ? product.name : ""}
-          placeholder="Name"
-          {...register("name")}
-        />
+        <Styled.InputContainer>
+          <label>Product Name</label>
+          <Styled.Input
+            defaultValue={product ? product.name : ""}
+            placeholder="Name"
+            {...register("name")}
+          />
+        </Styled.InputContainer>
 
-        <Styled.Input
-          defaultValue={product ? product.description : ""}
-          placeholder="Description"
-          {...register("description")}
-        />
+        <Styled.InputContainer>
+          <label>Price</label>
+          <Styled.Input
+            defaultValue={product ? product.price : ""}
+            placeholder="Price"
+            {...register("price")}
+          />
+        </Styled.InputContainer>
 
-        <Styled.Select
-          value={categoryId}
-          onChange={(e) => setCategoryId(e.target.value)}
-        >
-          <option>Select a category </option>
-          {categories.map((element) => (
-            <option value={element.id}>{element.id}</option>
-          ))}
-        </Styled.Select>
+        <Styled.InputContainer>
+          <label>Product Category</label>
+          <Styled.Select
+            value={categoryId}
+            onChange={(e) => setCategoryId(e.target.value)}
+          >
+            <option>Select a category </option>
+            {categories.map((element) => (
+              <option value={element.name}>{element.name}</option>
+            ))}
+          </Styled.Select>
+        </Styled.InputContainer>
 
-        <Styled.Input
-          defaultValue={product ? product.price : ""}
-          placeholder="Price"
-          {...register("price")}
-        />
+        <Styled.InputContainer>
+          <label>Description</label>
+          <Styled.DescriptionInput
+            
+            defaultValue={product ? product.description : ""}
+            placeholder="Description"
+            {...register("description")}
+          />
+        </Styled.InputContainer>
 
-        <Styled.Input
-          defaultValue={product ? product.image : ""}
-          placeholder="Image URL"
-          {...register("image")}
-        />
+        <Styled.InputContainer>
+          <label>Product Image</label>
+          <Styled.Input
+      
+            defaultValue={product ? product.image : ""}
+            placeholder="Image URL"
+            {...register("image")}
+          />
+        </Styled.InputContainer>
 
-        <input
-        
-        type="checkbox" 
-        placeholder="Available"
-        defaultChecked={product ? product.available : true}
-        {...register("available")}
-
-        />
-
-        <div>
+        <Styled.InputContainer>
+          <label>Product is available?</label>
+          <input
+            type="checkbox"
+            placeholder="Available"
+            defaultChecked={product ? product.available : true}
+            {...register("available")}
+          />
+        </Styled.InputContainer>
+        <Styled.ButtonsContainer>
           <ButtonLarge value={"Send"} type="submit" />
           <ButtonLarge
             value={"Cancel"}
@@ -180,7 +212,7 @@ const ProductModal = ({
               setProduct(undefined);
             }}
           />
-        </div>
+        </Styled.ButtonsContainer>
       </Styled.ModalContainer>
     </Styled.Modal>
   );

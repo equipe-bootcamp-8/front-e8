@@ -5,8 +5,11 @@ import backgroundSettings from "../../assets/imgs/settings-bg.png"
 export const SettingsContainer = styled.div`
 	${() => css`
 		background-image: url(${backgroundSettings}); 
+		background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 		min-width: 80%;
-		min-height: 80%;
+		min-height: calc(100vh - 72.5px);
 		display:flex;
 	`}
 `;
@@ -23,10 +26,10 @@ export const Bar = styled.div`
 export const Container = styled.div`
 	${() => css`
 		width: 80%;
-		height: 100vh;
 		padding: 1rem;
 		margin-top: 10rem;
 		margin-bottom: 1.5rem;
+		height: calc(100vh - 10vh);
 		border-radius: 8px;
 		margin-left: 2rem;
 		box-sizing: border-box;

@@ -1,5 +1,4 @@
 import { LogoIcon } from "assets/icons";
-import { useAuth } from "contexts/auth";
 import { useState } from "react";
 import {
   FaBars,
@@ -10,7 +9,7 @@ import * as S from "./styles";
 import { Link } from "react-router-dom";
 
 
-const Navbar = () => {
+const NavBarLoginRegister = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
     
   return (
@@ -22,8 +21,7 @@ const Navbar = () => {
                 <LogoIcon />
             </Link>
             </S.LogoContainer>
-
-                
+      
           <S.MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
             {showMobileMenu ? <FaTimes /> : <FaBars />}
           </S.MobileIcon>

@@ -64,6 +64,7 @@ const Navbar = () => {
 
     </S.Container>
   )
+   
 }
 
 export default Navbar;
