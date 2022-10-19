@@ -23,7 +23,7 @@ interface ProductData {
   code?: string;
   name?: string;
   description?: string;
-  categoryId?: string;
+  categoryName?: string;
   price?: number;
   image?: string;
   available?: boolean;
@@ -69,8 +69,8 @@ const ProductModal = ({
 }: ProductModalProps) => {
   const { handleGetProducts } = useProducts();
   const { categories, handleGetCategories } = useCategories();
-  const [categoryId, setCategoryId] = useState<string>(
-    product ? product.categoryId : ""
+  const [categoryName, setcategoryName] = useState<string>(
+    product ? product.categoryName : ""
   );
 
   /* useForm */
@@ -91,7 +91,7 @@ const ProductModal = ({
   };
 
   const handleNewProduct = (data: ProductData) => {
-    data.categoryId = categoryId;
+    data.categoryName = categoryName;
     api
       .post(`/products`, data, headers)
       .then(() => {
@@ -104,7 +104,7 @@ const ProductModal = ({
   };
 
   const handleUpdateProduct = (data: ProductData) => {
-    data.categoryId = categoryId;
+    data.categoryName = categoryName;
     api.patch(`/products/${product?.id}`, data, headers).then(() => {
       toast.success("Product updated succesfully!");
       handleGetProducts();
@@ -163,8 +163,8 @@ const ProductModal = ({
         <Styled.InputContainer>
           <label>Product Category</label>
           <Styled.Select
-            value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
+            value={categoryName}
+            onChange={(e) => setcategoryName(e.target.value)}
           >
             <option>Select a category </option>
             {categories.map((element) => (

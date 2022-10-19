@@ -37,7 +37,7 @@ export const ModalContainer = styled.form`
     background-color: ${theme.colors.baseBg1};
     margin-bottom: 15rem;
     width: 45rem;
-    height: 65rem;
+    height: 55rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

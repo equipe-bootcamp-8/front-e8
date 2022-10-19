@@ -43,7 +43,7 @@ useEffect(() => {
         <styled.ProductDetails> 
         <div>
     <h2>{product.price}</h2>
-    <h5>{product.categoryId}</h5>
+    <h5>{product.categoryName}</h5>
     <p>{product.description}</p>
       </div> 
       </styled.ProductDetails>
