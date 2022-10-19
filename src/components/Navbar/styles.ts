@@ -88,6 +88,7 @@ export const MenuItemLink = styled.a`
   &:hover {
     background-color: 	
     hsla(238, 47%, 47%, 0.486);
+
     transition: 0.5s all ease;
     div {
       svg {

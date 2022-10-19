@@ -1,33 +1,58 @@
 import { LogoIcon } from "assets/icons";
-import { useNavigate } from "react-router-dom";
-import { RoutePath } from "types/routes";
-import * as Styled from "./styles";
+import { useState } from "react";
+import {
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
+import { IconContext } from "react-icons";
+import * as S from "./styles";
+import { Link } from "react-router-dom";
+
 
 const NavBarLoginRegister = () => {
-  const navigate = useNavigate();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+    
   return (
-    <Styled.NavBarContainer>
-      <Styled.NavBarRegister>
-        <div>
-          <LogoIcon />
-        </div>
-        <Styled.NavBarLink>
-        <a href={RoutePath.HOME} className="nav__link">
-            Home
-          </a>
-        <a href={RoutePath.ABOUT_US} className="nav__link">
-            About us
-          </a>
-          <Styled.Links onClick={() => navigate("/")} className="nav__link">
-            Login
-          </Styled.Links>
-        <Styled.SingUp onClick={() => navigate("/register")}>
-          <p>Sign up</p>
-        </Styled.SingUp>
-        </Styled.NavBarLink>
-      </Styled.NavBarRegister>
-    </Styled.NavBarContainer>
-  );
-};
+    <S.Container>
+        <S.Wrapper>
+        <IconContext.Provider value={{ style: { fontSize: "2em" } }} >
+            <S.LogoContainer>
+            <Link to="/home">
+                <LogoIcon />
+            </Link>
+            </S.LogoContainer>
+      
+          <S.MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            {showMobileMenu ? <FaTimes /> : <FaBars />}
+          </S.MobileIcon>
+          
+            <S.Menu  open={showMobileMenu}>
+                <S.MenuItem>
+                    <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <Link to="/products">HOME</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                     <Link to="/">LOGIN</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <Link to="/register">SING UP</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+                <S.MenuItem>
+                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <Link to="/about-us">ABOUT US</Link>
+                    </S.MenuItemLink>
+                </S.MenuItem>
+            </S.Menu>
+            </IconContext.Provider>
+        </S.Wrapper>
 
-export default NavBarLoginRegister;
+    </S.Container>
+  )
+}
+
+export default Navbar;
