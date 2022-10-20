@@ -5,6 +5,7 @@ export const LaterMenu = styled.div`
   height: 30rem;
   background-color: #3c41f5;
   display: flex;
+
   img {
     width: 50rem;
     height: 33.35rem;
@@ -58,10 +59,13 @@ export const SearchProductList = styled.div`
 export const LaterMenuLetters = styled.div`
   display: flex;
   flex-direction: column;
-  color: #fff;
   justify-content: center;
+  color: #fff;
   h1 {
-    margin: 1rem 0;
+    color: #fff;
+    text-align: left;
+    margin: 1rem 0 1rem -13.5rem;
+    
     hr {
       border: none;
     }
