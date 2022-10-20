@@ -1,16 +1,18 @@
-import DeleteProductModal from "components/Modal/DeleteProductModal";
-import ProductModal from "components/Modal/ProductModal";
-import ProductSettingsCard from "components/ProductSettingsCard";
+/* import DeleteCategoryModal from "components/DeleteCategoryModal";
+import CategoryModal from "components/CategoryModal"; */
+import CategorySettingsCard from "components/CategorySettingsCard";
+import CategoryModal from "components/Modal/CategoryModal";
+import DeleteCategoryModal from "components/Modal/DeleteCategoryModal";
 import SettingsMenu from "components/SettingsMenu";
-import { useProducts } from "contexts/products";
+import { useCategories } from "contexts/categories";
 import { useState } from "react";
-import { Product } from "types";
+import { Category } from "types";
 import * as styled from "./styles";
 
 
-const ProductSettings = () => {
-  const { products } = useProducts();
-  const [product, setProduct] = useState<Product | undefined>(undefined);
+const CategoriesSettings = () => {
+  const { categories } = useCategories();
+  const [category, setCategory] = useState<Category | undefined>(undefined);
 
 
   /* ----MODAL---    */
@@ -26,9 +28,9 @@ const ProductSettings = () => {
 
   return (
     <styled.SettingsContainer>
-      <SettingsMenu path={"products"} />
+      <SettingsMenu path={"categories"} />
       <styled.EditEntitiesContainer>
-        <h2>Manage Products</h2>
+        <h2>Product categories management</h2>
         <styled.Bar />
         <styled.SearchInputContainer>
           <input
@@ -41,38 +43,38 @@ const ProductSettings = () => {
         <styled.EntitiesEditList>
           <styled.AddEntitieCard onClick={handleOpenModal}>
             <h2>+</h2>
-            <p>Add Product</p>
+            <p>Add Category</p>
           </styled.AddEntitieCard>
 
-          {products.map((element) => (
-            <ProductSettingsCard
+           {categories.map((element) => (
+            <CategorySettingsCard
               handleOpenModal={handleOpenModal}
               handleOpenDeleteModal={handleOpenDeleteModal}
-              setProduct={setProduct}
-              product={element}
+              setCategory={setCategory}
+              category={element}
               key={element.id}
             />
-          ))}
+          ))} 
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
 
-      {openModal && (
-        <ProductModal
-          setProduct={setProduct}
-          product={product}
+       {openModal && (
+        <CategoryModal
+          setCategory={setCategory}
+          category={category}
           handleOpenModal={handleOpenModal}
         />
       )}
 
       {openDeleteModal && (
-        <DeleteProductModal
-          setProduct={setProduct}
-          productId={product?.id}
+        <DeleteCategoryModal
+          setCategory={setCategory}
+          categoryId={category?.id}
           handleOpenDeleteModal={handleOpenDeleteModal}
         />
-      )}
+      )} 
     </styled.SettingsContainer>
   );
 };
 
-export default ProductSettings;
+export default CategoriesSettings;

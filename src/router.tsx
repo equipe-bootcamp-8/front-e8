@@ -12,6 +12,7 @@ import ProductSettings from "pages/ProductSettings";
 import Settings from "pages/Settings";
 import AboutUs from "pages/AboutUs";
 import ProductDetails from "pages/ProductDetails";
+import CategoriesSettings from "pages/CategoriesSettings";
 
 const Router = () => {
   const token = localStorage.getItem("token");
@@ -21,19 +22,11 @@ const Router = () => {
         <>
           <Route path={RoutePath.HOME} element={<ProductsList />} />
           <Route path={RoutePath.SETTINGS} element={<Settings />} />
-          <Route
-            path={RoutePath.SETTINGS_PRODUCTS}
-            element={<ProductSettings />}
-          />
+          <Route path={RoutePath.SETTINGS_PRODUCTS} element={<ProductSettings />} />
+          <Route path={RoutePath.SETTINGS_CATEGORIES} element={<CategoriesSettings />} />
           <Route path={RoutePath.SETTINGS_USER} element={<UserSettings />} />
-          <Route
-            path={RoutePath.SETTINGS_UPDATE}
-            element={<BulkUpdateSettings />}
-          />
-          <Route
-            path={RoutePath.PRODUCT_DETAILS}
-            element={<ProductDetails />}
-          />
+          <Route path={RoutePath.SETTINGS_UPDATE} element={<BulkUpdateSettings />} />
+          <Route path={RoutePath.PRODUCT_DETAILS} element={<ProductDetails />} />
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
         </>
       ) : (
@@ -44,7 +37,7 @@ const Router = () => {
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
         </>
       )}
-       <Route
+      <Route
         path="*"
         element={<Navigate to={token ? "/home" : "/home"} replace />}
       />
