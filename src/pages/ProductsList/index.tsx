@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const ProductsList = () => {
   const { products } = useProducts();
-  const [search,  setSearch] = useState('')
+  const [search, setSearch] = useState("");
 
   // logged(false);
 
@@ -35,17 +35,22 @@ const ProductsList = () => {
           <div>
             <SearchIcon />
           </div>
-          <input type="text" onChange={e => setSearch(e.target.value)} />
+          <input type="text" placeholder="Search by NFT name..." onChange={event => setSearch(event.target.value)} />
         </Styled.SearchProductList>
         <button>Sort By</button>
       </Styled.HeaderProductList>
       <Styled.ProductList>
-      {products.map((element) =>
-       <ProductsCard 
-       product={element}
-       key={element.id}
-       />
-      )}
+        {products
+          .filter((element) => {
+            if (search === "") {
+              return element;
+            } else if (element.name.toLowerCase().includes(search.toLowerCase())) {
+              return element;
+            }
+          })
+          .map((element) => (
+            <ProductsCard product={element} key={element.id} />
+          ))}
       </Styled.ProductList>
     </div>
   );
