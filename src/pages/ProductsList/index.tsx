@@ -35,7 +35,7 @@ const ProductsList = () => {
           <div>
             <SearchIcon />
           </div>
-          <input type="text" placeholder="Search by NFT name..." onChange={event => setSearch(event.target.value)} />
+          <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
         </Styled.SearchProductList>
         <button>Sort By</button>
       </Styled.HeaderProductList>
