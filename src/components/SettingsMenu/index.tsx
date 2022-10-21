@@ -1,5 +1,6 @@
 import * as styled from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "contexts/auth";
 
 interface MenuSettingsProps {
   path: "products" | "user" | "update" | "settings" | "categories";
@@ -7,12 +8,14 @@ interface MenuSettingsProps {
 
 const SettingsMenu = ({ path }: MenuSettingsProps) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+
   return (
     <styled.SettingsNavigationContainer>
       <h2>Settings</h2>
       <styled.UserInfos>
-        <h3>Company Name</h3>
-        <h3>company@mail.com</h3>
+        <h3>{user.name}</h3>
+        <h3>{user.email}</h3>
       </styled.UserInfos>
       <styled.SettingsNavigationButtonsList>
         <styled.SettingsNavigationButtonsContainer

@@ -30,22 +30,23 @@ const CategoriesSettings = () => {
     <styled.SettingsContainer>
       <SettingsMenu path={"categories"} />
       <styled.EditEntitiesContainer>
-        <h2>Product categories management</h2>
+        <h2>Manage Categories</h2>
+        <styled.AddEntitieCard onClick={handleOpenModal}>
+          <p>Create Category</p>
+        </styled.AddEntitieCard>
         <styled.Bar />
-        <styled.SearchInputContainer>
+     {/*    <styled.SearchInputContainer>
           <input
-          /*  value={searchInputValue}
-              onChange={(e) => setSearchInputValue(e.target.value)}
-              placeholder="Procure pelo sabor"  */
+          
           />
-        </styled.SearchInputContainer>
-
+        </styled.SearchInputContainer> */}
+        <div>
+        <h2>Name</h2>
+        <h2>Action</h2>
+        <styled.Bar />
+        </div>
+        
         <styled.EntitiesEditList>
-          <styled.AddEntitieCard onClick={handleOpenModal}>
-            <h2>+</h2>
-            <p>Add Category</p>
-          </styled.AddEntitieCard>
-
            {categories.map((element) => (
             <CategorySettingsCard
               handleOpenModal={handleOpenModal}

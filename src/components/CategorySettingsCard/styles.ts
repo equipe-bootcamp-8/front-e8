@@ -3,30 +3,24 @@ import styled, { css } from "styled-components";
 export const CategorySettingsCardContainer = styled.div`
   ${({ theme }) => css`
     background-color: #0C0E4F;
-    width: 18rem;
-    height: 25rem;
-    border-radius: 21px;
+    width: 45rem;
+    height: 7rem;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     font-size: 12px;
     color: ${theme.colors.textColor2};
     text-align: center;
+    padding: 1rem;
     div {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
-      width: 100%;
-      padding: 1rem;
-      gap: .5rem; 
-
-    }
-    img {
-      width: 100%;
-      border-radius: 20px 20px 0px 0px;
-      height: 13rem;
-      object-fit: cover;
+      width: 23rem;
+      margin-right: 1rem;
+      gap: .5rem;
     }
   `}
 `;

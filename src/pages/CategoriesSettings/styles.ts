@@ -80,10 +80,10 @@ export const EntitiesEditList = styled.div`
   ${({ theme }) => css`
     height: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 1.5rem;
     box-sizing: border-box;
-    gap: 3rem;
+    gap: 1rem;
     overflow-y: scroll;
   `}
 `;
@@ -91,8 +91,8 @@ export const EntitiesEditList = styled.div`
 export const AddEntitieCard = styled.div`
   ${({ theme }) => css`
     width: 18rem;
-    height: 25rem;
-    border-radius: 21px;
+    height: 5rem;
+    border-radius: 8px;
     background-color: ${theme.colors.baseDarkBlue};
     display: flex;
     flex-direction: column;

@@ -14,7 +14,6 @@ const CategorySettingsCard = ({
 }: SettingsCategoryCardProps) => {
   return (
     <styled.CategorySettingsCardContainer>
-
       <h3>{category.name}</h3>
       <div>
         <styled.CategorySettingsEditCardButton
