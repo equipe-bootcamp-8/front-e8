@@ -7,11 +7,10 @@ import { useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
 
-
 const ProductSettings = () => {
   const { products } = useProducts();
   const [product, setProduct] = useState<Product | undefined>(undefined);
-
+  const [search, setSearch] = useState("");
 
   /* ----MODAL---    */
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -31,11 +30,7 @@ const ProductSettings = () => {
         <h2>Manage Products</h2>
         <styled.Bar />
         <styled.SearchInputContainer>
-          <input
-          /*  value={searchInputValue}
-              onChange={(e) => setSearchInputValue(e.target.value)}
-              placeholder="Procure pelo sabor"  */
-          />
+          <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
         </styled.SearchInputContainer>
 
         <styled.EntitiesEditList>
@@ -44,33 +39,23 @@ const ProductSettings = () => {
             <p>Add Product</p>
           </styled.AddEntitieCard>
 
-          {products.map((element) => (
-            <ProductSettingsCard
-              handleOpenModal={handleOpenModal}
-              handleOpenDeleteModal={handleOpenDeleteModal}
-              setProduct={setProduct}
-              product={element}
-              key={element.id}
-            />
-          ))}
+          {products
+            .filter((element) => {
+              if (search === "") {
+                return element;
+              } else if (element.name.toLowerCase().includes(search.toLowerCase())) {
+                return element;
+              }
+            })
+            .map((element) => (
+              <ProductSettingsCard handleOpenModal={handleOpenModal} handleOpenDeleteModal={handleOpenDeleteModal} setProduct={setProduct} product={element} key={element.id} />
+            ))}
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
 
-      {openModal && (
-        <ProductModal
-          setProduct={setProduct}
-          product={product}
-          handleOpenModal={handleOpenModal}
-        />
-      )}
+      {openModal && <ProductModal setProduct={setProduct} product={product} handleOpenModal={handleOpenModal} />}
 
-      {openDeleteModal && (
-        <DeleteProductModal
-          setProduct={setProduct}
-          productId={product?.id}
-          handleOpenDeleteModal={handleOpenDeleteModal}
-        />
-      )}
+      {openDeleteModal && <DeleteProductModal setProduct={setProduct} productId={product?.id} handleOpenDeleteModal={handleOpenDeleteModal} />}
     </styled.SettingsContainer>
   );
 };
