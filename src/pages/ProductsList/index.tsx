@@ -3,6 +3,7 @@ import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
 import { useProducts } from "contexts/products";
+import { useState } from "react";
 
 // interface ProductsListProps {
 //   logged?: boolean | any;
@@ -10,6 +11,7 @@ import { useProducts } from "contexts/products";
 
 const ProductsList = () => {
   const { products } = useProducts();
+  const [search,  setSearch] = useState('')
 
   // logged(false);
 
@@ -33,7 +35,7 @@ const ProductsList = () => {
           <div>
             <SearchIcon />
           </div>
-          <input type="text" />
+          <input type="text" onChange={e => setSearch(e.target.value)} />
         </Styled.SearchProductList>
         <button>Sort By</button>
       </Styled.HeaderProductList>
