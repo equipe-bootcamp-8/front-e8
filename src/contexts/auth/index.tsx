@@ -62,7 +62,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = response.data.token;
 
     localStorage.setItem("user", JSON.stringify(loggedUser));
-    console.log(response);
 
     localStorage.setItem("token", token);
 
