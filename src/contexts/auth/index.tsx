@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = localStorage.getItem("token");
 
     if (token) checkTokenExpiration();
-  }, []);
+  });
 
   return <AuthContext.Provider value={{ user, loading, login, logout, logged }}>{children}</AuthContext.Provider>;
 };
