@@ -48,18 +48,20 @@ const ProductsList = () => {
           <p>Coleção</p>
           {categories.length > 0 &&
             categories.map((element) => (
-              <>
-                <button
-                  placeholder={element.name}
-                  id={element.name}
-                  onClick={() => {
-                    console.log(element.name);
-                    setSelectedCategory(element);
-                  }}
-                >
+              <Styled.ButtonsContainer>
+                <label htmlFor={element.name}>
+                  <input
+                    type="checkbox"
+                    placeholder={element.name}
+                    id={element.name}
+                    onChange={() => {
+                      console.log(element.name);
+                      setSelectedCategory(element);
+                    }}
+                  />
                   {element.name}
-                </button>
-              </>
+                </label>
+              </Styled.ButtonsContainer>
             ))}
           <input type="button" value="Filtrar" />
         </Styled.Filter>

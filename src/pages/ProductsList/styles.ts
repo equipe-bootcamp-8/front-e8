@@ -112,3 +112,21 @@ export const Filter = styled.section`
     margin: 2rem 0 0.5rem 0;
   }
 `;
+
+export const ButtonsContainer = styled.div`
+  margin: 0.6rem 0 0.5rem 0;
+
+  button {
+    padding: 1rem;
+    border: 1px black solid;
+    border-radius: 0.8rem;
+    background-color: #3c41f5;
+    color: white;
+    transition: 0.5s all;
+    cursor: pointer;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+`;
