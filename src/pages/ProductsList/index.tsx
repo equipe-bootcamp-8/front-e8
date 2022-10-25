@@ -7,23 +7,14 @@ import { useState } from "react";
 import { useCategories } from "contexts/categories";
 import { Category, Product } from "types";
 
-// interface ProductsListProps {
-//   logged?: boolean | any;
-// }
-
 const ProductsList = () => {
   const { products } = useProducts();
   const { categories } = useCategories();
   const [search, setSearch] = useState("");
 
-  const [selectedCategory, setSelectedCategory] = useState<Category>(
-    categories[0] || ({} as Category)
-  );
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0] || ({} as Category));
 
-  const filteredProductsByCategory: Product[] = products.filter(
-    (element) =>
-      selectedCategory && element.categoryName === selectedCategory.name
-  );
+  const filteredProductsByCategory: Product[] = products.filter((element) => selectedCategory && element.categoryName === selectedCategory.name);
 
   return (
     <div>
@@ -71,30 +62,18 @@ const ProductsList = () => {
               <div>
                 <SearchIcon />
               </div>
-              <input
-                type="text"
-                placeholder="Search by NFT name..."
-                onChange={(event) => setSearch(event.target.value)}
-              />
+              <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
             </Styled.SearchProductList>
           </Styled.HeaderProductList>
           <Styled.ProductList>
             {products
               .filter((element) => {
-                if (search === "") {
+                if (element.name.toLowerCase().includes(search.toLowerCase())) {
                   return element;
-                } else if (
-                  element.name.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return element;
-                }
+                } else return false;
               })
               .map((element) => (
-                <ProductsCard
-                  product={element}
-                  key={element.id}
-                  list={filteredProductsByCategory}
-                />
+                <ProductsCard product={element} key={element.id} list={filteredProductsByCategory} />
               ))}
           </Styled.ProductList>
         </section>
