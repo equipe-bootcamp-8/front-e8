@@ -90,11 +90,7 @@ const ProductsList = () => {
                 }
               })
               .map((element) => (
-                <ProductsCard
-                  product={element}
-                  key={element.id}
-                  list={filteredProductsByCategory}
-                />
+                <ProductsCard product={element} key={element.id} />
               ))}
           </Styled.ProductList>
         </section>
