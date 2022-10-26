@@ -3,11 +3,12 @@ import styled, { css } from "styled-components";
 export const ProductSettingsCardContainer = styled.div`
   ${({ theme }) => css`
     background-color: #0C0E4F;
-    width: 18rem;
-    height: 25rem;
-    border-radius: 21px;
+    padding: 2rem;
+    width: 100%;
+    height: 8rem;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     font-size: 12px;
@@ -15,17 +16,15 @@ export const ProductSettingsCardContainer = styled.div`
     text-align: center;
     div {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
-      width: 100%;
+      width: 23rem;
       padding: 1rem;
       gap: .5rem; 
-
     }
     img {
-      width: 100%;
-      border-radius: 20px 20px 0px 0px;
-      height: 13rem;
+      width: 7rem;
+      height: 7rem;
       object-fit: cover;
     }
   `}
@@ -36,8 +35,8 @@ export const ProductSettingsEditCardButton = styled.button`
     height: 3.25rem;
     width: 100%;
     border-radius: 8px;
-    background-color:#3C41F5;
-    border: 1px solid #3C41F5;
+    background-color: ${theme.colors.bgGreen};
+    border: 1px solid ${theme.colors.baseBgDark};
     color: ${theme.colors.textColor2};
     display: flex;
     align-items: center;
@@ -51,7 +50,7 @@ export const ProductSettingsDeleteCardButton = styled.button`
     height: 3.25rem;
     width: 100%;
     border-radius: 8px;
-    background-color: #FF3232;
+    background-color: #CB232C;
     color: ${theme.colors.textColor2};
     border: 1px solid #FF3232;
     display: flex;

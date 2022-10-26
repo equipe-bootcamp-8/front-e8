@@ -28,10 +28,10 @@ export const CategorySettingsCardContainer = styled.div`
 export const CategorySettingsEditCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
-    width: 100%;
+    width: 80%;
     border-radius: 8px;
-    background-color:#3C41F5;
-    border: 1px solid #3C41F5;
+    background-color: ${theme.colors.bgGreen};
+    border: 1px solid ${theme.colors.baseBgDark};
     color: ${theme.colors.textColor2};
     display: flex;
     align-items: center;
@@ -43,11 +43,11 @@ export const CategorySettingsEditCardButton = styled.button`
 export const CategorySettingsDeleteCardButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
-    width: 100%;
+    width: 80%;
     border-radius: 8px;
-    background-color: #FF3232;
+    background-color: #CB232C;
     color: ${theme.colors.textColor2};
-    border: 1px solid #FF3232;
+    border: 1px solid #CB232C;
     display: flex;
     align-items: center;
     justify-content: center;

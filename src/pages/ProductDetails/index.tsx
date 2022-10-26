@@ -10,13 +10,12 @@ const ProductDetails = () => {
 
   const handleGetProductById = () => {
     const token = localStorage.getItem("token");
-
     const headers = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
-
+    
     api
       .get(`/products/${productId}`, headers)
       .then((res: { data: SetStateAction<Product> }) => {

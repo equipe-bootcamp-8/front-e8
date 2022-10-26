@@ -18,7 +18,7 @@ export interface Category {
   updatedAt?: Date;
 }
 
-export interface User {
+export interface Users {
   id?: string;
   name: string;
   email: string;
