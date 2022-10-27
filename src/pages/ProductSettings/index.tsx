@@ -41,11 +41,9 @@ const ProductSettings = () => {
 
           {products
             .filter((element) => {
-              if (search === "") {
+              if (element.name.toLowerCase().includes(search.toLowerCase())) {
                 return element;
-              } else if (element.name.toLowerCase().includes(search.toLowerCase())) {
-                return element;
-              }
+              } else return false;
             })
             .map((element) => (
               <ProductSettingsCard handleOpenModal={handleOpenModal} handleOpenDeleteModal={handleOpenDeleteModal} setProduct={setProduct} product={element} key={element.id} />
