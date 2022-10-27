@@ -90,6 +90,7 @@ const CategoryModal = ({
             src={CloseIcon}
             alt="close-icon"
             onClick={() => {
+              setCategory(undefined);
               handleOpenModal();
             }}
           />

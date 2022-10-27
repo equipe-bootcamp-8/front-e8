@@ -10,6 +10,7 @@ export const colors = {
   baseForm: "#E3DDDD",
   bgGreen: "#017106",
   baseLine: "#393C49",
+  baseMainBlue: "#3C41F5",
   baseSoftBlue: "#035295",
   baseDarkBlue: "#03223C",
 
