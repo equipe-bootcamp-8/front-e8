@@ -20,11 +20,6 @@ const ProductsList = () => {
     categories[0] || ({} as Category)
   );
 
-  const filteredProductsByCategory: Product[] = products.filter(
-    (element) =>
-      selectedCategory && element.categoryName === selectedCategory.name
-  );
-
   return (
     <div>
       <Styled.LaterMenu>
@@ -86,6 +81,11 @@ const ProductsList = () => {
                 } else if (
                   element.name.toLowerCase().includes(search.toLowerCase())
                 ) {
+                  return element;
+                }
+              })
+              .filter((element) => {
+                if (selectedCategory.name === element.categoryName) {
                   return element;
                 }
               })
