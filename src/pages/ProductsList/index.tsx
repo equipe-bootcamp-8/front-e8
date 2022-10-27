@@ -13,9 +13,7 @@ const ProductsList = () => {
   const [search, setSearch] = useState("");
 
   const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0] || ({} as Category));
-
-  const filteredProductsByCategory: Product[] = products.filter((element) => selectedCategory && element.categoryName === selectedCategory.name);
-
+  
   return (
     <div>
       <Styled.LaterMenu>
@@ -72,8 +70,14 @@ const ProductsList = () => {
                   return element;
                 } else return false;
               })
+              .filter((element) => {
+                if (selectedCategory.name === element.categoryName) {
+                  return element;
+                }
+              })
               .map((element) => (
-                <ProductsCard product={element} key={element.id} list={filteredProductsByCategory} />
+                <ProductsCard product={element} key={element.id} />
+
               ))}
           </Styled.ProductList>
         </section>
