@@ -23,13 +23,10 @@ const UserSettings = () => {
       Authorization: `Bearer ${token}`,
     },
   };
-
-  {console.log(token)}
  
 const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
   const response = await api.patch(`/users/${id}`, headers)
-  {console.log(response)}
 }
 
 
