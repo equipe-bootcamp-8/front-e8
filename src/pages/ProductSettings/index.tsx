@@ -1,5 +1,5 @@
-import DeleteProductModal from "components/DeleteProductModal";
-import ProductModal from "components/ProductModal";
+import DeleteProductModal from "components/Modal/DeleteProductModal";
+import ProductModal from "components/Modal/ProductModal";
 import ProductSettingsCard from "components/ProductSettingsCard";
 import SettingsMenu from "components/SettingsMenu";
 import { useProducts } from "contexts/products";
