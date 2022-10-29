@@ -4,54 +4,84 @@ import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
 import { useProducts } from "contexts/products";
 import { useState } from "react";
-import { Product } from "types";
+import { useCategories } from "contexts/categories";
+import { Category, Product } from "types";
 
-
-// interface ProductsListProps {
-//   logged?: boolean | any;
-// }
-
- const ProductsList = () => {
+const ProductsList = () => {
   const { products } = useProducts();
-  const [product, setProduct] = useState<Product | undefined>(undefined);
-  
-  // logged(false);
+  const { categories } = useCategories();
+  const [search, setSearch] = useState("");
 
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0] || ({} as Category));
+  
   return (
     <div>
       <Styled.LaterMenu>
         <img src={meeting} alt="Metting foto" />
         <Styled.LaterMenuLetters>
-          <h1>
-            CloudWalk
-            <hr />
-            E-Commerce Manager
-          </h1>
+          <h1>CloudWalk</h1>
+          <hr />
+          <h2>E-commerce Manager</h2>
+          <br />
           <h4>
             Register new products, create <hr />
             promotions and update information on <hr />a single platform.
           </h4>
         </Styled.LaterMenuLetters>
       </Styled.LaterMenu>
-      <Styled.HeaderProductList>
-        <Styled.SearchProductList>
-          <div>
-            <SearchIcon />
-          </div>
-          <input type="text" />
-        </Styled.SearchProductList>
-        <button>Sort By</button>
-      </Styled.HeaderProductList>
-      <Styled.ProductList>
-      {products.map((element) =>
-       <ProductsCard 
-       product={element}
-       key={element.id}
-       />
-      )}
-      </Styled.ProductList>
-      
-     
+      <Styled.FilterContainer>
+        <Styled.Filter>
+          <h3>Selected Filters</h3>
+          <p>Preço</p>
+          <input type="range" name="preco" id="preco" />
+          <p>Coleção</p>
+          {categories.length > 0 &&
+            categories.map((element) => (
+              <Styled.ButtonsContainer>
+                <label htmlFor={element.name}>
+                  <input
+                    type="checkbox"
+                    placeholder={element.name}
+                    id={element.name}
+                    onChange={() => {
+                      console.log(element.name);
+                      setSelectedCategory(element);
+                    }}
+                  />
+                  {element.name}
+                </label>
+              </Styled.ButtonsContainer>
+            ))}
+          <input type="button" value="Filtrar" />
+        </Styled.Filter>
+        <section>
+          <Styled.HeaderProductList>
+            <Styled.SearchProductList>
+              <div>
+                <SearchIcon />
+              </div>
+              <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
+            </Styled.SearchProductList>
+          </Styled.HeaderProductList>
+          <Styled.ProductList>
+            {products
+              .filter((element) => {
+                if (element.name.toLowerCase().includes(search.toLowerCase())) {
+                  return element;
+                } else return false;
+              })
+              .filter((element) => {
+                if (selectedCategory.name === element.categoryName) {
+                  return element;
+                }
+              })
+              .map((element) => (
+                <ProductsCard product={element} key={element.id} />
+
+              ))}
+          </Styled.ProductList>
+        </section>
+      </Styled.FilterContainer>
     </div>
   );
 };

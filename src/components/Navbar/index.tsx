@@ -1,7 +1,6 @@
 import { LogoIcon, LogoutIcon } from "assets/icons";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import {
   FaBars,
   FaTimes,
