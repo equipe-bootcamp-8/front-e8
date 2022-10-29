@@ -15,7 +15,7 @@ const ProductDetails = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    
+
     api
       .get(`/products/${productId}`, headers)
       .then((res: { data: SetStateAction<Product> }) => {
@@ -28,24 +28,35 @@ const ProductDetails = () => {
   }, []);
 
   return (
-    <div>
-<styled.DetailsContainer>
-        <styled.ProductHeader>
+    <styled.DetailsContainer>
+      <styled.ProductHeader>
         <styled.ProductImage src={product?.image} />
-         <h1>{product.name}</h1>
-        </styled.ProductHeader>
-        <styled.ProductDetails> 
-        <div>
-    <h2>{product.price}</h2>
-    <h5>{product.categoryName}</h5>
-    <p>{product.description}</p>
-      </div> 
-      </styled.ProductDetails>
-    </styled.DetailsContainer>
-    </div>
-    
-  )
-}
+        <h1>Description</h1>
+        <styled.Description>
 
+          <p>{product.description}</p>
+        </styled.Description>
+      </styled.ProductHeader>
+      <styled.ProductContainer>
+        <styled.ProductDetails>
+        <div>
+          <h3>Code</h3>
+          <h2>{product.code}</h2>
+        </div>
+        <h1>{product.name}</h1>
+        <div>
+          <h3>Category</h3>
+          <h1>{product.categoryName}</h1>
+        </div>
+        <div>
+          <h4>Current price</h4>
+          <h2>{product.price}</h2>
+        </div>
+        </styled.ProductDetails>
+       
+      </styled.ProductContainer>
+    </styled.DetailsContainer>
+  );
+};
 
 export default ProductDetails;

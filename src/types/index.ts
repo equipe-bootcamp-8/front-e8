@@ -27,3 +27,14 @@ export interface Users {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface Members {  
+  id?: string;
+  name: string;
+  stack: string;
+  bio: string;
+  role?: string;
+  github: string;
+  linkedin: string;
+  image: string;
+}
