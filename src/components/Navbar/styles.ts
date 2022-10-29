@@ -1,4 +1,7 @@
-import styled from "styled-components";
+
+import styled, { css } from "styled-components";
+import { Link } from 'react-router-dom';
+
 
 interface OpenProps {
 	open?: boolean;
@@ -73,7 +76,7 @@ export const MenuItem = styled.li`
   }
 `;
 
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { logout } = useAuth();
+  
 
     
   return (
@@ -32,22 +33,22 @@ const Navbar = () => {
           
             <S.Menu  open={showMobileMenu}>
                 <S.MenuItem>
-                    <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                    <Link to="/products">HOME</Link>
+                    <S.MenuItemLink to="/products" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    HOME
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                     <Link to="/settings">SETTINGS</Link>
+                <S.MenuItemLink to="/settings" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                     SETTINGS
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <Link to="/about-us">ABOUT US</Link>
+                <S.MenuItemLink to="/about-us" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                ABOUT US
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <S.MenuItemLink to="/home" onClick={() => setShowMobileMenu(!showMobileMenu)}>
                   <a onClick={() => {
             logout();
           }}> 

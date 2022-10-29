@@ -28,23 +28,23 @@ const NavBarLoginRegister = () => {
           
             <S.Menu  open={showMobileMenu}>
                 <S.MenuItem>
-                    <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                    <Link to="/products">HOME</Link>
+                    <S.MenuItemLink  to="/products" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    HOME
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                     <Link to="/">LOGIN</Link>
+                <S.MenuItemLink to="/" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                     LOGIN
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                    <Link to="/register">SING UP</Link>
+                <S.MenuItemLink  to="/register" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    SING UP
                     </S.MenuItemLink>
                 </S.MenuItem>
                 <S.MenuItem>
-                <S.MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <Link to="/about-us">ABOUT US</Link>
+                <S.MenuItemLink to="/about-us" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                ABOUT US
                     </S.MenuItemLink>
                 </S.MenuItem>
             </S.Menu>
