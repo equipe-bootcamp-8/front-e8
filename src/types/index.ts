@@ -28,6 +28,7 @@ export interface Users {
   updatedAt?: Date;
 }
 
+
 export interface Members {  
   id?: string;
   name: string;
@@ -38,3 +39,4 @@ export interface Members {
   linkedin: string;
   image: string;
 }
+

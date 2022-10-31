@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 interface OpenProps {
-	open?: boolean;
+  open?: boolean;
 }
 
-
 export const Container = styled.div`
-  width: 100%;
-  height: 8vh;
-  background-color: #3C41F5;
+  width: 100vw;
+  height: 10vh;
+  background-color: #3c41f5;
 `;
 
 export const Wrapper = styled.div`
@@ -49,10 +49,10 @@ export const Menu = styled.ul<OpenProps>`
   justify-content: space-between;
   list-style: none;
   @media screen and (max-width: 960px) {
-    background-color: #3C41F5;
+    background-color: #3c41f5;
     position: absolute;
     top: 70px;
-    left: ${({ open }) => (open ? "0" : "-100%")}; 
+    left: ${({ open }) => (open ? "0" : "-100%")};
     width: 100%;
     height: 90vh;
     justify-content: center;
@@ -73,7 +73,7 @@ export const MenuItem = styled.li`
   }
 `;
 
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,13 +81,13 @@ export const MenuItemLink = styled.a`
   padding: 0.5rem 2.5rem;
   color: #f2f2f2;
   font-family: sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.5s all ease;
+
   &:hover {
-    background-color: 	
-    hsla(238, 47%, 47%, 0.486);
+    background-color: hsla(238, 47%, 47%, 0.486);
 
     transition: 0.5s all ease;
     div {
@@ -103,7 +103,6 @@ export const MenuItemLink = styled.a`
     justify-content: center;
     align-items: center;
     svg {
-      display: none;
       fill: #f2f2f2;
       margin-right: 0.5rem;
     }
@@ -112,7 +111,7 @@ export const MenuItemLink = styled.a`
     width: 100%;
     div {
       width: 30%;
-      justify-content: left;
+
       svg {
         display: flex;
       }
@@ -121,7 +120,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 880px) {
     div {
       width: 40%;
-      justify-content: left;
+
       svg {
         display: flex;
       }
@@ -130,7 +129,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 500px) {
     div {
       width: 60%;
-      justify-content: left;
+
       svg {
         display: flex;
       }
@@ -139,7 +138,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 260px) {
     div {
       width: 100%;
-      justify-content: left;
+
       svg {
         display: flex;
       }

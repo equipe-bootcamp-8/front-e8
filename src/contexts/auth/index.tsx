@@ -1,13 +1,8 @@
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  ReactNode,
-  useContext,
-} from "react";
+import React, { createContext, useState, useEffect, ReactNode, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -18,7 +13,7 @@ interface AuthProviderData {
   logout: () => void;
   user: User;
   loading: boolean;
-  logged: boolean
+  logged: boolean;
 }
 
 export interface User {
@@ -30,9 +25,7 @@ export interface User {
   updatedAt?: Date;
 }
 
-export const AuthContext = createContext<AuthProviderData>(
-  {} as AuthProviderData
-);
+export const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<any>(null);
@@ -62,34 +55,26 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = response.data.token;
 
     localStorage.setItem("user", JSON.stringify(loggedUser));
-    console.log(response);
 
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setUser(response);
-    setLogged(true)
+    setLogged(true);
     navigate("/home");
     toast.success(`Welcome`, { duration: 5000, icon: "🤗" });
   };
 
   const logout = () => {
-    api.defaults.headers.Authorization = null;
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
-    setLogged(false)
+    setLogged(false);
     navigate("/home");
     toast.success(`GoodBye`, { duration: 5000, icon: "👋" });
   };
 
-  return (
-    <AuthContext.Provider
-      value={{ user, loading, login, logout, logged }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ user, loading, login, logout, logged }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => useContext(AuthContext);

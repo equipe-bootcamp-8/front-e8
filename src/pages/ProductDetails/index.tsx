@@ -31,6 +31,7 @@ const ProductDetails = () => {
     <styled.DetailsContainer>
       <styled.ProductHeader>
         <styled.ProductImage src={product?.image} />
+
         <h1>Description</h1>
         <styled.Description>
 
@@ -55,6 +56,7 @@ const ProductDetails = () => {
         </styled.ProductDetails>
        
       </styled.ProductContainer>
+
     </styled.DetailsContainer>
   );
 };

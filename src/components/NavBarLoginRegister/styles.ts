@@ -1,4 +1,7 @@
+
 import styled, { css } from "styled-components";
+import { Link } from 'react-router-dom';
+
 
 interface OpenProps {
 	open?: boolean;
@@ -6,8 +9,8 @@ interface OpenProps {
 
 
 export const Container = styled.div`
-  width: 100%;
-  height: 8vh;
+  width: 100vw;
+  height: 10vh;
   background-color: #3C41F5;
 `;
 
@@ -73,7 +76,7 @@ export const MenuItem = styled.li`
   }
 `;
 
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,8 +84,8 @@ export const MenuItemLink = styled.a`
   padding: 0.5rem 2.5rem;
   color: #f2f2f2;
   font-family: sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.4rem;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.5s all ease;
   &:hover {

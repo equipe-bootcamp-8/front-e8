@@ -38,7 +38,7 @@ export const EditEntityContainer = styled.div`
   `}
 `;
 
-export const EntityEditList = styled.div`
+export const EntityEditList = styled.form`
   ${({ theme }) => css`
     width: 95%;
     height: 85%;
