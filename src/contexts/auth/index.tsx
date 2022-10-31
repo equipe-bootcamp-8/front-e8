@@ -66,7 +66,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const logout = () => {
-    api.defaults.headers.Authorization = null;
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
@@ -74,34 +73,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     navigate("/home");
     toast.success(`GoodBye`, { duration: 5000, icon: "👋" });
   };
-
-  const checkTokenExpiration = () => {
-    const user = JSON.parse(localStorage.getItem("user") || "");
-    const token = localStorage.getItem("token");
-
-    const headers = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    axios
-      .get(`/users/${user.id}`, headers)
-      .then(() => {
-        setLogged(true);
-        navigate("/");
-      })
-      .catch(() => {
-        logout();
-        toast.error("Session expired! Please login again!");
-      });
-  };
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (token) checkTokenExpiration();
-  });
 
   return <AuthContext.Provider value={{ user, loading, login, logout, logged }}>{children}</AuthContext.Provider>;
 };
