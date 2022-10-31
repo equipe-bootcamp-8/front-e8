@@ -1,10 +1,11 @@
 import * as styled from "./styles";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "contexts/auth";
+import { useAuth, User } from "contexts/auth";
 
 interface MenuSettingsProps {
   path: "products" | "user" | "update" | "settings" | "categories";
 }
+
 
 const SettingsMenu = ({ path }: MenuSettingsProps) => {
   const navigate = useNavigate();
@@ -14,8 +15,10 @@ const SettingsMenu = ({ path }: MenuSettingsProps) => {
     <styled.SettingsNavigationContainer>
       <h2>Settings</h2>
       <styled.UserInfos>
+        <div>
         <h3>{user.name}</h3>
         <h3>{user.email}</h3>
+        </div>
       </styled.UserInfos>
       <styled.SettingsNavigationButtonsList>
         <styled.SettingsNavigationButtonsContainer

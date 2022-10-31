@@ -40,12 +40,11 @@ const CategoriesSettings = () => {
           
           />
         </styled.SearchInputContainer> */}
-        <div>
+        <styled.Header>
         <h2>Name</h2>
         <h2>Action</h2>
+        </styled.Header>
         <styled.Bar />
-        </div>
-        
         <styled.EntitiesEditList>
            {categories.map((element) => (
             <CategorySettingsCard

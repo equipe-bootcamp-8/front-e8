@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 
 export const Modal = styled.section`
-  ${() => css`
+  ${({ theme }) => css`
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -16,33 +16,56 @@ export const Modal = styled.section`
 export const ModalHeader = styled.div`
   ${({ theme }) => css`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  border-radius: 8px 0 0 8px;
+  min-width: 30rem;
   padding: 1rem;
-  width: 100%;
-  height: 5rem;
-  border-radius: 8px 8px 0 0;
-  background-color: ${theme.colors.baseDarkBlue};
-img {
-  width: 3rem;
-  cursor: pointer;
-}
+  height: 55rem;
+  background-color: ${theme.colors.baseMainBlue};
   h2 {
     color: ${theme.colors.textColor2};
+    font-size: 4rem;
+    font-weight: 100;
   }
   `}
 `;
 
 export const ModalContainer = styled.form`
   ${({ theme }) => css`
-    background-color: ${theme.colors.baseBg1};
+    background-color: ${theme.colors.baseDarkBlue};
     margin-bottom: 15rem;
     width: 45rem;
     height: 55rem;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
     color: ${theme.colors.textColor};
     border-radius: 10px;
+  `}
+`;
+
+export const Form = styled.div`
+  ${({ theme }) => css`
+  height: 55rem;
+  min-width: 45rem;
+  background-color: ${theme.colors.baseDarkBlue};
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  `}
+`;
+
+export const FormHeader = styled.section`
+  ${() => css`
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 1rem;
+    img {
+  width: 3rem;
+  cursor: pointer;
+}
   `}
 `;
 
@@ -52,13 +75,17 @@ export const InputContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
-    padding: 0 2rem;
+    margin: 1rem 0 1rem 1rem;
+    background-color: ${theme.colors.baseDarkBlue};
+    color: ${theme.colors.textColor2};
+    padding: 0 1rem;
     gap: 2rem;
     align-items: center;
     label { 
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
-   
+
   `}
 `;
 
@@ -108,7 +135,14 @@ export const Select = styled.select`
 export const ButtonsContainer = styled.div`
   ${({ theme }) => css`
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  gap: 4rem;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  button { 
+    width: 25rem;
+  }
   `}
 `;
+

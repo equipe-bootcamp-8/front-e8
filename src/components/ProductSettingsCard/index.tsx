@@ -14,8 +14,11 @@ const ProductSettingsCard = ({
 }: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>
-      <img src={product.image}/> 
+      <h3>{product.code}</h3>
       <h3>{product.name}</h3>
+      <h3>{product.categoryName}</h3>
+      <h3>{product.price}</h3>
+      <img src={product.image}/> 
       <div>
         <styled.ProductSettingsEditCardButton
         onClick={() => {

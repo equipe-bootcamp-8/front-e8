@@ -39,6 +39,18 @@ export const SearchInputContainer = styled.div`
   }
 `;
 
+export const Header = styled.div`
+  ${() => css`
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  width: 45rem;
+  gap: 20rem;
+  `}
+`;
+
 export const EditEntitiesContainer = styled.div`
   ${() => css`
     width: 80%;

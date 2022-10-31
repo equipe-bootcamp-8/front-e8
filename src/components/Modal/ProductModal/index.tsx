@@ -79,7 +79,7 @@ const ProductModal = ({
     handleSubmit,
     formState: { errors },
   } = useForm<ProductData>({
-    resolver: yupResolver(product ? updateProductSchema : newProductSchema),
+    resolver: yupResolver(product ? newProductSchema : updateProductSchema),
   });
 
   const token = localStorage.getItem("token");
@@ -123,16 +123,34 @@ const ProductModal = ({
         }
       >
         <Styled.ModalHeader>
-          <h2>{product ? "Update Product" : "Register a new product"}</h2>
+          <h2>{product ? "Update" : "Register"}</h2>
+         
+         <Styled.ButtonsContainer>
+          <ButtonLarge
+            value={"Cancel"}
+            variant="cancel-blue"
+            onClick={() => {
+              handleOpenModal();
+              setProduct(undefined);
+            }}
+          />
+           <ButtonLarge value={"Send"} type="submit" />
+        </Styled.ButtonsContainer> 
+        </Styled.ModalHeader>
+        
+        <Styled.Form>
+           <Styled.FormHeader>
           <img
             src={CloseIcon}
             alt="close-icon"
             onClick={() => {
               handleOpenModal();
+              setProduct(undefined);
             }}
           />
-        </Styled.ModalHeader>
+          </Styled.FormHeader> 
 
+        <div>
         <Styled.InputContainer>
           <label>Product Code</label>
           <Styled.Input
@@ -202,17 +220,11 @@ const ProductModal = ({
             {...register("available")}
           />
         </Styled.InputContainer>
-        <Styled.ButtonsContainer>
-          <ButtonLarge value={"Send"} type="submit" />
-          <ButtonLarge
-            value={"Cancel"}
-            variant="cancel"
-            onClick={() => {
-              handleOpenModal();
-              setProduct(undefined);
-            }}
-          />
-        </Styled.ButtonsContainer>
+        </div>
+  
+        </Styled.Form>
+        
+ 
       </Styled.ModalContainer>
     </Styled.Modal>
   );

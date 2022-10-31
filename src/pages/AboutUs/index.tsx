@@ -1,90 +1,76 @@
-import { data } from "components/slider/data";
-import Slider from "../../components/slider/index";
-import meeting from "../../assets/imgs/meeting.png";
-import "./styles.css";
-import AOS from "aos";
+import * as styled from "./styles";
+import teamIcon from "assets/imgs/team-icon.png";
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  NestIcon,
+  PostgresIcon,
+  ReactIcon,
+  TypeScriptIcon,
+} from "assets/icons";
+import { members } from "types/mocks";
 import "aos/dist/aos.css";
 
-AOS.init();
-
-
-
-
 function AboutUs() {
-
   return (
-    <>
-      <div className="text n-box1 flex-with-center">
-        <h1> OUR TEAM</h1>
-        <div className="container">
-          <section className="card">
-            <div
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-            >
-              <img src={meeting} alt="Nosso time" />
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </p>
-          </section>
-        </div>
+    <styled.AboutUs>
+      <styled.Header>
         <div>
-          <section className="card__two">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </p>
-            <div
-              data-aos="fade-left"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-            >
-              <img src={meeting} alt="Nosso time" />
-            </div>
-          </section>
+          <h1>About us</h1>
+          <h1>A simple, comprehensive and fast platform</h1>
         </div>
-        <Slider key={data.length} />
-      </div>
-    </>
+        <img src={teamIcon} alt="team-icon" />
+      </styled.Header>
+      <styled.TextBox>
+        <div>
+          <h1>The Project</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant
+            ultrices tellus hac nec lacus dolor convallis pretium. Quis eu eget
+            eu ornare varius aliquam congue mi a.
+          </p>
+        </div>
+      </styled.TextBox>
+      <styled.TextBox>
+        <div>
+          <h1>Technologies</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant
+            ultrices tellus hac nec lacus dolor convallis pretium. Quis eu eget
+            eu ornare varius aliquam congue mi a.
+          </p>
+        </div>
+      </styled.TextBox>
+      <styled.TechIcons>
+      
+          <NestIcon />
+          <ReactIcon />
+          <PostgresIcon />
+          <TypeScriptIcon />
+
+       
+      </styled.TechIcons>
+      <styled.TeamCards>
+        <h1>Our team</h1>
+        {members.map((member) => (
+          <styled.MemberCard>
+            <styled.MemberPhoto>
+              <img src={member.image} alt="dev-photo" />
+            </styled.MemberPhoto>
+            <styled.MemberDetails>
+              <h2>{member.name}</h2>
+              <h2>{member.role}</h2>
+              <h3>{member.stack}</h3>
+              <p>{member.bio}</p>
+              <section>
+                <LinkedInIcon />
+                <GitHubIcon />
+              </section>
+            </styled.MemberDetails>
+          </styled.MemberCard>
+        ))}
+      </styled.TeamCards>
+    </styled.AboutUs>
   );
 }
 

@@ -10,7 +10,6 @@ const ProductDetails = () => {
 
   const handleGetProductById = () => {
     const token = localStorage.getItem("token");
-
     const headers = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -32,23 +31,32 @@ const ProductDetails = () => {
     <styled.DetailsContainer>
       <styled.ProductHeader>
         <styled.ProductImage src={product?.image} />
-        <div>
-          <h5>{product.categoryName}</h5>
-          <h1>{product.name}</h1>
-          <p>Preço</p>
-          <h2>{product.price} C$</h2>
-        </div>
-      </styled.ProductHeader>
-      <styled.ProductDetails>
-        <div>
+
+        <h1>Description</h1>
+        <styled.Description>
+
           <p>{product.description}</p>
+        </styled.Description>
+      </styled.ProductHeader>
+      <styled.ProductContainer>
+        <styled.ProductDetails>
+        <div>
+          <h3>Code</h3>
+          <h2>{product.code}</h2>
         </div>
-        <h1>
-          {product.available
-            ? "Disponivel em estoque"
-            : "Nao esta disponivel em estoque"}
-        </h1>
-      </styled.ProductDetails>
+        <h1>{product.name}</h1>
+        <div>
+          <h3>Category</h3>
+          <h1>{product.categoryName}</h1>
+        </div>
+        <div>
+          <h4>Current price</h4>
+          <h2>{product.price}</h2>
+        </div>
+        </styled.ProductDetails>
+       
+      </styled.ProductContainer>
+
     </styled.DetailsContainer>
   );
 };
