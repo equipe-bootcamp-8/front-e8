@@ -33,7 +33,9 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <styled.SettingsContainer>
-      <SettingsMenu path={"user"} />
+      <SettingsMenu path={"user"}
+      
+      />
 
       <styled.EditEntityContainer>
         <h2>Personal informations</h2>

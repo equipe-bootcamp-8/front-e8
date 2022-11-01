@@ -11,7 +11,6 @@ import * as styled from "./styles";
 const ProductSettings = () => {
   const { products } = useProducts();
   const [product, setProduct] = useState<Product | undefined>(undefined);
-
   const [search, setSearch] = useState("");
 
 
@@ -28,7 +27,8 @@ const ProductSettings = () => {
 
   return (
     <styled.SettingsContainer>
-      <SettingsMenu path={"products"} />
+      <SettingsMenu 
+      path={"products"} />
       <styled.EditEntitiesContainer>
         <h2>Manage Products</h2>
 
