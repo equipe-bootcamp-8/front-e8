@@ -1,7 +1,6 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 
-
 const BulkUpdateSettings = () => {
   return (
     <styled.SettingsContainer>
@@ -17,7 +16,6 @@ const BulkUpdateSettings = () => {
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
           />
           <styled.Label htmlFor="file">
-            
             Choose excel sheet
           </styled.Label>
           <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
