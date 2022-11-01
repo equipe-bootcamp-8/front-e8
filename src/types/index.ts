@@ -18,13 +18,25 @@ export interface Category {
   updatedAt?: Date;
 }
 
-export interface User {
+export interface Users {
   id?: string;
-  name: string;
-  email: string;
-  password: string;
+  name?: string;
+  email?: string;
+  password?: string;
   image?:string;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+
+export interface Members {  
+  id?: string;
+  name: string;
+  stack: string;
+  bio: string;
+  role?: string;
+  github: string;
+  linkedin: string;
+  image: string;
 }
 

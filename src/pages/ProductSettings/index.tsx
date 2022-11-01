@@ -1,3 +1,4 @@
+import { SearchIcon } from "assets/icons";
 import DeleteProductModal from "components/Modal/DeleteProductModal";
 import ProductModal from "components/Modal/ProductModal";
 import ProductSettingsCard from "components/ProductSettingsCard";
@@ -12,6 +13,7 @@ const ProductSettings = () => {
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const [search, setSearch] = useState("");
 
+
   /* ----MODAL---    */
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
@@ -25,20 +27,35 @@ const ProductSettings = () => {
 
   return (
     <styled.SettingsContainer>
-      <SettingsMenu path={"products"} />
+      <SettingsMenu 
+      path={"products"} />
       <styled.EditEntitiesContainer>
         <h2>Manage Products</h2>
-        <styled.Bar />
+
+        <styled.SettingsNav>
+        <styled.AddEntitieCard onClick={handleOpenModal}>
+            <p>Create Product</p>
+         </styled.AddEntitieCard>
         <styled.SearchInputContainer>
           <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
         </styled.SearchInputContainer>
 
-        <styled.EntitiesEditList>
-          <styled.AddEntitieCard onClick={handleOpenModal}>
-            <h2>+</h2>
-            <p>Add Product</p>
-          </styled.AddEntitieCard>
-
+        </styled.SettingsNav>
+        <styled.Bar />
+        <styled.Header>
+        <h2>Code</h2>
+        <h2>Name</h2>
+        <h2>Category</h2>
+        <h2>Price</h2>
+        <h2>Image</h2>
+        <div>
+        <h2>Action</h2>
+        </div>
+     
+        </styled.Header>
+        <styled.Bar />
+        <styled.EntitiesList>
+        
           {products
             .filter((element) => {
               if (element.name.toLowerCase().includes(search.toLowerCase())) {
@@ -48,7 +65,8 @@ const ProductSettings = () => {
             .map((element) => (
               <ProductSettingsCard handleOpenModal={handleOpenModal} handleOpenDeleteModal={handleOpenDeleteModal} setProduct={setProduct} product={element} key={element.id} />
             ))}
-        </styled.EntitiesEditList>
+        </styled.EntitiesList>
+
       </styled.EditEntitiesContainer>
 
       {openModal && <ProductModal setProduct={setProduct} product={product} handleOpenModal={handleOpenModal} />}

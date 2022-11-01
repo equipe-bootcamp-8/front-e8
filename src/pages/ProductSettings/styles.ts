@@ -24,20 +24,60 @@ export const Bar = styled.div`
   `}
 `;
 
+
+export const Header = styled.div`
+  ${() => css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  div {
+    display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 23rem;
+      padding: 1rem;
+      gap: .5rem; 
+  }
+  `}
+`;
+
+
+export const SettingsNav = styled.div`
+  ${() => css`
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 5rem;
+  `}
+`;
+
+
 export const SearchInputContainer = styled.div`
+  border: 1px #b6b6b6 solid;
+  width: 25rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 1rem;
+  div {
+    margin: 0 0.5rem 0 1rem;
+  }
   input {
-    background: #2d303e;
-    width: 30rem;
-    height: 4rem;
-    color: #ffffff;
-    font-size: 14px;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    :focus {
-      outline: none;
-    }
+    border: none;
+    width: 21rem;
+    margin: 0 1rem 0 1.3rem;
+    outline: none;
+    font-size: 1.6rem;
   }
 `;
+
 
 export const EditEntitiesContainer = styled.div`
   ${() => css`
@@ -76,23 +116,23 @@ export const EditEntitiesButton = styled.button<ActiveButtonProps>`
   `}
 `;
 
-export const EntitiesEditList = styled.div`
+export const EntitiesList = styled.div`
   ${({ theme }) => css`
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem;
     box-sizing: border-box;
-    gap: 3rem;
+    gap: 1rem;
     overflow-y: scroll;
   `}
 `;
 
 export const AddEntitieCard = styled.div`
   ${({ theme }) => css`
-    width: 18rem;
-    height: 25rem;
-    border-radius: 21px;
+  width: 18rem;
+    height: 5rem;
+    border-radius: 8px;
     background-color: ${theme.colors.baseDarkBlue};
     display: flex;
     flex-direction: column;

@@ -12,7 +12,8 @@ interface ProviderProps{
 
 const Providers = ({children}: ProviderProps) => {
   return (
-    <BrowserRouter>
+    <div>
+   <BrowserRouter>
     <ThemeProvider theme={theme}>
         <AuthProvider>
             <ProductProvider>
@@ -23,6 +24,8 @@ const Providers = ({children}: ProviderProps) => {
         </AuthProvider>
     </ThemeProvider>
     </BrowserRouter>
+    </div>
+ 
   )
 }
 

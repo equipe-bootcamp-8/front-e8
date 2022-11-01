@@ -14,8 +14,10 @@ const SettingsMenu = ({ path }: MenuSettingsProps) => {
     <styled.SettingsNavigationContainer>
       <h2>Settings</h2>
       <styled.UserInfos>
-        <h3>{user.name}</h3>
-        <h3>{user.email}</h3>
+        <div>
+         <h3>{user.name}</h3> 
+         <h3>{user.email}</h3> 
+        </div>
       </styled.UserInfos>
       <styled.SettingsNavigationButtonsList>
         <styled.SettingsNavigationButtonsContainer
