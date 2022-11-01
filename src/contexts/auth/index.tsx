@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect, ReactNode, useContext } from
 import { useNavigate } from "react-router-dom";
 import api from "services";
 import toast from "react-hot-toast";
-import axios from "axios";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -28,7 +27,14 @@ export interface User {
 export const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<any>(null);
+  const initialValue = {
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+  }
+  
+  const [user, setUser] = useState<User>(initialValue);
   const [loading, setLoading] = useState(true);
   const [logged, setLogged] = useState(false);
   const navigate = useNavigate();
@@ -53,13 +59,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const loggedUser = response.data.user;
     const token = response.data.token;
+    const test = response.data.user.name;
+
+    localStorage.setItem("test", test);
 
     localStorage.setItem("user", JSON.stringify(loggedUser));
 
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
-    setUser(response);
+    setUser(response.data.user);
     setLogged(true);
     navigate("/home");
     toast.success(`Welcome`, { duration: 5000, icon: "🤗" });
@@ -68,7 +77,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    setUser(null);
+    setUser(initialValue);
     setLogged(false);
     navigate("/home");
     toast.success(`GoodBye`, { duration: 5000, icon: "👋" });
