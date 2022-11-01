@@ -1,6 +1,7 @@
 import SettingsMenu from "components/SettingsMenu";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
 
@@ -29,6 +30,8 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   const response = await api.patch(`/users/${id}`, headers)
 }
 
+const navigate = useNavigate();
+
 
 
   return (
@@ -56,16 +59,16 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
           <styled.PersonalInformations>
             <div>
               <h2>Password</h2>
-              <input onChange={handleChange} name="password" type="" />
+              <input onChange={handleChange} name="password" type="password" />
             </div>
             <div>
               <h2>Confirm Password</h2>
-              <input onChange={handleChange} name="password" type="" />
+              <input onChange={handleChange} name="password" type="password" />
             </div>
           </styled.PersonalInformations>
           <styled.Buttons>
             <styled.SaveButton>Save Changes</styled.SaveButton>
-            <styled.DiscardButton>Discard changes</styled.DiscardButton>
+            <styled.DiscardButton onClick={() => navigate("/")}>Discard changes</styled.DiscardButton>
           </styled.Buttons>
         </styled.EntityEditList>
       </styled.EditEntityContainer>
