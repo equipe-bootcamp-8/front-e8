@@ -9,7 +9,7 @@ export const SettingsContainer = styled.div`
   ${({ theme }) => css`
     background-image: url(${backgroundUser});
     min-width: 100%;
-    min-height: calc(100% - 72.5px);
+    min-height: calc(100% - 10vh);
     color: ${theme.colors.textColor};
     display: flex;
   `}
@@ -29,7 +29,7 @@ export const EditEntityContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 10vh);
   padding: 0 20px;
   `}
 `;

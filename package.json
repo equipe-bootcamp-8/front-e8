@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.9.0",
     "@hookform/resolvers": "^2.9.7",
     "@swiper/core": "^0.0.21",
     "@testing-library/jest-dom": "^5.14.1",
