@@ -26,28 +26,22 @@ export const Bar = styled.div`
 
 export const EditEntityContainer = styled.div`
   ${() => css`
-    width: 80%;
-    height: 80%;
-    padding: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
   `}
 `;
 
 export const EntityEditList = styled.form`
   ${({ theme }) => css`
-    width: 95%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 1.5rem;
-    box-sizing: border-box;
-    gap: 3rem;
+  width: 100%;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
   `}
 `;
 
@@ -55,9 +49,10 @@ export const ButtonUpload = styled.button`
   ${({ theme }) => css`
     width: 24rem;
     height: 4rem;
-    background-color: rgba(12, 7, 7, 0.62);
-    color: ${theme.colors.textColor};
-    border: 1px solid #000000;
+    margin: 10px 0 10px 0;
+    background-color: #0C0E4F;
+    color: #fafafa;
+    border: 1px #dadada;
     font-size: 1.25rem;
     border-radius: 11px;
     cursor: pointer;
@@ -74,8 +69,8 @@ export const PersonalInformations = styled.div`
     input {
       width: 20rem;
       height: 3rem;
-      background: rgba(0, 0, 0, 0.32);
-      border: 1px solid #000000;
+      background: #e6f1ff;
+      border: 1px #dadada;
       color: ${theme.colors.textColor};
       border-radius: 8px;
     }
@@ -92,18 +87,19 @@ export const Buttons = styled.div`
 
 export const SaveButton = styled.button`
   ${({ theme }) => css`
-    background-color: rgba(12, 7, 7, 0.62);
+    background-color: #fafafa;
     border-radius: 8px;
     width: 20rem;
     height: 3rem;
-    border: 1px solid #000000;
+    border: 1px solid #000;
     cursor: pointer;
     color: ${theme.colors.textColor};
     font-size: 1.25rem;
     font-weight: bold;
+    margin-top: 20px;
 	transition-duration: 0.5s;
     :hover {
-      background-color: #fafafa;
+      background-color: #035295;
       color: black;
     }
   `}
@@ -115,10 +111,12 @@ export const DiscardButton = styled.button`
     width: 20rem;
     height: 3rem;
     background: #035295;
-    border: 1px solid #000000;
+    border: 1px #dadada;
     cursor: pointer;
-    color: ${theme.colors.textColor};
+    margin-top: 20px;
+    color: #fafafa;
     font-size: 1.25rem;
+
 	transition-duration: 0.5s;
     :hover {
       background-color: #EC4752;
