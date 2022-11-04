@@ -1,6 +1,6 @@
 import { TrashIcon } from "assets/icons";
 import CloseIcon from "assets/icons/closeicon.svg";
-import { ModalOverlay } from "assets/styles/globalstyles";
+import { ModalOverlay } from "assets/styles/globalStyles";
 import ButtonLarge from "components/ButtonLarge";
 import { useProducts } from "contexts/products";
 import toast from "react-hot-toast";
