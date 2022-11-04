@@ -1,6 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
-
 
 export const ModalOverlay = styled.div`
   ${() => css`
@@ -37,7 +35,6 @@ export const SearchProduct = styled.div`
 
 export const SettingsContainer = styled.div`
   ${({ theme }) => css`
-    background-image: url(${backgroundProduct});
     min-width: 90vw;
     height: calc(100vh - 21vh);
     color: ${theme.colors.textColor};
