@@ -37,7 +37,7 @@ const navigate = useNavigate();
   return (
     <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
       <SettingsMenu path={"user"}/>
-      <styled.EditEntityContainer>
+      <gStyled.EditEntitiesContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
         <styled.EntityEditList onSubmit={onSubmit}>
@@ -68,7 +68,7 @@ const navigate = useNavigate();
             <styled.DiscardButton onClick={() => navigate("/")}>Discard changes</styled.DiscardButton>
           </styled.Buttons>
         </styled.EntityEditList>
-      </styled.EditEntityContainer>
+      </gStyled.EditEntitiesContainer>
     </gStyled.SettingsContainer>
   );
 };

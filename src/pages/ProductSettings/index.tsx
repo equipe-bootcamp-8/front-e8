@@ -29,7 +29,7 @@ const ProductSettings = () => {
   return (
     <gStyled.SettingsContainer style={{ backgroundImage: `url(${backgroundProduct})` }}>
       <SettingsMenu path={"products"} />
-      <styled.EditEntitiesContainer>
+      <gStyled.EditEntitiesContainer>
         <h2>Manage Products</h2>
 
         <styled.SettingsNav>
@@ -66,7 +66,7 @@ const ProductSettings = () => {
               <ProductSettingsCard handleOpenModal={handleOpenModal} handleOpenDeleteModal={handleOpenDeleteModal} setProduct={setProduct} product={element} key={element.id} />
             ))}
         </styled.EntitiesList>
-      </styled.EditEntitiesContainer>
+      </gStyled.EditEntitiesContainer>
 
       {openModal && <ProductModal setProduct={setProduct} product={product} handleOpenModal={handleOpenModal} />}
 
