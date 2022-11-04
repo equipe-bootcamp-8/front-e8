@@ -28,12 +28,12 @@ function AboutUs() {
           <p>
             The scope of the project consists
             of managing products and one of the main objectives of the team when
-            developing it was to create a simple and easy-to-use tool. Counting
+            developing it was to <strong>create a simple and easy-to-use tool</strong>. Counting
             on a listing section of all products from other users and the
             administrator himself, through filtering tools, each product with a
             page with details and information about it. The settings section was
-            designed in order to maintain the company's identity, as well as to
-            convey an aspect of a table of products and categories. part of the
+            designed in order to maintain the <strong>company's identity</strong>, as well as to
+            convey an aspect of a table of products and categories. Part of the
             user, which also has an account settings section.
           </p>
         </div>
@@ -43,10 +43,10 @@ function AboutUs() {
           <h1>Technologies</h1>
           <p>
             In order to meet the mandatory technologies for development, the
-            Back-end used NestTS, PRISMA and PostgresSql, the team used Swagger
-            for documentation and route management. Still, ReactTS was operated
-            on the Front-end and, in order to facilitate the organization and
-            styling of the project, Styled-components was applied, in order to
+            Back end used <strong>NestTS, PRISMA</strong> and <strong>PostgresSql</strong> , the team used Swagger
+            for documentation and route management. Still, <strong>ReactTS</strong> was operated
+            on the Front end and, in order to facilitate the organization and
+            styling of the project, <strong>Styled-components</strong> was applied, in order to
             optimize the development. The technologies were applied aiming at
             what is most current in the market and mainly, the reuse of code by
             the company.
