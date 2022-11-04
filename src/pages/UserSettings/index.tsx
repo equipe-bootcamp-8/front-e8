@@ -40,33 +40,38 @@ const navigate = useNavigate();
       <gStyled.EditEntitiesContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
-        <styled.EntityEditList onSubmit={onSubmit}>
-          <styled.ButtonUpload>Upload image</styled.ButtonUpload>
+        <styled.UserSettings onSubmit={onSubmit}>
+         
           {/* não tem imagem no back */}
           <styled.PersonalInformations >
+            <h2>Profile picture & personal informations.</h2>
+            <styled.ButtonUpload>Upload image</styled.ButtonUpload>
+
+            <div>
+              <h2>Company name / Your name</h2>
+              <styled.Input onChange={handleChange} name="name" type="name" />
+            </div>
             <div>
               <h2>E-mail address</h2>
-              <input onChange={handleChange} name="email" type="email" />
+              <styled.Input onChange={handleChange} name="email" type="email" />
             </div>
-            <div>
-              <h2>Name</h2>
-              <input onChange={handleChange} name="name" type="name" />
-            </div>
+            <styled.SaveButton>Save Changes</styled.SaveButton>
           </styled.PersonalInformations>
           <styled.PersonalInformations>
+            <h2>Security.</h2>
+            <h2>Change your password</h2>
             <div>
-              <h2>Password</h2>
-              <input onChange={handleChange} name="password" type="password" />
+             <h2>Password</h2>
+              <styled.Input onChange={handleChange} name="password" type="" />
             </div>
             <div>
               <h2>Confirm Password</h2>
-              <input onChange={handleChange} name="password" type="password" />
+              <styled.Input onChange={handleChange} name="password" type="" />
             </div>
-          </styled.PersonalInformations>
-          <styled.Buttons>
-            <styled.SaveButton>Save Changes</styled.SaveButton>
-            <styled.DiscardButton onClick={() => navigate("/")}>Discard changes</styled.DiscardButton>
-          </styled.Buttons>
+            <styled.DiscardButton>Discard changes</styled.DiscardButton>
+            <styled.DiscardButton>Reset Password</styled.DiscardButton>
+          </styled.PersonalInformations>     
+        </styled.UserSettings>   
         </styled.EntityEditList>
       </gStyled.EditEntitiesContainer>
     </gStyled.SettingsContainer>
