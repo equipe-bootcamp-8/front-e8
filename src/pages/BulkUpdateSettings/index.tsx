@@ -1,30 +1,44 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
-import { FileExcel2 } from "@styled-icons/remix-fill/FileExcel2";
+import * as gStyled from "../../assets/styles/globalStyles"
+import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 
 const BulkUpdateSettings = () => {
   return (
-    <styled.SettingsContainer>
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUpdate})`}}>
       <SettingsMenu path={"update"} />
 
-      <styled.EditEntityContainer>
-        <h2>Spreadsheet massive update</h2>
+      <styled.UpdateContainer>
+        <h2>Bulk Update</h2>
         <styled.Bar />
-        <styled.EntityEditList>
+        <styled.BoardButtons>
           <styled.Input
             type="file"
             id="file"
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
           />
           <styled.Label htmlFor="file">
-            <FileExcel2 />
-            Choose excel sheet
+            Import file
           </styled.Label>
-          <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
-          <styled.ButtonUpload>Download File</styled.ButtonUpload>
-        </styled.EntityEditList>
-      </styled.EditEntityContainer>
-    </styled.SettingsContainer>
+          <styled.DownloadButton>Download File</styled.DownloadButton>
+        </styled.BoardButtons>
+        <div>
+      <h2>Change history</h2>
+        <styled.Bar />
+        <styled.Header>
+          <h3>Name</h3>
+          <h3>Date</h3>
+        </styled.Header>
+        <styled.Bar />
+        <styled.userData>
+          <h3>User name / e-mail</h3>
+          <h3>00/00/0000 at 11:11</h3>
+        </styled.userData>
+        <styled.Bar />
+      </div>
+      </styled.UpdateContainer>
+    </gStyled.SettingsContainer>
+
   );
 };
 

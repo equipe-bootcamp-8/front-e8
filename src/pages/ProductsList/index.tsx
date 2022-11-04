@@ -5,7 +5,8 @@ import meeting from "../../assets/imgs/meeting.png";
 import { useProducts } from "contexts/products";
 import { useEffect, useState } from "react";
 import { useCategories } from "contexts/categories";
-import { Category, Product } from "types";
+import { Category } from "types";
+import * as gStyled from "../../assets/styles/globalStyles";
 
 const ProductsList = () => {
   const { products } = useProducts();
@@ -64,16 +65,12 @@ const ProductsList = () => {
         </Styled.Filter>
         <section>
           <Styled.HeaderProductList>
-            <Styled.SearchProductList>
+            <gStyled.SearchProduct>
               <div>
                 <SearchIcon />
               </div>
-              <input
-                type="text"
-                placeholder="Search by NFT name..."
-                onChange={(event) => setSearch(event.target.value)}
-              />
-            </Styled.SearchProductList>
+              <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
+            </gStyled.SearchProduct>
           </Styled.HeaderProductList>
           <Styled.ProductList>
             {products
