@@ -1,19 +1,8 @@
 import styled, { css } from "styled-components";
-import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
 
 interface ActiveButtonProps {
   active?: boolean;
 }
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundProduct});
-    min-width: 90vw;
-    height: calc(100vh - 21vh);
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
@@ -79,7 +68,7 @@ export const SearchInputContainer = styled.div`
 export const EditEntitiesContainer = styled.div`
   ${() => css`
     width: 80%;
-    height: 77%;
+    height: 80%;
     padding: 1rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;

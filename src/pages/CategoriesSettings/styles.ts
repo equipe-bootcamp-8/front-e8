@@ -1,19 +1,8 @@
 import styled, { css } from "styled-components";
-import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
 
 interface ActiveButtonProps {
   active?: boolean;
 }
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundProduct});
-    min-width: 90vw;
-    height: calc(100vh - 10vh);
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
@@ -90,7 +79,7 @@ export const EditEntitiesButton = styled.button<ActiveButtonProps>`
 
 export const EntitiesEditList = styled.div`
   ${({ theme }) => css`
-    height: 100%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
