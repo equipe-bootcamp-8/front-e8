@@ -39,7 +39,7 @@ export const Header = styled.div`
 export const TextBox = styled.div`
 	${({ theme }) => css`
         margin-left: 15rem;
-        width: 50rem;
+        width: 80rem;
         justify-content: center;
         h1 {
             font-size: 4rem;
@@ -118,8 +118,12 @@ export const MemberDetails = styled.div`
         display: flex;
         flex-direction: row;
         gap: 1rem;
-        width: 10rem;
-        height: 10rem;
+        a { 
+            height: 4rem;
+        width: 4rem;
+            color : #181616;
+           
+        }
     }
 	`}
 `;

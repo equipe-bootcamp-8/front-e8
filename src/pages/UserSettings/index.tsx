@@ -40,36 +40,41 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       <styled.EditEntityContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
-        <styled.EntityEditList onSubmit={onSubmit}>
-          <styled.ButtonUpload>Upload image</styled.ButtonUpload>
+        <styled.UserSettings onSubmit={onSubmit}>
+         
           {/* não tem imagem no back */}
 
           <styled.PersonalInformations >
-            <div>
-              <h2>E-mail address</h2>
-              <input onChange={handleChange} name="email" type="email" />
-            </div>
+            <h2>Profile picture & personal informations.</h2>
+            <styled.ButtonUpload>Upload image</styled.ButtonUpload>
 
             <div>
-              <h2>Name</h2>
-              <input onChange={handleChange} name="name" type="name" />
+              <h2>Company name / Your name</h2>
+              <styled.Input onChange={handleChange} name="name" type="name" />
             </div>
+            <div>
+              <h2>E-mail address</h2>
+              <styled.Input onChange={handleChange} name="email" type="email" />
+            </div>
+            <styled.SaveButton>Save Changes</styled.SaveButton>
           </styled.PersonalInformations>
           <styled.PersonalInformations>
+            <h2>Security.</h2>
+            <h2>Change your password</h2>
             <div>
-              <h2>Password</h2>
-              <input onChange={handleChange} name="password" type="" />
+             <h2>Password</h2>
+              <styled.Input onChange={handleChange} name="password" type="" />
             </div>
             <div>
               <h2>Confirm Password</h2>
-              <input onChange={handleChange} name="password" type="" />
+              <styled.Input onChange={handleChange} name="password" type="" />
             </div>
-          </styled.PersonalInformations>
-          <styled.Buttons>
-            <styled.SaveButton>Save Changes</styled.SaveButton>
+            
             <styled.DiscardButton>Discard changes</styled.DiscardButton>
-          </styled.Buttons>
-        </styled.EntityEditList>
+            <styled.DiscardButton>Reset Password</styled.DiscardButton>
+          </styled.PersonalInformations> 
+        
+        </styled.UserSettings>
       </styled.EditEntityContainer>
     </styled.SettingsContainer>
   );
