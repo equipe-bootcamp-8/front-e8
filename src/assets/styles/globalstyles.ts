@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
+
 
 export const ModalOverlay = styled.div`
   ${() => css`
@@ -10,5 +12,35 @@ export const ModalOverlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  `}
+`;
+
+export const SearchProduct = styled.div`
+  border: 1px #b6b6b6 solid;
+  width: 25rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 1rem;
+  div {
+    margin: 0 0.5rem 0 1rem;
+  }
+  input {
+    border: none;
+    width: 21rem;
+    margin: 0 1rem 0 1.3rem;
+    outline: none;
+    font-size: 1.6rem;
+  }
+`;
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+    background-image: url(${backgroundProduct});
+    min-width: 90vw;
+    height: calc(100vh - 21vh);
+    color: ${theme.colors.textColor};
+    display: flex;
   `}
 `;
