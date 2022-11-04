@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
+import * as gStyled from "../../assets/styles/globalStyles";
+import backgroundUser from "../../assets/imgs/user-settingsbg.png";
 
 const UserSettings = () => {
   const [data, setData] = useState({email: "", name: "", password: ""});
@@ -32,27 +34,20 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
 const navigate = useNavigate();
 
-
-
   return (
-    <styled.SettingsContainer>
-      <SettingsMenu path={"user"}
-      
-      />
-
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
+      <SettingsMenu path={"user"}/>
       <styled.EditEntityContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
         <styled.EntityEditList onSubmit={onSubmit}>
           <styled.ButtonUpload>Upload image</styled.ButtonUpload>
           {/* não tem imagem no back */}
-
           <styled.PersonalInformations >
             <div>
               <h2>E-mail address</h2>
               <input onChange={handleChange} name="email" type="email" />
             </div>
-
             <div>
               <h2>Name</h2>
               <input onChange={handleChange} name="name" type="name" />
@@ -74,7 +69,7 @@ const navigate = useNavigate();
           </styled.Buttons>
         </styled.EntityEditList>
       </styled.EditEntityContainer>
-    </styled.SettingsContainer>
+    </gStyled.SettingsContainer>
   );
 };
 

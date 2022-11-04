@@ -1,19 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundUser from "../../assets/imgs/user-settingsbg.png";
-
-interface ActiveButtonProps {
-  active?: boolean;
-}
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundUser});
-    min-width: 100%;
-    min-height: calc(100% - 10vh);
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
