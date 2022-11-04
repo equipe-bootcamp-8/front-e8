@@ -36,8 +36,6 @@ export const HeaderProductList = styled.header`
   }
 `;
 
-
-
 export const LaterMenuLetters = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,7 +44,6 @@ export const LaterMenuLetters = styled.div`
   h1 {
     color: #fff;
     text-align: left;
-    margin: 1rem 0 1rem -13.5rem;
 
     hr {
       border: none;
