@@ -36,25 +36,7 @@ export const HeaderProductList = styled.header`
   }
 `;
 
-export const SearchProductList = styled.div`
-  border: 1px #b6b6b6 solid;
-  width: 25rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border-radius: 1rem;
-  div {
-    margin: 0 0.5rem 0 1rem;
-  }
-  input {
-    border: none;
-    width: 21rem;
-    margin: 0 1rem 0 1.3rem;
-    outline: none;
-    font-size: 1.6rem;
-  }
-`;
+
 
 export const LaterMenuLetters = styled.div`
   display: flex;
