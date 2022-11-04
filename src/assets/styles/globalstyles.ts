@@ -41,3 +41,16 @@ export const SettingsContainer = styled.div`
     display: flex;
   `}
 `;
+
+export const EditEntitiesContainer = styled.div`
+  ${() => css`
+    width: 80%;
+    height: 77%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    box-sizing: border-box;
+  `}
+`;
