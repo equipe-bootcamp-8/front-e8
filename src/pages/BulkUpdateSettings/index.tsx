@@ -37,8 +37,6 @@ const BulkUpdateSettings = () => {
         <styled.Bar />
       </div>
       </styled.UpdateContainer>
-          <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
-          <styled.ButtonUpload>Download File</styled.ButtonUpload>
     </gStyled.SettingsContainer>
 
   );
