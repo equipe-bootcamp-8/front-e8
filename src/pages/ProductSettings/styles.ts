@@ -65,19 +65,6 @@ export const SearchInputContainer = styled.div`
   }
 `;
 
-export const EditEntitiesContainer = styled.div`
-  ${() => css`
-    width: 80%;
-    height: 80%;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    box-sizing: border-box;
-  `}
-`;
-
 export const EditEntitiesButton = styled.button<ActiveButtonProps>`
   ${({ theme, active }) => css`
     height: 100%;

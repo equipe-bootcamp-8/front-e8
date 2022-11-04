@@ -9,16 +9,6 @@ export const Bar = styled.div`
   `}
 `;
 
-export const EditEntityContainer = styled.div`
-  ${() => css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 10vh);
-  padding: 0 20px;
-  `}
-`;
-
 export const EntityEditList = styled.form`
   ${({ theme }) => css`
   width: 100%;
