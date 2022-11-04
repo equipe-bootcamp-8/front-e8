@@ -1,8 +1,11 @@
 import SettingsMenu from "components/SettingsMenu";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
+import * as gStyled from "../../assets/styles/globalStyles";
+import backgroundUser from "../../assets/imgs/user-settingsbg.png";
 
 const UserSettings = () => {
   const [data, setData] = useState({email: "", name: "", password: ""});
@@ -29,21 +32,17 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   const response = await api.patch(`/users/${id}`, headers)
 }
 
-
+const navigate = useNavigate();
 
   return (
-    <styled.SettingsContainer>
-      <SettingsMenu path={"user"}
-      
-      />
-
-      <styled.EditEntityContainer>
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
+      <SettingsMenu path={"user"}/>
+      <gStyled.EditEntitiesContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
         <styled.UserSettings onSubmit={onSubmit}>
          
           {/* não tem imagem no back */}
-
           <styled.PersonalInformations >
             <h2>Profile picture & personal informations.</h2>
             <styled.ButtonUpload>Upload image</styled.ButtonUpload>
@@ -69,14 +68,13 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
               <h2>Confirm Password</h2>
               <styled.Input onChange={handleChange} name="password" type="" />
             </div>
-            
             <styled.DiscardButton>Discard changes</styled.DiscardButton>
             <styled.DiscardButton>Reset Password</styled.DiscardButton>
-          </styled.PersonalInformations> 
-        
-        </styled.UserSettings>
-      </styled.EditEntityContainer>
-    </styled.SettingsContainer>
+          </styled.PersonalInformations>     
+        </styled.UserSettings>   
+        </styled.EntityEditList>
+      </gStyled.EditEntitiesContainer>
+    </gStyled.SettingsContainer>
   );
 };
 

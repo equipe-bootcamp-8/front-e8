@@ -1,5 +1,3 @@
-/* import DeleteCategoryModal from "components/DeleteCategoryModal";
-import CategoryModal from "components/CategoryModal"; */
 import CategorySettingsCard from "components/CategorySettingsCard";
 import CategoryModal from "components/Modal/CategoryModal";
 import DeleteCategoryModal from "components/Modal/DeleteCategoryModal";
@@ -8,7 +6,8 @@ import { useCategories } from "contexts/categories";
 import { useState } from "react";
 import { Category } from "types";
 import * as styled from "./styles";
-
+import * as gStyled from "../../assets/styles/globalStyles";
+import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
 
 const CategoriesSettings = () => {
   const { categories } = useCategories();
@@ -27,7 +26,7 @@ const CategoriesSettings = () => {
   /* --------- */
 
   return (
-    <styled.SettingsContainer>
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundProduct})`}}>
       <SettingsMenu path={"categories"} />
       <styled.EditEntitiesContainer>
         <h2>Manage Categories</h2>
@@ -35,11 +34,6 @@ const CategoriesSettings = () => {
           <p>Create Category</p>
         </styled.AddEntitieCard>
         <styled.Bar />
-     {/*    <styled.SearchInputContainer>
-          <input
-          
-          />
-        </styled.SearchInputContainer> */}
         <styled.Header>
         <h2>Name</h2>
         <h2>Action</h2>
@@ -57,7 +51,6 @@ const CategoriesSettings = () => {
           ))} 
         </styled.EntitiesEditList>
       </styled.EditEntitiesContainer>
-
        {openModal && (
         <CategoryModal
           setCategory={setCategory}
@@ -65,7 +58,6 @@ const CategoriesSettings = () => {
           handleOpenModal={handleOpenModal}
         />
       )}
-
       {openDeleteModal && (
         <DeleteCategoryModal
           setCategory={setCategory}
@@ -73,7 +65,7 @@ const CategoriesSettings = () => {
           handleOpenDeleteModal={handleOpenDeleteModal}
         />
       )} 
-    </styled.SettingsContainer>
+    </gStyled.SettingsContainer>
   );
 };
 

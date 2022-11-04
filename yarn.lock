@@ -1200,6 +1200,11 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
+"@emailjs/browser@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@emailjs/browser/-/browser-3.9.0.tgz#e2f85afada83c5b532e744250885edb7006b97f0"
+  integrity sha512-NyWRmPUS0gg2Z+ygLMNSBcHNwlPFL0cEs6u62AwxNO5EjlYQiWHU///LYOfPM54ZZOoHJ2gNVUU+VnnMrKXraA==
+
 "@emotion/is-prop-valid@^1.1.0":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-1.2.0.tgz"

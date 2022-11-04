@@ -1,15 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundUpdate});
-    min-width: 100%;
-    min-height: 100%;
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`

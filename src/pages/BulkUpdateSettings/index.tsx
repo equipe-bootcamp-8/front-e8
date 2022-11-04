@@ -1,10 +1,11 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
-
+import * as gStyled from "../../assets/styles/globalStyles"
+import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 
 const BulkUpdateSettings = () => {
   return (
-    <styled.SettingsContainer>
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUpdate})`}}>
       <SettingsMenu path={"update"} />
 
       <styled.UpdateContainer>
@@ -36,8 +37,10 @@ const BulkUpdateSettings = () => {
         <styled.Bar />
       </div>
       </styled.UpdateContainer>
-     
-    </styled.SettingsContainer>
+          <styled.ButtonUpload>Upload Spreadsheet</styled.ButtonUpload>
+          <styled.ButtonUpload>Download File</styled.ButtonUpload>
+    </gStyled.SettingsContainer>
+
   );
 };
 

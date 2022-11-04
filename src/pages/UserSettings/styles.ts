@@ -1,20 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundUser from "../../assets/imgs/user-settingsbg.png";
-
-interface ActiveButtonProps {
-  active?: boolean;
-}
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundUser});
-    object-fit: fill;
-    min-width: 100%;
-    min-height: calc(100% - 72.5px);
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
@@ -22,20 +6,6 @@ export const Bar = styled.div`
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
     background-color: #0C0E4F;
-  `}
-`;
-
-export const EditEntityContainer = styled.div`
-  ${() => css`
-    width: 80%;
-    height: 80%;
-    padding: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    box-sizing: border-box;
   `}
 `;
 
@@ -76,6 +46,7 @@ export const ButtonUpload = styled.button`
     font-size: 1.8rem;
     font-weight: 400;
     border-radius: 50%;
+    margin: 10px 0 10px 0;
     cursor: pointer;
   `}
 `;
@@ -120,9 +91,10 @@ export const SaveButton = styled.button`
     color: ${theme.colors.textColor2};
     font-size: 1.8rem;
     font-weight: 200;
+    margin-top: 20px;
 	transition-duration: 0.5s;
     :hover {
-      background-color: #fafafa;
+      background-color: #035295;
       color: black;
     }
   `}
@@ -134,11 +106,12 @@ export const DiscardButton = styled.button`
     width: 35rem;
     height: 4rem;
     background: #035295;
-    border: 1px solid #000000;
+    border: 1px #dadada;
     cursor: pointer;
     color: ${theme.colors.textColor2};
     font-size: 1.8rem;
     font-weight: 200;
+    margin-top: 20px;
 	transition-duration: 0.5s;
     :hover {
       background-color: #EC4752;
