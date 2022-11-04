@@ -1,19 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundUser from "../../assets/imgs/user-settingsbg.png";
-
-interface ActiveButtonProps {
-  active?: boolean;
-}
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundUser});
-    min-width: 100%;
-    min-height: calc(100% - 10vh);
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
@@ -21,16 +6,6 @@ export const Bar = styled.div`
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
     background-color: #0C0E4F;
-  `}
-`;
-
-export const EditEntityContainer = styled.div`
-  ${() => css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 10vh);
-  padding: 0 20px;
   `}
 `;
 

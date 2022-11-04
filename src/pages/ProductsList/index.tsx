@@ -6,7 +6,7 @@ import { useProducts } from "contexts/products";
 import { useState } from "react";
 import { useCategories } from "contexts/categories";
 import { Category } from "types";
-import * as gStyled from "../../assets/styles/globalstyles";
+import * as gStyled from "../../assets/styles/globalStyles";
 
 const ProductsList = () => {
   const { products } = useProducts();
