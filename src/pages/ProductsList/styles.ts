@@ -14,7 +14,6 @@ export const LaterMenu = styled.div`
 
 export const HeaderProductList = styled.header`
   width: 90vw;
-  height: 9%;
   margin: 5rem;
   display: flex;
   justify-content: space-between;

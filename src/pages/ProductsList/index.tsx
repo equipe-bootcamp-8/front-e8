@@ -38,7 +38,7 @@ const ProductsList = () => {
         </Styled.LaterMenuLetters>
       </Styled.LaterMenu>
       <Styled.FilterContainer>
-        <Styled.Filter>
+        {/* <Styled.Filter>
           <h3>Selected Filters</h3>
           <p>Preço</p>
           <input type="range" name="preco" id="preco" />
@@ -62,7 +62,7 @@ const ProductsList = () => {
             ))}
           <input type="button" value="Filtrar" />
           <button onClick={() => setSelectedCategory([])}>Clear</button>
-        </Styled.Filter>
+        </Styled.Filter> */}
         <section>
           <Styled.HeaderProductList>
             <gStyled.SearchProduct>
@@ -79,14 +79,14 @@ const ProductsList = () => {
                   return element;
                 } else return false;
               })
-              .filter((element) => {
-                if (!selectedCategory.name) {
-                  return element;
-                }
-                if (selectedCategory.name === element.categoryName) {
-                  return element;
-                }
-              })
+              // .filter((element) => {
+              //   if (!selectedCategory.name) {
+              //     return element;
+              //   }
+              //   if (selectedCategory.name === element.categoryName) {
+              //     return element;
+              //   }
+              // })
               .map((element) => (
                 <ProductsCard product={element} key={element.id} />
               ))}
