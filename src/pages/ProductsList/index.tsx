@@ -3,7 +3,7 @@ import ProductsCard from "components/ProductsCard";
 import * as Styled from "./styles";
 import meeting from "../../assets/imgs/meeting.png";
 import { useProducts } from "contexts/products";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCategories } from "contexts/categories";
 import { Category } from "types";
 import * as gStyled from "../../assets/styles/globalStyles";
@@ -12,8 +12,15 @@ const ProductsList = () => {
   const { products } = useProducts();
   const { categories } = useCategories();
   const [search, setSearch] = useState("");
+  const [clicked, setClicked] = useState(false);
 
-  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0] || ({} as Category));
+  const [selectedCategory, setSelectedCategory] = useState<any>(
+    categories[0] || ({} as Category)
+  );
+
+  console.log(categories);
+
+  useEffect(() => {}, []);
 
   return (
     <div>
@@ -41,19 +48,20 @@ const ProductsList = () => {
               <Styled.ButtonsContainer>
                 <label htmlFor={element.name}>
                   <input
-                    type="checkbox"
+                    type="radio"
                     placeholder={element.name}
                     id={element.name}
+                    name="filterCategories"
                     onChange={() => {
-                      console.log(element.name);
                       setSelectedCategory(element);
                     }}
-                  />
+                  />{" "}
                   {element.name}
                 </label>
               </Styled.ButtonsContainer>
             ))}
           <input type="button" value="Filtrar" />
+          <button onClick={() => setSelectedCategory([])}>Clear</button>
         </Styled.Filter>
         <section>
           <Styled.HeaderProductList>
@@ -72,6 +80,9 @@ const ProductsList = () => {
                 } else return false;
               })
               .filter((element) => {
+                if (!selectedCategory.name) {
+                  return element;
+                }
                 if (selectedCategory.name === element.categoryName) {
                   return element;
                 }
