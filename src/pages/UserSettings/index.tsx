@@ -72,7 +72,6 @@ const navigate = useNavigate();
             <styled.DiscardButton>Reset Password</styled.DiscardButton>
           </styled.PersonalInformations>     
         </styled.UserSettings>   
-        </styled.EntityEditList>
       </gStyled.EditEntitiesContainer>
     </gStyled.SettingsContainer>
   );
