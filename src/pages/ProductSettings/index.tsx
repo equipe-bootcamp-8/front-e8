@@ -7,6 +7,7 @@ import { useProducts } from "contexts/products";
 import { useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
+import * as gStyled from "../../assets/styles/globalstyles"
 
 const ProductSettings = () => {
   const { products } = useProducts();
@@ -36,10 +37,12 @@ const ProductSettings = () => {
         <styled.AddEntitieCard onClick={handleOpenModal}>
             <p>Create Product</p>
          </styled.AddEntitieCard>
-        <styled.SearchInputContainer>
-          <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
-        </styled.SearchInputContainer>
-
+         <gStyled.SearchProduct>
+              <div>
+                <SearchIcon />
+              </div>
+              <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
+          </gStyled.SearchProduct>
         </styled.SettingsNav>
         <styled.Bar />
         <styled.Header>
