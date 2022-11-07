@@ -11,8 +11,6 @@ export const Bar = styled.div`
 
 export const UserSettings = styled.form`
   ${({ theme }) => css`
-    width: 95%;
-    height: 85%;
     display: flex;
     flex-direction: row;
     padding: 1.5rem;
@@ -23,14 +21,12 @@ export const UserSettings = styled.form`
 
 export const Input = styled.input`
   ${({ theme}) => css`
-    all: unset;
-    min-width: 30rem;
+    width: 25%;
     padding: 0 1rem;
     box-sizing: border-box;
-    min-height: 3rem;
-    background-color: ${theme.colors.baseForm};
-    border: 1px solid ${theme.colors.baseLine};
-    border-radius: 8px;
+    min-height: 1.5rem;
+    background-color: red;
+        border-radius: 8px;
     color: ${theme.colors.baseLine};
   `}
 `;
@@ -40,9 +36,9 @@ export const ButtonUpload = styled.button`
   ${({ theme }) => css`
     width: 24rem;
     height: 24rem;
-    background-color: rgba(12, 7, 7, 0.62);
-    color: ${theme.colors.textColor2};
-    border: 1px solid #000000;
+    background: #035295;
+    color: #fafafa;
+    border: 1px solid #dadada;
     font-size: 1.8rem;
     font-weight: 400;
     border-radius: 50%;
@@ -62,13 +58,17 @@ export const PersonalInformations = styled.div`
       margin-bottom: 1rem;
     }
     input {
-      width: 40rem;
+      width: 35rem;
       height: 4rem;
-      background: rgba(0, 0, 0, 0.32);
-      border: 1px solid #000000;
+      background: rgba(205, 209, 228, 0.55);
+      border: 1px solid #d2d2d2;
       color: ${theme.colors.textColor};
       border-radius: 8px;
+      @media screen and (max-width: 960px) {
+      width: 25rem;
+	}
     }
+
   `}
 `;
 
@@ -84,7 +84,7 @@ export const SaveButton = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.baseDarkBlue};
     border-radius: 8px;
-    width: 35rem;
+    width: 25rem;
     height: 4rem;
     border: 1px solid #000000;
     cursor: pointer;
@@ -103,7 +103,7 @@ export const SaveButton = styled.button`
 export const DiscardButton = styled.button`
   ${({ theme }) => css`
     border-radius: 8px;
-    width: 35rem;
+    width: 25rem;
     height: 4rem;
     background: #035295;
     border: 1px #dadada;

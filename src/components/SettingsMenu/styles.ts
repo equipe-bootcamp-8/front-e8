@@ -17,6 +17,9 @@ export const SettingsNavigationContainer = styled.div`
   		background-size: cover;
   		background-position: center;
 	`}
+	@media screen and (max-width: 960px) {
+		width: 100%
+	}
 `;
 
 

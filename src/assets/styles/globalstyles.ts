@@ -35,11 +35,14 @@ export const SearchProduct = styled.div`
 
 export const SettingsContainer = styled.div`
   ${({ theme }) => css`
-    min-width: 90vw;
+    min-width: 100vw;
     height: calc(100vh - 21vh);
     color: ${theme.colors.textColor};
     display: flex;
   `}
+  @media screen and (max-width: 960px) {
+    overflow: scroll;
+	}
 `;
 
 export const EditEntitiesContainer = styled.div`
@@ -53,4 +56,5 @@ export const EditEntitiesContainer = styled.div`
     margin-right: 2rem;
     box-sizing: border-box;
   `}
+  
 `;
