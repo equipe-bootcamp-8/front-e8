@@ -56,5 +56,4 @@ export const EditEntitiesContainer = styled.div`
     margin-right: 2rem;
     box-sizing: border-box;
   `}
-  
 `;
