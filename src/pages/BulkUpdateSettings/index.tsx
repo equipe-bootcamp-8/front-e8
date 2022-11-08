@@ -1,11 +1,25 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
-import * as gStyled from "../../assets/styles/globalStyles"
+import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
+import * as XLSX from "xlsx";
 
 const BulkUpdateSettings = () => {
+  const handleFile = async (e: any) => {
+    const file = e.target.files[0];
+    const data = await file.arrayBuffer();
+    const workbook = XLSX.read(data);
+
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]]
+    const jsonData = XLSX.utils.sheet_to_json(worksheet)
+
+    console.log(jsonData);
+  };
+
   return (
-    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUpdate})`}}>
+    <gStyled.SettingsContainer
+      style={{ backgroundImage: `url(${backgroundUpdate})` }}
+    >
       <SettingsMenu path={"update"} />
 
       <styled.UpdateContainer>
@@ -16,29 +30,27 @@ const BulkUpdateSettings = () => {
             type="file"
             id="file"
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+            onChange={(e) => handleFile(e)}
           />
-          <styled.Label htmlFor="file">
-            Import file
-          </styled.Label>
+          <styled.Label htmlFor="file">Import file</styled.Label>
           <styled.DownloadButton>Download File</styled.DownloadButton>
         </styled.BoardButtons>
         <div>
-      <h2>Change history</h2>
-        <styled.Bar />
-        <styled.Header>
-          <h3>Name</h3>
-          <h3>Date</h3>
-        </styled.Header>
-        <styled.Bar />
-        <styled.userData>
-          <h3>User name / e-mail</h3>
-          <h3>00/00/0000 at 11:11</h3>
-        </styled.userData>
-        <styled.Bar />
-      </div>
+          <h2>Change history</h2>
+          <styled.Bar />
+          <styled.Header>
+            <h3>Name</h3>
+            <h3>Date</h3>
+          </styled.Header>
+          <styled.Bar />
+          <styled.userData>
+            <h3>User name / e-mail</h3>
+            <h3>00/00/0000 at 11:11</h3>
+          </styled.userData>
+          <styled.Bar />
+        </div>
       </styled.UpdateContainer>
     </gStyled.SettingsContainer>
-
   );
 };
 
