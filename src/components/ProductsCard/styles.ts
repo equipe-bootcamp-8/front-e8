@@ -11,7 +11,7 @@ export const ProductsCardList = styled.div`
   margin: 4rem 1rem 0 5rem;
   transition: all 0.3s;
   background: #F8F8F8;
-  box-shadow: 0px 4px 4px #000000;
+  box-shadow: 0px 4px 4px #BFBFBF;
   text-align: left;
   img {
     border-radius: 0.563rem 0.563rem 0 0 ;

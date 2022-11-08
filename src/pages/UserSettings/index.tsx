@@ -35,6 +35,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 const navigate = useNavigate();
 
   return (
+
     <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
       <SettingsMenu path={"user"}/>
       <gStyled.EditEntitiesContainer>
