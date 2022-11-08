@@ -4,7 +4,7 @@ export const ProductsCardList = styled.div`
   ${({theme }) => css`
   cursor: pointer;
   width: 23rem;
-  height: 35rem;
+  height: 35.7rem;
   border: none black solid;
   border-radius: 0.563rem;
   text-align: center;

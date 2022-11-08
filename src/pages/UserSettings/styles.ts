@@ -17,7 +17,7 @@ export const UserSettings = styled.form`
     flex-direction: row;
     padding: 1.5rem;
     box-sizing: border-box;
-    gap: 3rem;
+    gap: .2rem;
   `}
 `;
 
@@ -75,8 +75,8 @@ export const PersonalInformations = styled.div`
 export const Buttons = styled.div`
   ${() => css`
     display: flex;
-    flex-direction: row;
-    gap: 5rem;
+    flex-direction: column;
+    gap: .5rem;
   `}
 `;
 

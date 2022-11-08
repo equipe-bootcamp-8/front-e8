@@ -58,7 +58,7 @@ function AboutUs() {
         <ReactIcon />
         <PostgresIcon />
         <TypeScriptIcon />
-        <PrismaIcon />
+     
       </styled.TechIcons>
       <styled.TeamCards>
         <h1>Our team</h1>

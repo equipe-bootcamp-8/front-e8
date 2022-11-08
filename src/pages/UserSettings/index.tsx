@@ -44,8 +44,8 @@ const navigate = useNavigate();
          
           {/* não tem imagem no back */}
           <styled.PersonalInformations >
-            <h2>Profile picture & personal informations.</h2>
-            <styled.ButtonUpload>Upload image</styled.ButtonUpload>
+            <h2>Personal informations.</h2>
+          {/*   <styled.ButtonUpload>Upload image</styled.ButtonUpload> */}
 
             <div>
               <h2>Company name / Your name</h2>
@@ -59,7 +59,7 @@ const navigate = useNavigate();
           </styled.PersonalInformations>
           <styled.PersonalInformations>
             <h2>Security.</h2>
-            <h2>Change your password</h2>
+            
             <div>
              <h2>Password</h2>
               <styled.Input onChange={handleChange} name="password" type="" />
@@ -68,8 +68,11 @@ const navigate = useNavigate();
               <h2>Confirm Password</h2>
               <styled.Input onChange={handleChange} name="password" type="" />
             </div>
+            <styled.Buttons>
             <styled.DiscardButton>Discard changes</styled.DiscardButton>
             <styled.DiscardButton>Reset Password</styled.DiscardButton>
+            </styled.Buttons>
+            
           </styled.PersonalInformations>     
         </styled.UserSettings>   
       </gStyled.EditEntitiesContainer>
