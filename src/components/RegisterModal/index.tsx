@@ -103,6 +103,7 @@ const RegisterModal = () => {
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
           <button type="submit">Create</button>
+          <button onClick={() => navigate("/validate")}>Test</button>
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy

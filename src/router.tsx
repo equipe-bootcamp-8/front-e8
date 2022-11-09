@@ -3,9 +3,6 @@ import Login from "pages/Login";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
 import Createuser from "pages/Createuser";
-import Navbar from "components/Navbar";
-import NavBarLoginRegister from "components/NavBarLoginRegister";
-import { useState, useContext } from "react";
 import BulkUpdateSettings from "pages/BulkUpdateSettings";
 import UserSettings from "pages/UserSettings";
 import ProductSettings from "pages/ProductSettings";
@@ -13,6 +10,7 @@ import Settings from "pages/Settings";
 import AboutUs from "pages/AboutUs";
 import ProductDetails from "pages/ProductDetails";
 import CategoriesSettings from "pages/CategoriesSettings";
+import Validate from "pages/Validate";
 
 const Router = () => {
   const token = localStorage.getItem("token");
@@ -33,6 +31,7 @@ const Router = () => {
         <>
           <Route path={RoutePath.HOME} element={<ProductsList />} />
           <Route path={RoutePath.LOGIN} element={<Login />} />
+          <Route path={RoutePath.VALIDATE_USER} element={<Validate />} />
           <Route path={RoutePath.CREATE_USER} element={<Createuser />} />
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
         </>
