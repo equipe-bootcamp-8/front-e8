@@ -14,12 +14,23 @@ const ProductSettingsCard = ({
 }: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>
-      <h3>{product.code}</h3>
-      <h3>{product.name}</h3>
-      <h3>{product.categoryName}</h3>
-      <h3>{product.price}</h3>
-      <img src={product.image}/> 
       <div>
+      <h3>{product.code}</h3>
+      </div>
+ <div>
+ <h3>{product.name}</h3>
+ </div>
+     <div>
+     <h3>{product.categoryName}</h3>
+     </div>
+     <div>
+     <h3>{product.price}</h3>
+     </div>
+     <div>
+     <img src={product.image}/> 
+     </div>
+  
+      <section>
         <styled.ProductSettingsEditCardButton
         onClick={() => {
           setProduct(product);
@@ -36,7 +47,7 @@ const ProductSettingsCard = ({
         >
           Delete
         </styled.ProductSettingsDeleteCardButton>
-      </div>
+      </section>
     </styled.ProductSettingsCardContainer>
   );
 };

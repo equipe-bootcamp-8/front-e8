@@ -12,6 +12,7 @@ export const SettingsContainer = styled.div`
     height: calc(100vh - 10vh);
     color: ${theme.colors.textColor};
     display: flex;
+    overflow-y: hidden;
   `}
 `;
 
@@ -37,13 +38,16 @@ export const Header = styled.div`
   font-size: 1.5rem;
   text-align: center;
   div {
-    display: flex;
-      flex-direction: row;
+      display: flex;
+      justify-content: center;
+      width: 8rem;
+    }
+    section {
+      display: flex;
       justify-content: center;
       width: 23rem;
-      padding: 1rem;
-      gap: .5rem; 
-  }
+      
+    }
   `}
 `;
 

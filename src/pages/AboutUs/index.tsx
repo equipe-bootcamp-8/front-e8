@@ -38,7 +38,7 @@ function AboutUs() {
           </p>
         </div>
       </styled.TextBox>
-      <styled.TextBox>
+      <styled.MiddleTextBox>
         <div>
           <h1>Technologies</h1>
           <p>
@@ -52,7 +52,7 @@ function AboutUs() {
             the company.
           </p>
         </div>
-      </styled.TextBox>
+      </styled.MiddleTextBox>
       <styled.TechIcons>
         <NestIcon />
         <ReactIcon />
