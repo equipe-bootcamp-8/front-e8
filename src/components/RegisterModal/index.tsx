@@ -26,7 +26,7 @@ const loginSchema = yup.object().shape({
     .string()
     .min(8, "Your password must be at least 8 characters long")
     .matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#.])[0-9a-zA-Z$*&@#.]{8,}$/,
       "Your password must have at least one special character, one number and one capital letter."
     )
     .required("Required password field"),
