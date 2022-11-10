@@ -19,10 +19,8 @@ export interface Category {
 }
 
 export interface Users {
-  id?: string;
   name?: string;
   email?: string;
-  password?: string;
   image?:string;
   createdAt?: Date;
   updatedAt?: Date;

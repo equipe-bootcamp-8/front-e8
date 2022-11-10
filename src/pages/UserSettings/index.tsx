@@ -8,7 +8,7 @@ import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUser from "../../assets/imgs/user-settingsbg.png";
 
 const UserSettings = () => {
-  const [data, setData] = useState({email: "", name: "", password: ""});
+  const [data, setData] = useState({email: "", name: "", image: ""});
   const useContext = useAuth();
   const id = useContext.user.id
 
@@ -43,10 +43,10 @@ const navigate = useNavigate();
         <styled.Bar/>
         <styled.UserSettings onSubmit={onSubmit}>
          
-          {/* não tem imagem no back */}
+          
           <styled.PersonalInformations >
             <h2>Personal informations.</h2>
-          {/*   <styled.ButtonUpload>Upload image</styled.ButtonUpload> */}
+            <styled.Input onChange={handleChange} name="image" type="file" />
 
             <div>
               <h2>Company name / Your name</h2>
@@ -62,12 +62,6 @@ const navigate = useNavigate();
             <h2>Security.</h2>
             
             <div>
-             <h2>Password</h2>
-              <styled.Input onChange={handleChange} name="password" type="" />
-            </div>
-            <div>
-              <h2>Confirm Password</h2>
-              <styled.Input onChange={handleChange} name="password" type="" />
             </div>
             <styled.Buttons>
             <styled.DiscardButton>Discard changes</styled.DiscardButton>
