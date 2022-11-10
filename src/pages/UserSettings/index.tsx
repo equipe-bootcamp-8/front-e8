@@ -9,8 +9,8 @@ import backgroundUser from "../../assets/imgs/user-settingsbg.png";
 
 const UserSettings = () => {
   const [data, setData] = useState({email: "", name: "", image: ""});
-  const useContext = useAuth();
-  const id = useContext.user.id
+  const {user} = useAuth();
+  // const id = useContext.user.id
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ 
@@ -29,7 +29,7 @@ const UserSettings = () => {
  
 const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
-  const response = await api.patch(`/users/${id}`, headers)
+  const response = await api.patch(`/users/${user.id}`, headers)
 }
 
 const navigate = useNavigate();
