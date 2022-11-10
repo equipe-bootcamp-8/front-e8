@@ -21,7 +21,7 @@ const ProductsList = () => {
     products[0]?.price || ({} as Product)
   );
 
-  const [inputValue, setInputValue] = useState<boolean>(false);
+  const [currentFilter, setCurrentFilter] = useState(0);
 
   const [selectedCategory, setSelectedCategory] = useState<any>(
     categories[0] || ({} as Category)
@@ -40,7 +40,6 @@ const ProductsList = () => {
     setFilteredProducts(filterProducts());
   }, [maxPrice]);
 
-  console.log(filteredProducts);
   return (
     <div>
       <Styled.LaterMenu>
@@ -65,8 +64,9 @@ const ProductsList = () => {
             name="price"
             id="priceone"
             onChange={() => {
-              setMinPrice(0);
+              setMinPrice(1);
               setMaxPrice(350);
+              setCurrentFilter(1);
             }}
           />
           <label htmlFor="priceone"> Até 350,00</label> <br />
@@ -77,6 +77,7 @@ const ProductsList = () => {
             onChange={() => {
               setMinPrice(351);
               setMaxPrice(600);
+              setCurrentFilter(1);
             }}
           />
           <label htmlFor="pricetwo"> 350,00 - 600,00</label> <br />
@@ -87,6 +88,7 @@ const ProductsList = () => {
             onChange={() => {
               setMinPrice(601);
               setMaxPrice(1000);
+              setCurrentFilter(1);
             }}
           />
           <label htmlFor="pricethree"> 600,00 - 1000,00</label> <br />
@@ -97,6 +99,7 @@ const ProductsList = () => {
             onChange={() => {
               setMinPrice(1001);
               setMaxPrice(9999999);
+              setCurrentFilter(1);
             }}
           />
           <label htmlFor="pricefour"> Acima de 1000,00</label> <br />
@@ -106,7 +109,9 @@ const ProductsList = () => {
               <Styled.ButtonsContainer>
                 <label htmlFor={element.name}>
                   <button
-                    onClick={() => {
+                    type="button"
+                    onClick={(event) => {
+                      event.preventDefault();
                       setSelectedCategory(element);
                     }}
                   >
@@ -116,11 +121,11 @@ const ProductsList = () => {
               </Styled.ButtonsContainer>
             ))}
           <button
+            type="reset"
             onClick={() => {
               setSelectedCategory([]);
-              setMaxPrice(maxPrice);
               setMinPrice(0);
-              setInputValue(false);
+              setMaxPrice(999999999);
             }}
           >
             Clear
@@ -155,12 +160,13 @@ const ProductsList = () => {
                 }
               })
               .filter((element) => {
-                if (minPrice <= element.price && element.price <= maxPrice) {
+                if (currentFilter == 0) {
                   return element;
                 }
-                // if (maxPrice) {
-                //   return element;
-                // }
+                if (minPrice <= element.price && element.price <= maxPrice) {
+                  console.log(minPrice, maxPrice);
+                  return element;
+                }
               })
 
               .map((element) => (
