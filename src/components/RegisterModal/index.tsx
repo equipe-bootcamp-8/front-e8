@@ -5,6 +5,7 @@ import * as Styled from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import SendEmailVerification from "services/email";
 
 interface LoginData {
   email: string;
@@ -39,7 +40,9 @@ const RegisterModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
+  } = useForm<LoginData>({
+    resolver: yupResolver(loginSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -52,9 +55,15 @@ const RegisterModal = () => {
 
     api
       .post("/users", data)
-      .then(() => {
+      .then((res: any) => {
         navigate("/validate");
         toast.success("Successfully registered user");
+        const user = {
+          id: res.data.id,
+          name: res.data.name,
+          email: res.data.email,
+        };
+        SendEmailVerification(user);
       })
       .catch(() => {
         toast.error("User already registered");
