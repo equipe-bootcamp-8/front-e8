@@ -57,7 +57,7 @@ export const LaterMenuLetters = styled.div`
   }
 `;
 
-export const FilterContainer = styled.div`
+export const FilterContainer = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
