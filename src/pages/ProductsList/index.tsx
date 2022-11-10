@@ -57,8 +57,8 @@ const ProductsList = () => {
       </Styled.LaterMenu>
       <Styled.FilterContainer>
         <Styled.Filter>
-          <h3>Selected Filters</h3>
-          <p>Price</p>
+          <h3>Filters</h3>
+          <p>Price Range</p>
           <input
             type="radio"
             name="price"
@@ -69,7 +69,7 @@ const ProductsList = () => {
               setCurrentFilter(1);
             }}
           />
-          <label htmlFor="priceone"> Até 350,00</label> <br />
+          <label htmlFor="priceone"> Up to 350,00</label> <br />
           <input
             type="radio"
             name="price"
@@ -102,8 +102,8 @@ const ProductsList = () => {
               setCurrentFilter(1);
             }}
           />
-          <label htmlFor="pricefour"> Acima de 1000,00</label> <br />
-          <p>Colection</p>
+          <label htmlFor="pricefour"> Over 1000,00</label> <br />
+          <p>Collection</p>
           {categories.length > 0 &&
             categories.map((element) => (
               <Styled.ButtonsContainer>
@@ -120,7 +120,7 @@ const ProductsList = () => {
                 </label>
               </Styled.ButtonsContainer>
             ))}
-          <button
+          <Styled.ClearButton
             type="reset"
             onClick={() => {
               setSelectedCategory([]);
@@ -129,7 +129,7 @@ const ProductsList = () => {
             }}
           >
             Clear
-          </button>
+          </Styled.ClearButton>
         </Styled.Filter>
         <section>
           <Styled.HeaderProductList>

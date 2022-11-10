@@ -10,6 +10,7 @@ export const Bar = styled.div`
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
     background-color: #0c0e4f;
+    
   `}
 `;
 
