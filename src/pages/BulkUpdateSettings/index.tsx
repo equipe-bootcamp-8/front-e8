@@ -3,17 +3,73 @@ import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 import * as XLSX from "xlsx";
+import { useEffect, useState } from "react";
+import api from "services";
+import { useProducts } from "contexts/products";
+import { MenuItem } from "components/Navbar/styles";
 
 const BulkUpdateSettings = () => {
+  const [sheet, setSheet] = useState<any>([]);
+  const { products } = useProducts();
+
+  // const [categoryName, setcategoryName] = useState<string>(
+  //   product ? product.categoryName : ""
+  // );
+
+  const token = localStorage.getItem("token");
+
+  const headers = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  // const handleUpdateProduct = (data: ProductData) => {
+  //   data.categoryName = categoryName;
+  //  api.patch(`/products/${product?.id}`, data, headers).then(() => {
+  //     toast.success("Product updated succesfully!");
+  //     handleGetProducts();
+  //     handleOpenModal();
+  //     setProduct(undefined);
+  //   });
+  // };
+
   const handleFile = async (e: any) => {
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
 
-    const worksheet = workbook.Sheets[workbook.SheetNames[0]]
-    const jsonData = XLSX.utils.sheet_to_json(worksheet)
+    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
+    setSheet(jsonData);
     console.log(jsonData);
+  };
+
+  const sheetId = sheet.map((item: any) => item.id);
+
+  // const productCode = products.map((item) => item.id);
+
+  console.log(sheetId);
+  // console.log(productCode);
+
+  // const filter = sheetId.filter((a: number) => productCode.includes(a));
+
+  const handleUpdateExcel = (e: { preventDefault: () => void }) => {
+    
+    sheet.map((item: { code: number; discount: number }) => {
+      // eslint-disable-next-line array-callback-return
+      products.map((product) => {
+        // eslint-disable-next-line array-callback-return
+
+        const value = product.price * (item.discount / 100);
+
+        const data = { price: value.toFixed(2) };
+
+        console.log(data);
+      });
+      // api.patch(`/products/${item?.code}`, data, headers).then();
+    });
   };
 
   return (
@@ -32,6 +88,7 @@ const BulkUpdateSettings = () => {
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
             onChange={(e) => handleFile(e)}
           />
+          <button onClick={(e) => handleUpdateExcel(e)}>enviar</button>
           <styled.Label htmlFor="file">Import file</styled.Label>
           <styled.DownloadButton>Download File</styled.DownloadButton>
         </styled.BoardButtons>
