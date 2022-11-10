@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
 import { MenuItem } from "components/Navbar/styles";
+import toast from "react-hot-toast";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
@@ -58,17 +59,15 @@ const BulkUpdateSettings = () => {
   const handleUpdateExcel = (e: { preventDefault: () => void }) => {
     
     sheet.map((item: { code: number; discount: number }) => {
-      // eslint-disable-next-line array-callback-return
+
       products.map((product) => {
-        // eslint-disable-next-line array-callback-return
-
-        const value = product.price * (item.discount / 100);
-
-        const data = { price: value.toFixed(2) };
-
-        console.log(data);
+        if (item.code === product.code){
+          const value = product.price * (item.discount / 100);
+          const data = { price: value.toFixed(2) };
+          
+          api.patch(`/products/${product.id}`, data, headers);
+        }
       });
-      // api.patch(`/products/${item?.code}`, data, headers).then();
     });
   };
 
