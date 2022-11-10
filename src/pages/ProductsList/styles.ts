@@ -88,8 +88,10 @@ export const Filter = styled.section`
   p {
     margin: 2rem 0 0.5rem 0;
     font-size: 2rem;
-    font-weight: 
+    font-weight: 400;
   }  
+
+
 `;
 
 export const ButtonsContainer = styled.div`
