@@ -6,6 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SendEmailVerification from "services/email";
+import { useState } from "react";
+import ValidationModal from "components/ValidationModal";
 
 interface LoginData {
   email: string;
@@ -70,6 +72,13 @@ const RegisterModal = () => {
       });
   };
 
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <Styled.Body>
       <Styled.FormOverlay>
@@ -111,8 +120,9 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <button type="submit">Create</button>
-          <button onClick={() => navigate("/validate")}>Test</button>
+          <Styled.CreateButton onClick={handleOpenModal}>Create</Styled.CreateButton>
+         
+          {openModal && <ValidationModal handleOpenModal={handleOpenModal} />}
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
@@ -121,7 +131,9 @@ const RegisterModal = () => {
       <Styled.a onClick={() => navigate("/")}>
         I already have an account
       </Styled.a>
+    
     </Styled.Body>
+    
   );
 };
 

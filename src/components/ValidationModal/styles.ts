@@ -1,39 +1,37 @@
 import styled, { css } from "styled-components";
-import bglogin from "../../assets/imgs/bglogin.png";
 
-export const Background = styled.div`
-  background-image: url(${bglogin});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 10vh);
-`;
 
 export const Container = styled.div`
   ${() => css`
-    width: 750px;
-    height: 427px;
-    left: 308px;
-    top: 171px;
+    width: 550px;
+    height: 30rem;
     background: #bfcde9;
     border-radius: 10px;
-    padding: 3rem;
+    padding: 2rem;
+  `}
+`;
+
+export const FormHeader = styled.section`
+  ${({theme}) => css`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    img {
+      color: ${theme.colors.textColor};
+      width: 3rem;
+      cursor: pointer;
+}
   `}
 `;
 
 export const Copy = styled.div`
   ${() => css`
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 2rem;
-    gap: 3rem;
-    width: 332px;
-    height: 247px;
+    gap: 1rem;
   `}
 `;
 
@@ -49,7 +47,7 @@ export const ConfirmButton = styled.button`
     color: ${theme.colors.textColor2};
     font-size: 1.9rem;
     border-radius: 12px;
-    margin-top: 4rem;
+    margin-top: 3rem;
     width: 100%;
     height: 5rem;
   `}

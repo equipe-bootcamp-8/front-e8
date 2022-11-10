@@ -1,17 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Modal = styled.section`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `}
-`;
 
 export const ModalHeader = styled.div`
   ${({ theme }) => css`
