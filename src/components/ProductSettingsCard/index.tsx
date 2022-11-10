@@ -18,21 +18,21 @@ const ProductSettingsCard = ({
       <h3>{product.name}</h3>
       <h3>{product.categoryName}</h3>
       <h3>{product.price}</h3>
-      <img src={product.image}/> 
+      <img src={product.image} alt={product.name} />
       <div>
         <styled.ProductSettingsEditCardButton
-        onClick={() => {
-          setProduct(product);
-          handleOpenModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenModal();
+          }}
         >
           Edit
         </styled.ProductSettingsEditCardButton>
         <styled.ProductSettingsDeleteCardButton
-         onClick={() => {
-          setProduct(product);
-          handleOpenDeleteModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenDeleteModal();
+          }}
         >
           Delete
         </styled.ProductSettingsDeleteCardButton>
