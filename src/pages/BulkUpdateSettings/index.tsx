@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
-  const { products, handleGetProducts } = useProducts();
+  const { products } = useProducts();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [state, setState] = useState(false);
   const navigate = useNavigate();
@@ -68,6 +68,15 @@ const BulkUpdateSettings = () => {
     navigate("/settings/products");
   };
 
+  const handleOnExport = () => {
+    const wb = XLSX.utils.book_new()
+    const ws = XLSX.utils.json_to_sheet(products)
+
+    XLSX.utils.book_append_sheet(wb, ws, "MySheet1")
+
+    XLSX.writeFile(wb, "AllProducts.xlsx")
+  }
+
   return (
     <gStyled.SettingsContainer
       style={{ backgroundImage: `url(${backgroundUpdate})` }}
@@ -99,7 +108,7 @@ const BulkUpdateSettings = () => {
               </styled.SendButton>
             )}
           </styled.WrapperInputButton>
-          <styled.DownloadButton>Download File</styled.DownloadButton>
+          <styled.DownloadButton onClick={() => handleOnExport()}>Download File</styled.DownloadButton>
         </styled.BoardButtons>
         <div>
           <h2>Change history</h2>
