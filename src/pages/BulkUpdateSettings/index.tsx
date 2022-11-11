@@ -6,7 +6,7 @@ import * as XLSX from "xlsx";
 import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
-import {  toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import ConfirmModal from "components/Modal/ConfirmModal";
 import { useNavigate } from "react-router-dom";
 import getData from "components/Mocks/exapleSheet";
@@ -16,6 +16,7 @@ const BulkUpdateSettings = () => {
   const { products } = useProducts();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [state, setState] = useState(false);
+  const [fileName, setFileName] = useState("");
   const navigate = useNavigate();
 
   const openModal2 = () => {
@@ -35,7 +36,6 @@ const BulkUpdateSettings = () => {
   };
 
   const handleFile = async (e: any) => {
-
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
@@ -46,6 +46,7 @@ const BulkUpdateSettings = () => {
 
     setSheet(jsonData);
     setState(true);
+    setFileName(file.name);
   };
 
   const handleOpenModal = () => {
@@ -53,7 +54,7 @@ const BulkUpdateSettings = () => {
   };
 
   const handleUpdateExcel = (e: { preventDefault: () => void }) => {
-     e.preventDefault();
+    e.preventDefault();
     sheet.map((item: { code: number; discount: number }) => {
       products.map((product) => {
         if (item.code === product.code) {
@@ -64,7 +65,7 @@ const BulkUpdateSettings = () => {
         }
       });
     });
-    toast.info('Loading update!', {
+    toast.info("Loading update!", {
       position: "top-right",
       autoClose: 5500,
       hideProgressBar: false,
@@ -73,7 +74,7 @@ const BulkUpdateSettings = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      });
+    });
     setTimeout(() => {
       navigate("/settings/products");
     }, 6000);
@@ -113,7 +114,10 @@ const BulkUpdateSettings = () => {
               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
               onChange={(e) => handleFile(e)}
             />
-            <styled.Label htmlFor="file">Import file</styled.Label>
+            <styled.Label htmlFor="file">
+              <span>{fileName ? fileName: "Import sheet"}</span>
+              <span>Search</span>
+            </styled.Label>
             {state && (
               <styled.SendButton onClick={() => openModal2()}>
                 Send file
