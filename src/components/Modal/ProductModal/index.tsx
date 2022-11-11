@@ -10,6 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import ButtonLarge from "components/ButtonLarge";
 import { useCategories } from "contexts/categories";
 import CloseIcon from "assets/icons/closeicon.svg";
+import { ModalOverlay } from "assets/styles/globalStyles";
 
 /* HOOKFORM */
 interface ProductModalProps {
@@ -114,7 +115,7 @@ const ProductModal = ({
   };
 
   return (
-    <Styled.Modal>
+    <ModalOverlay>
       <Styled.ModalContainer
         onSubmit={
           product
@@ -226,7 +227,7 @@ const ProductModal = ({
         
  
       </Styled.ModalContainer>
-    </Styled.Modal>
+    </ModalOverlay>
   );
 };
 

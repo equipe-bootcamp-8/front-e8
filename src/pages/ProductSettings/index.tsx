@@ -41,7 +41,6 @@ const ProductSettings = () => {
       <SettingsMenu path={"products"} />
       <gStyled.EditEntitiesContainer>
         <h2>Manage Products</h2>
-
         <styled.SettingsNav>
           <styled.AddEntitieCard onClick={handleOpenModal}>
             <p>Create Product</p>
@@ -59,14 +58,32 @@ const ProductSettings = () => {
         </styled.SettingsNav>
         <styled.Bar />
         <styled.Header>
-          <h2>Code</h2>
-          <h2>Name</h2>
-          <h2>Category</h2>
-          <h2>Price</h2>
-          <h2>Image</h2>
+
           <div>
-            <h2>Action</h2>
+          <h2>Code</h2>
           </div>
+       <div>
+       <h2>Name</h2>
+       </div>
+        <div>
+        <h2>Category</h2>
+        </div>
+      <div>
+      <h2>Price</h2>
+      </div>
+       <div>
+       <h2>Image</h2>
+       </div>
+    <section>
+    <h2>Action</h2>
+    </section>
+     
+      
+
+   
+      
+     
+
         </styled.Header>
         <styled.Bar />
         <styled.EntitiesList>

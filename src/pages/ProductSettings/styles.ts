@@ -15,22 +15,24 @@ export const Bar = styled.div`
 
 export const Header = styled.div`
   ${() => css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-    margin-top: 1rem;
-    padding: 2rem;
-    width: 100%;
-    font-size: 1.5rem;
-    text-align: center;
-    div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  div {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
+      width: 8rem;
+    }
+    section {
+      display: flex;
       justify-content: center;
       width: 23rem;
-      padding: 1rem;
-      gap: 0.5rem;
     }
   `}
 `;

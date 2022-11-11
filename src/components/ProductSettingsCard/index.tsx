@@ -14,29 +14,40 @@ const ProductSettingsCard = ({
 }: SettingsProductCardProps) => {
   return (
     <styled.ProductSettingsCardContainer>
-      <h3>{product.code}</h3>
-      <h3>{product.name}</h3>
-      <h3>{product.categoryName}</h3>
-      <h3>{product.price}</h3>
-      <img src={product.image}/> 
       <div>
+      <h3>{product.code}</h3>
+      </div>
+ <div>
+ <h3>{product.name}</h3>
+ </div>
+     <div>
+     <h3>{product.categoryName}</h3>
+     </div>
+     <div>
+     <h3>{product.price}</h3>
+     </div>
+     <div>
+     <img src={product.image}/> 
+     </div>
+  
+      <section>
         <styled.ProductSettingsEditCardButton
-        onClick={() => {
-          setProduct(product);
-          handleOpenModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenModal();
+          }}
         >
           Edit
         </styled.ProductSettingsEditCardButton>
         <styled.ProductSettingsDeleteCardButton
-         onClick={() => {
-          setProduct(product);
-          handleOpenDeleteModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenDeleteModal();
+          }}
         >
           Delete
         </styled.ProductSettingsDeleteCardButton>
-      </div>
+      </section>
     </styled.ProductSettingsCardContainer>
   );
 };

@@ -47,8 +47,15 @@ export const FormLogin = styled.form`
     outline: 0;
   }
 
-  button {
-    min-width: 323px;
+ 
+`;
+
+export const CreateButton = styled.div`
+  ${() => css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 323px;
     min-height: 50px;
     background-color: #107c10;
     border-radius: 10px;
@@ -57,7 +64,7 @@ export const FormLogin = styled.form`
     border: none;
     cursor: pointer;
     margin-bottom: 30px;
-  }
+ `}
 `;
 
 export const Title = styled.div`
