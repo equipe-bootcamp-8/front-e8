@@ -1,4 +1,10 @@
-import React, { createContext, useState, useEffect, ReactNode, useContext } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useContext,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services";
 import toast from "react-hot-toast";
@@ -20,11 +26,14 @@ export interface User {
   name: string;
   email: string;
   password?: string;
+  active?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
+export const AuthContext = createContext<AuthProviderData>(
+  {} as AuthProviderData
+);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const initialValue = {
@@ -32,8 +41,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     name: "",
     email: "",
     password: "",
-  }
-  
+  };
+
   const [user, setUser] = useState<User>(initialValue);
   const [loading, setLoading] = useState(true);
   const [logged, setLogged] = useState(false);
@@ -59,18 +68,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const loggedUser = response.data.user;
     const token = response.data.token;
-    const test = response.data.user.name;
-
-    localStorage.setItem("test", test);
 
     localStorage.setItem("user", JSON.stringify(loggedUser));
-
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setUser(response.data.user);
     setLogged(true);
-    navigate("/home");
+    navigate("/settings");
     toast.success(`Welcome`, { duration: 5000, icon: "🤗" });
   };
 
@@ -83,7 +88,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     toast.success(`GoodBye`, { duration: 5000, icon: "👋" });
   };
 
-  return <AuthContext.Provider value={{ user, loading, login, logout, logged }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, loading, login, logout, logged }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
