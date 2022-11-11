@@ -3,15 +3,24 @@ import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 import * as XLSX from "xlsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
-import { MenuItem } from "components/Navbar/styles";
+
+import ConfirmModal from "components/Modal/ConfirmModal";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
-  const { products } = useProducts();
+  const { products, handleGetProducts } = useProducts();
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [state, setState] = useState(false);
+  const navigate = useNavigate();
+
+  const openModal2 = () => {
+    setOpenModal(!openModal);
+  };
 
   // const [categoryName, setcategoryName] = useState<string>(
   //   product ? product.categoryName : ""
@@ -31,13 +40,19 @@ const BulkUpdateSettings = () => {
     const workbook = XLSX.read(data);
 
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
     setSheet(jsonData);
-    console.log(jsonData);
+    setState(true);
   };
 
-  const handleUpdateExcel = () => {
+  const handleOpenModal = () => {
+    setOpenModal(false);
+  };
+
+  const handleUpdateExcel = (e: { preventDefault: () => void }) => {
+    // e.preventDefault();
     sheet.map((item: { code: number; discount: number }) => {
       products.map((product) => {
         if (item.code === product.code) {
@@ -48,6 +63,9 @@ const BulkUpdateSettings = () => {
         }
       });
     });
+    toast.success("Success update");
+
+    navigate("/settings/products");
   };
 
   return (
@@ -56,18 +74,31 @@ const BulkUpdateSettings = () => {
     >
       <SettingsMenu path={"update"} />
 
+      {openModal && (
+        <ConfirmModal
+          handleOpenModal={handleOpenModal}
+          handleUpdateExcel={handleUpdateExcel}
+        />
+      )}
+
       <styled.UpdateContainer>
         <h2>Bulk Update</h2>
         <styled.Bar />
         <styled.BoardButtons>
-          <styled.Input
-            type="file"
-            id="file"
-            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-            onChange={(e) => handleFile(e)}
-          />
-          <button onClick={() => handleUpdateExcel()}>enviar</button>
-          <styled.Label htmlFor="file">Import file</styled.Label>
+          <styled.WrapperInputButton>
+            <styled.Input
+              type="file"
+              id="file"
+              accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+              onChange={(e) => handleFile(e)}
+            />
+            <styled.Label htmlFor="file">Import file</styled.Label>
+            {state && (
+              <styled.SendButton onClick={() => openModal2()}>
+                Send file
+              </styled.SendButton>
+            )}
+          </styled.WrapperInputButton>
           <styled.DownloadButton>Download File</styled.DownloadButton>
         </styled.BoardButtons>
         <div>
