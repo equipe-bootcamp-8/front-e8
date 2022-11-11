@@ -1,14 +1,14 @@
 import * as Styled from "./styles";
-import LoginModal from "components/LoginModal";
 
-const Login = () => {
+
+const Validations = () => {
   return (
     <div>
       <Styled.Background>
-        <LoginModal />
+        
       </Styled.Background>
     </div>
   );
 };
 
-export default Login;
+export default Validations;

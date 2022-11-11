@@ -2,12 +2,13 @@ import styled, { css } from "styled-components";
 
 
 export const Container = styled.div`
-  ${() => css`
+  ${({theme}) => css`
     width: 550px;
     height: 30rem;
-    background: #bfcde9;
+    background: ${theme.colors.baseDarkBlue};
     border-radius: 10px;
     padding: 2rem;
+    color: ${theme.colors.textColor2};
   `}
 `;
 
@@ -26,6 +27,7 @@ export const FormHeader = styled.section`
 
 export const Copy = styled.div`
   ${() => css`
+    
     margin-top: 2rem;
     display: flex;
     flex-direction: column;

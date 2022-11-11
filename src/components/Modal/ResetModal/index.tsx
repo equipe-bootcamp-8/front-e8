@@ -11,7 +11,7 @@ const ResetPasswordModal = ({ handleOpenModal }: resetPasswordModalProps) => {
     <ModalOverlay>
       <Styled.Container>
         <Styled.FormHeader>
-          <h1>Thanks for signing up!</h1>
+          <h1>Reset Password</h1>
           <img
             src={CloseIcon}
             alt="close-icon"
@@ -22,8 +22,9 @@ const ResetPasswordModal = ({ handleOpenModal }: resetPasswordModalProps) => {
         </Styled.FormHeader>
         <Styled.Copy>
           <p>We send you a confirmation email.</p>
-      
-          <Styled.ConfirmButton>Resend reset link</Styled.ConfirmButton>
+        <p>By clicking on the link, you will be directed to the site to change your password.</p>
+        <p></p>
+          <Styled.ConfirmButton>Resend reset email</Styled.ConfirmButton>
         </Styled.Copy>
       </Styled.Container>
     </ModalOverlay>
