@@ -22,7 +22,7 @@ export const ModalContainer = styled.form`
   ${({ theme }) => css`
     background-color: ${theme.colors.baseDarkBlue};
     margin-bottom: 15rem;
-    width: 45rem;
+    min-width: 45rem;
     height: 55rem;
     display: flex;
     flex-direction: row;

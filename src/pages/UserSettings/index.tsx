@@ -6,6 +6,7 @@ import api from "services";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUser from "../../assets/imgs/user-settingsbg.png";
+import ResetPasswordModal from "components/Modal/ResetModal";
 
 const UserSettings = () => {
   const [data, setData] = useState({email: "", name: "", password: ""});
@@ -32,12 +33,17 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   const response = await api.patch(`/users/${id}`, headers)
 }
 
-const navigate = useNavigate();
+const [openModal, setOpenModal] = useState<boolean>(false);
+const handleOpenModal = () => {
+  setOpenModal(!openModal);
+};
+
 
   return (
 
     <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
       <SettingsMenu path={"user"}/>
+      {openModal && <ResetPasswordModal handleOpenModal={handleOpenModal} />}
       <gStyled.EditEntitiesContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
@@ -70,8 +76,9 @@ const navigate = useNavigate();
               <styled.Input onChange={handleChange} name="password" type="" />
             </div>
             <styled.Buttons>
-            <styled.DiscardButton>Discard changes</styled.DiscardButton>
-            <styled.DiscardButton>Reset Password</styled.DiscardButton>
+          
+            <styled.DiscardButton onClick={handleOpenModal}>Reset Password</styled.DiscardButton>
+         
             </styled.Buttons>
             
           </styled.PersonalInformations>     

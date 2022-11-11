@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SendEmailVerification from "services/email";
 import { useState } from "react";
-import ValidationModal from "components/ValidationModal";
+import ValidationModal from "components/Modal/ValidationModal";
 
 interface LoginData {
   email: string;
