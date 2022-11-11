@@ -5,7 +5,7 @@ export const LaterMenu = styled.div`
   height: 30rem;
   background-color: #3c41f5;
   display: flex;
-
+  
   img {
     width: 50rem;
     height: 33.35rem;
@@ -13,12 +13,11 @@ export const LaterMenu = styled.div`
 `;
 
 export const HeaderProductList = styled.header`
-  width: 90vw;
+  width: 70vh;
   margin: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   button {
     width: 10rem;
     height: 4rem;
@@ -29,7 +28,6 @@ export const HeaderProductList = styled.header`
     cursor: pointer;
     transition: all 0.6s;
   }
-
   button:hover {
     transform: scale(1.1);
   }
@@ -78,6 +76,7 @@ export const ProductList = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  
 `;
 
 export const Filter = styled.section`
@@ -141,4 +140,10 @@ export const ButtonsContainer = styled.div`
   button:focus {
     background-color: white;
   }
+`;
+
+export const ClearButton = styled.button`
+  ${() => css`
+   
+  `}
 `;

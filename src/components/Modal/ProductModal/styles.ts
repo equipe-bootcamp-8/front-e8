@@ -1,33 +1,20 @@
-import styled, { css, keyframes } from "styled-components";
-
-export const Modal = styled.section`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `}
-`;
+import styled, { css } from "styled-components";
 
 export const ModalHeader = styled.div`
   ${({ theme }) => css`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 8px 0 0 8px;
-  min-width: 30rem;
-  padding: 1rem;
-  height: 55rem;
-  background-color: ${theme.colors.baseMainBlue};
-  h2 {
-    color: ${theme.colors.textColor2};
-    font-size: 4rem;
-    font-weight: 100;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px 0 0 8px;
+    min-width: 30rem;
+    padding: 1rem;
+    height: 55rem;
+    background-color: ${theme.colors.baseMainBlue};
+    h2 {
+      color: ${theme.colors.textColor2};
+      font-size: 4rem;
+      font-weight: 100;
+    }
   `}
 `;
 
@@ -35,7 +22,7 @@ export const ModalContainer = styled.form`
   ${({ theme }) => css`
     background-color: ${theme.colors.baseDarkBlue};
     margin-bottom: 15rem;
-    width: 45rem;
+    min-width: 45rem;
     height: 55rem;
     display: flex;
     flex-direction: row;
@@ -46,51 +33,50 @@ export const ModalContainer = styled.form`
 
 export const Form = styled.div`
   ${({ theme }) => css`
-  height: 55rem;
-  min-width: 45rem;
-  background-color: ${theme.colors.baseDarkBlue};
-  border-radius: 0 8px 8px 0;
-  display: flex;
-  flex-direction: column;
-  gap:1rem;
+    height: 55rem;
+    min-width: 45rem;
+    background-color: ${theme.colors.baseDarkBlue};
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   `}
 `;
 
 export const FormHeader = styled.section`
-  ${() => css`
+  ${({theme}) => css`
     display: flex;
     width: 100%;
     justify-content: flex-end;
     padding: 1rem;
     img {
-  width: 3rem;
-  cursor: pointer;
-}
+      width: 3rem;
+      cursor: pointer;
+      color: white;
+    }
   `}
 `;
-
 
 export const InputContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 1rem 0 1rem 1rem;
     background-color: ${theme.colors.baseDarkBlue};
     color: ${theme.colors.textColor2};
     padding: 0 1rem;
     gap: 2rem;
     align-items: center;
-    label { 
+    label {
       font-size: 2rem;
       font-weight: 600;
     }
-
   `}
 `;
 
 export const Input = styled.input`
-  ${({ theme}) => css`
+  ${({ theme }) => css`
     all: unset;
     min-width: 30rem;
     padding: 0 1rem;
@@ -104,7 +90,7 @@ export const Input = styled.input`
 `;
 
 export const DescriptionInput = styled.textarea`
-  ${({ theme}) => css`
+  ${({ theme }) => css`
     overflow-wrap
     all: unset;
     min-width: 30rem;
@@ -134,15 +120,14 @@ export const Select = styled.select`
 
 export const ButtonsContainer = styled.div`
   ${({ theme }) => css`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 5rem;
-  button { 
-    width: 25rem;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    button {
+      width: 25rem;
+    }
   `}
 `;
-
