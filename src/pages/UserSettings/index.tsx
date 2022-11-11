@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundUser from "../../assets/imgs/user-settingsbg.png";
+
 import ResetPasswordModal from "components/Modal/ResetModal";
 
 const UserSettings = () => {
@@ -41,7 +41,7 @@ const handleOpenModal = () => {
 
   return (
 
-    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
+    <styled.SettingsContainer>
       <SettingsMenu path={"user"}/>
       {openModal && <ResetPasswordModal handleOpenModal={handleOpenModal} />}
       <gStyled.EditEntitiesContainer>
@@ -78,7 +78,7 @@ const handleOpenModal = () => {
           </styled.PersonalInformations>     
         </styled.UserSettings>   
       </gStyled.EditEntitiesContainer>
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 
