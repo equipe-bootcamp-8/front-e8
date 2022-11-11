@@ -14,10 +14,10 @@ export const AboutUs = styled.div`
 
 export const Header = styled.div`
 	${({ theme }) => css`
-        background-image: url(${headerbg});
-        background-color: ${theme.colors.baseBg1};
+        background-color: ${theme.colors.baseMainBlue};
+        object-fit: contain;
         width: 100%;
-        height: 70vh;
+        height: 50vh;
         display: flex;
         justify-content: space-around;
         align-items: center;
