@@ -14,14 +14,13 @@ const SendEmailVerification = ({ name, id, email }: EmailParams) => {
     message: `http://localhost:3000/validate/id=${id}`,
     from_email: email,
   };
-
-  emailjs
+   emailjs 
     .send("service_w670ybe", "template_a13giq9", templateParams, "ZzUm3VSDeBL2jazc4")
     .then(() => {
-      toast.success("E-mail enviado!");
+      return toast.success("E-mail enviado!");
     })
     .catch(() => {
-      toast.error("Falha no envio!");
+      return toast.error("Falha no envio!");
     });
 };
 

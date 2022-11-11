@@ -6,8 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SendEmailVerification from "services/email";
-import { useState } from "react";
-import ValidationModal from "components/Modal/ValidationModal";
 
 interface LoginData {
   email: string;
@@ -65,17 +63,11 @@ const RegisterModal = () => {
         };
         SendEmailVerification(user);
         navigate("/validate");
-        toast.success("Successfully registered user");
+        toast.success("User registered successfully registered");
       })
       .catch(() => {
         toast.error("User already registered");
       });
-  };
-
-  const [openModal, setOpenModal] = useState<boolean>(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
   };
 
   return (
@@ -119,11 +111,11 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <Styled.CreateButton type="submit" /*>onClick={handleOpenModal}*/>
+          <Styled.CreateButton type="submit">
             Create
           </Styled.CreateButton>
 
-          {/* {openModal && <ValidationModal handleOpenModal={handleOpenModal} />} */}
+        
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
