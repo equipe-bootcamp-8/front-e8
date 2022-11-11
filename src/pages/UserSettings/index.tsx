@@ -1,7 +1,6 @@
 import SettingsMenu from "components/SettingsMenu";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
@@ -62,20 +61,14 @@ const handleOpenModal = () => {
               <h2>E-mail address</h2>
               <styled.Input onChange={handleChange} name="email" type="email" />
             </div>
-            <styled.SaveButton>Save Changes</styled.SaveButton>
-          </styled.PersonalInformations>
-          <styled.PersonalInformations>
-            <h2>Security.</h2>
-            
-            <div>
-            </div>
             <styled.Buttons>
           
+            <styled.SaveButton>Save Changes</styled.SaveButton>
             <styled.DiscardButton onClick={handleOpenModal}>Reset Password</styled.DiscardButton>
          
-            </styled.Buttons>
-            
-          </styled.PersonalInformations>     
+          </styled.Buttons>
+          </styled.PersonalInformations>
+             
         </styled.UserSettings>   
       </gStyled.EditEntitiesContainer>
     </styled.SettingsContainer>
