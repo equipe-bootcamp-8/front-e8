@@ -9,6 +9,7 @@ import { useProducts } from "contexts/products";
 import {  toast } from 'react-toastify';
 import ConfirmModal from "components/Modal/ConfirmModal";
 import { useNavigate } from "react-router-dom";
+import getData from "components/Mocks/exapleSheet";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
@@ -80,11 +81,11 @@ const BulkUpdateSettings = () => {
 
   const handleOnExport = () => {
     const wb = XLSX.utils.book_new();
-    const ws = XLSX.utils.json_to_sheet(products);
+    const ws = XLSX.utils.json_to_sheet(getData());
 
     XLSX.utils.book_append_sheet(wb, ws, "MySheet1");
 
-    XLSX.writeFile(wb, "AllProducts.xlsx");
+    XLSX.writeFile(wb, "ExampleSheet.xlsx");
   };
 
   return (
@@ -120,7 +121,7 @@ const BulkUpdateSettings = () => {
             )}
           </styled.WrapperInputButton>
           <styled.DownloadButton onClick={() => handleOnExport()}>
-            Download File
+            Download example sheet
           </styled.DownloadButton>
         </styled.BoardButtons>
         {/* <div>
