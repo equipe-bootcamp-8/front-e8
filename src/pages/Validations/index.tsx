@@ -1,6 +1,5 @@
 import { useAuth } from "contexts/auth";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import api from "services";
 import SendEmailVerification from "services/email";
 import * as Styled from "./styles";
@@ -9,7 +8,7 @@ const RegisterValidation = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const idUrl = urlParams.get("id");
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const userData = {
     name: user.name,
@@ -35,9 +34,9 @@ const RegisterValidation = () => {
         .patch(`/users/${user.id}`, data, headers)
         .then(() => {
           toast.success("Confirmed email!");
-          navigate("/settings");
         })
         .catch(() => toast.error("Invalid Link!"));
+      logout();
     }
   };
 
@@ -51,14 +50,18 @@ const RegisterValidation = () => {
                 <h1>Your account has been activated!</h1>
               </Styled.FormHeader>
               <Styled.Copy>
-                <p>Welcome, <strong>{user.name}</strong>.</p>
-                <p>Click the button below to manage your store or use the navbar to access the other pages.</p>
+                <p>
+                  Welcome, <strong>{user.name}</strong>.
+                </p>
+                <p>
+                  Click in the button below to confirm email and login again.
+                </p>
                 <Styled.Button
-                   onClick={() => {
-                    confirmEmail()
+                  onClick={() => {
+                    confirmEmail();
                   }}
                 >
-                 Manage my store
+                  Confirm email
                 </Styled.Button>
               </Styled.Copy>
             </Styled.Container>
@@ -72,9 +75,7 @@ const RegisterValidation = () => {
               <Styled.Copy>
                 <p>We send you a confirmation email.</p>
                 <p>Please confirm your email to complete account activation.</p>
-                <Styled.Button
-                  onClick={() => SendEmailVerification(userData)}
-                >
+                <Styled.Button onClick={() => SendEmailVerification(userData)}>
                   Resend confirmation email
                 </Styled.Button>
               </Styled.Copy>
