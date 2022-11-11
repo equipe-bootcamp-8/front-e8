@@ -46,7 +46,7 @@ export const Copy = styled.div`
   `}
 `;
 
-export const SendEmailButton = styled.button`
+export const Button = styled.button`
   ${({theme}) => css`
     display: flex;
     flex-direction: row;
@@ -63,3 +63,4 @@ export const SendEmailButton = styled.button`
     height: 5rem;
   `}
 `;
+
