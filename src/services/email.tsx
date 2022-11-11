@@ -11,16 +11,21 @@ const SendEmailVerification = ({ name, id, email }: EmailParams) => {
   const templateParams = {
     company_name: "GoingToCloud",
     from_name: name,
-    message: `http://localhost:3000/validate/id=${id}`,
+    message: `http://localhost:3000/validate?id=${id}`,
     from_email: email,
   };
-   emailjs 
-    .send("service_w670ybe", "template_a13giq9", templateParams, "ZzUm3VSDeBL2jazc4")
+  emailjs
+    .send(
+      "service_w670ybe",
+      "template_a13giq9",
+      templateParams,
+      "ZzUm3VSDeBL2jazc4"
+    )
     .then(() => {
-      return toast.success("E-mail enviado!");
+      toast.success("Email sent!");
     })
     .catch(() => {
-      return toast.error("Falha no envio!");
+      toast.error("Shipping failed!");
     });
 };
 
