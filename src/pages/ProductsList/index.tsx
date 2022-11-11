@@ -168,7 +168,6 @@ const ProductsList = () => {
                   return element;
                 }
                 if (minPrice <= element.price && element.price <= maxPrice) {
-                  console.log(minPrice, maxPrice);
                   return element;
                 }
               })
