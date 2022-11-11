@@ -41,7 +41,6 @@ const ProductSettings = () => {
       <SettingsMenu path={"products"} />
       <gStyled.EditEntitiesContainer>
         <h2>Manage Products</h2>
-
         <styled.SettingsNav>
           <styled.AddEntitieCard onClick={handleOpenModal}>
             <p>Create Product</p>

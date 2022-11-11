@@ -7,7 +7,6 @@ interface ActiveButtonProps {
 
 export const SettingsContainer = styled.div`
   ${({ theme }) => css`
-    background-image: url(${backgroundProduct});
     min-width: 90vw;
     height: calc(100vh - 10vh);
     color: ${theme.colors.textColor};
