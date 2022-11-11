@@ -3,7 +3,7 @@ export enum RoutePath {
     HOME = '/home',
     CREATE_USER = '/register',
     VALIDATE = '/validate',
-    VALIDATE_USER = '/validate/:userId',
+    VALIDATE_USER = '/validate?:userId',
     ABOUT_US = '/about-us',
     PRODUCTS = '/products',
     PRODUCT_DETAILS = '/productdetails/:productId',
