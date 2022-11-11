@@ -38,7 +38,7 @@ const ProductsList = () => {
       });
     };
     setFilteredProducts(filterProducts());
-  }, [maxPrice]);
+  }, [maxPrice, minPrice, products]);
 
   return (
     <div>
@@ -57,8 +57,10 @@ const ProductsList = () => {
       </Styled.LaterMenu>
       <Styled.FilterContainer>
         <Styled.Filter>
+
           <h3>Filters</h3>
           <p>Price Range</p>
+
           <input
             type="radio"
             name="price"
@@ -102,8 +104,10 @@ const ProductsList = () => {
               setCurrentFilter(1);
             }}
           />
+
           <label htmlFor="pricefour"> Over 1000,00</label> <br />
           <p>Collection</p>
+
           {categories.length > 0 &&
             categories.map((element) => (
               <Styled.ButtonsContainer>
