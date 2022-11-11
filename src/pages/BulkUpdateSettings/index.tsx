@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
 
-import ConfirmModal from "components/Modal/ConfirmModal";
+import ConfirmModal from "components/Modal/ExcelConfirmModal";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 

@@ -3,7 +3,7 @@ import ButtonLarge from "components/ButtonLarge";
 import { useProducts } from "contexts/products";
 import * as S from "./styles";
 
-export default function ConfirmModal({
+export default function ExcelConfirmModal({
   handleOpenModal,
   handleUpdateExcel,
   setState,
