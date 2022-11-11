@@ -6,6 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SendEmailVerification from "services/email";
+import { useContext } from "react";
+import { AuthContext } from "contexts/auth";
 
 interface LoginData {
   email: string;
@@ -36,6 +38,8 @@ const loginSchema = yup.object().shape({
 });
 
 const RegisterModal = () => {
+  const { login } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -55,12 +59,13 @@ const RegisterModal = () => {
 
     api
       .post("/users", data)
-      .then((res: any) => {
+      .then(async (res: any) => {
         const user = {
           id: res.data.id,
           name: res.data.name,
           email: res.data.email,
         };
+        await login(data.email, data.password);
         SendEmailVerification(user);
         navigate("/validate");
         toast.success("User registered successfully registered");
@@ -68,6 +73,7 @@ const RegisterModal = () => {
       .catch(() => {
         toast.error("User already registered");
       });
+
   };
 
   return (
@@ -111,11 +117,7 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <Styled.CreateButton type="submit">
-            Create
-          </Styled.CreateButton>
-
-        
+          <Styled.CreateButton type="submit">Create</Styled.CreateButton>
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
