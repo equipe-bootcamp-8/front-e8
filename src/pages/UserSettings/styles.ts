@@ -100,7 +100,7 @@ export const SaveButton = styled.button`
   ${({ theme }) => css`
     background-color: ${theme.colors.baseDarkBlue};
     border-radius: 8px;
-    width: 25rem;
+    width: 35rem;
     height: 4rem;
     border: 1px solid #000000;
     cursor: pointer;
@@ -119,7 +119,7 @@ export const SaveButton = styled.button`
 export const DiscardButton = styled.button`
   ${({ theme }) => css`
     border-radius: 8px;
-    width: 25rem;
+    width: 35rem;
     height: 4rem;
     background: #035295;
     border: 1px #dadada;
