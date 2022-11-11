@@ -26,6 +26,8 @@ const Router = () => {
           <Route path={RoutePath.SETTINGS_UPDATE} element={<BulkUpdateSettings />} />
           <Route path={RoutePath.PRODUCT_DETAILS} element={<ProductDetails />} />
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
+          <Route path={RoutePath.VALIDATE} element={<Validations />} />
+          <Route path={RoutePath.VALIDATE_USER} element={<Validations />} />
         </>
       ) : (
         <>
@@ -33,8 +35,6 @@ const Router = () => {
           <Route path={RoutePath.LOGIN} element={<Login />} />
           <Route path={RoutePath.CREATE_USER} element={<Createuser />} />
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
-          <Route path={RoutePath.VALIDATE} element={<Validations />} />
-          <Route path={RoutePath.VALIDATE_USER} element={<Validations />} />
         </>
       )}
       <Route
