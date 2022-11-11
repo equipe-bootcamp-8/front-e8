@@ -4,19 +4,6 @@ interface ActiveButtonProps {
   active?: boolean;
 }
 
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundProduct});
-    min-width: 90vw;
-    height: calc(100vh - 10vh);
-    color: ${theme.colors.textColor};
-    display: flex;
-    overflow-y: hidden;
-  `}
-`;
-
-
 export const Bar = styled.div`
   ${() => css`
     width: 100%;
@@ -28,7 +15,6 @@ export const Bar = styled.div`
 
 export const Header = styled.div`
   ${() => css`
-
   display: flex;
   justify-content: space-between;
   align-items: center;
