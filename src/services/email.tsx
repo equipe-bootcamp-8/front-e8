@@ -9,9 +9,10 @@ interface EmailParams {
 
 const SendEmailVerification = ({ name, id, email }: EmailParams) => {
   const templateParams = {
+    company_name: "GoingToCloud",
     from_name: name,
-    message: `http://localhost:3000/users/${id}`,
-    email: email,
+    message: `http://localhost:3000/validate/id=${id}`,
+    from_email: email,
   };
 
   emailjs
