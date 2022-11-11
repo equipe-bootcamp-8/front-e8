@@ -3,7 +3,7 @@ import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 import * as XLSX from "xlsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
 import { MenuItem } from "components/Navbar/styles";
@@ -25,16 +25,6 @@ const BulkUpdateSettings = () => {
     },
   };
 
-  // const handleUpdateProduct = (data: ProductData) => {
-  //   data.categoryName = categoryName;
-  //  api.patch(`/products/${product?.id}`, data, headers).then(() => {
-  //     toast.success("Product updated succesfully!");
-  //     handleGetProducts();
-  //     handleOpenModal();
-  //     setProduct(undefined);
-  //   });
-  // };
-
   const handleFile = async (e: any) => {
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
@@ -47,25 +37,14 @@ const BulkUpdateSettings = () => {
     console.log(jsonData);
   };
 
-  const sheetId = sheet.map((item: any) => item.id);
-
-  // const productCode = products.map((item) => item.id);
-
-  console.log(sheetId);
-  // console.log(productCode);
-
-  // const filter = sheetId.filter((a: number) => productCode.includes(a));
-
-  const handleUpdateExcel = (e: { preventDefault: () => void }) => {
-    
+  const handleUpdateExcel = () => {
     sheet.map((item: { code: number; discount: number }) => {
-
       products.map((product) => {
-        if (item.code === product.code){
-          const value = product.price * (item.discount / 100);
-          const data = { price: value.toFixed(2) };
-          
-          api.patch(`/products/${product.id}`, data, headers);
+        if (item.code === product.code) {
+          const value = product.price * (1 - item.discount / 100);
+          const data = { price: +value.toFixed(2) };
+
+          api.patch(`/products/${product?.id}`, data, headers);
         }
       });
     });
@@ -87,7 +66,7 @@ const BulkUpdateSettings = () => {
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
             onChange={(e) => handleFile(e)}
           />
-          <button onClick={(e) => handleUpdateExcel(e)}>enviar</button>
+          <button onClick={() => handleUpdateExcel()}>enviar</button>
           <styled.Label htmlFor="file">Import file</styled.Label>
           <styled.DownloadButton>Download File</styled.DownloadButton>
         </styled.BoardButtons>
