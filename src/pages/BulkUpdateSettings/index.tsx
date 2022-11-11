@@ -66,7 +66,7 @@ const BulkUpdateSettings = () => {
     });
     toast.info('Loading update!', {
       position: "top-right",
-      autoClose: 4000,
+      autoClose: 5500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -76,7 +76,7 @@ const BulkUpdateSettings = () => {
       });
     setTimeout(() => {
       navigate("/settings/products");
-    }, 4500);
+    }, 6000);
   };
 
   const handleOnExport = () => {
