@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 export const Bar = styled.div`
   ${() => css`
     width: 100%;
@@ -8,6 +8,21 @@ export const Bar = styled.div`
     background-color: #0c0e4f;
   `}
 `;
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+  background-image: url(${backgroundUpdate});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
+  `}
+`;
+
 
 export const UpdateContainer = styled.div`
   ${() => css`

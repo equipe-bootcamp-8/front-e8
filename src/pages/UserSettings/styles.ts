@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import backgroundUser from "../../assets/imgs/user-settingsbg.png";
 
 export const Bar = styled.div`
   ${() => css`
@@ -6,6 +7,21 @@ export const Bar = styled.div`
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
     background-color: #0C0E4F;
+  `}
+`;
+
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+  background-image: url(${backgroundUser});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
   `}
 `;
 

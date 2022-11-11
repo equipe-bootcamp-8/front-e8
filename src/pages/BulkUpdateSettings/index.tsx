@@ -1,7 +1,7 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
+
 import * as XLSX from "xlsx";
 import { useEffect, useState } from "react";
 import api from "services";
@@ -69,8 +69,8 @@ const BulkUpdateSettings = () => {
   };
 
   return (
-    <gStyled.SettingsContainer
-      style={{ backgroundImage: `url(${backgroundUpdate})` }}
+    <styled.SettingsContainer
+      
     >
       <SettingsMenu path={"update"} />
 
@@ -116,7 +116,7 @@ const BulkUpdateSettings = () => {
           <styled.Bar />
         </div>
       </styled.UpdateContainer>
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 

@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import  headerbg from "assets/imgs/about-us-header.png"
 
 export const AboutUs = styled.div`
 	${({ theme }) => css`
