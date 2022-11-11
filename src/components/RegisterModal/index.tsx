@@ -58,20 +58,19 @@ const RegisterModal = () => {
     api
       .post("/users", data)
       .then((res: any) => {
-        navigate("/validate");
-        toast.success("Successfully registered user");
         const user = {
           id: res.data.id,
           name: res.data.name,
           email: res.data.email,
         };
         SendEmailVerification(user);
+        navigate("/validate");
+        toast.success("Successfully registered user");
       })
       .catch(() => {
         toast.error("User already registered");
       });
   };
-
 
   const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -120,8 +119,10 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <Styled.CreateButton onClick={handleOpenModal}>Create</Styled.CreateButton>
-         
+          <Styled.CreateButton type="submit" /*>onClick={handleOpenModal}*/>
+            Create
+          </Styled.CreateButton>
+
           {openModal && <ValidationModal handleOpenModal={handleOpenModal} />}
         </Styled.FormLogin>
         <p>
@@ -131,9 +132,7 @@ const RegisterModal = () => {
       <Styled.a onClick={() => navigate("/")}>
         I already have an account
       </Styled.a>
-    
     </Styled.Body>
-    
   );
 };
 
