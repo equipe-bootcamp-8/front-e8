@@ -59,6 +59,7 @@ export const DownloadButton = styled.button`
 export const Input = styled.input`
   ${({ theme }) => css`
     display: none;
+    cursor: pointer;
   `}
 `;
 
@@ -73,6 +74,7 @@ export const Label = styled.label`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     svg {
       color: #fafafa;
