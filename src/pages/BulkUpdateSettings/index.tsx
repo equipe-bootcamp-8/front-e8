@@ -124,7 +124,7 @@ const BulkUpdateSettings = () => {
             Download example sheet
           </styled.DownloadButton>
         </styled.BoardButtons>
-        {/* <div>
+        <div>
           <h2>Change history</h2>
           <styled.Bar />
           <styled.Header>
@@ -137,7 +137,7 @@ const BulkUpdateSettings = () => {
             <h3>00/00/0000 at 11:11</h3>
           </styled.userData>
           <styled.Bar />
-        </div> */}
+        </div> 
       </styled.UpdateContainer>
     </gStyled.SettingsContainer>
   );
