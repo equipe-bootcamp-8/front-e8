@@ -55,6 +55,7 @@ const RegisterValidation = () => {
                 <p>Click the button below to manage your store or use the navbar to access the other pages.</p>
                 <Styled.Button
                    onClick={() => {
+                    confirmEmail()
                   }}
                 >
                  Manage my store
