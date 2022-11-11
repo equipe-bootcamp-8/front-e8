@@ -1,13 +1,17 @@
 import SettingsMenu from "components/SettingsMenu";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
+import * as gStyled from "../../assets/styles/globalStyles";
+import backgroundUser from "../../assets/imgs/user-settingsbg.png";
+import ResetPasswordModal from "components/Modal/ResetModal";
 
 const UserSettings = () => {
-  const [data, setData] = useState({email: "", name: "", password: ""});
-  const useContext = useAuth();
-  const id = useContext.user.id
+  const [data, setData] = useState({email: "", name: "", image: ""});
+  const {user} = useAuth();
+  // const id = useContext.user.id
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ 
@@ -26,27 +30,29 @@ const UserSettings = () => {
  
 const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
-  const response = await api.patch(`/users/${id}`, headers)
+  const response = await api.patch(`/users/${user.id}`, headers)
 }
 
+const [openModal, setOpenModal] = useState<boolean>(false);
+const handleOpenModal = () => {
+  setOpenModal(!openModal);
+};
 
 
   return (
-    <styled.SettingsContainer>
-      <SettingsMenu path={"user"}
-      
-      />
 
-      <styled.EditEntityContainer>
+    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
+      <SettingsMenu path={"user"}/>
+      {openModal && <ResetPasswordModal handleOpenModal={handleOpenModal} />}
+      <gStyled.EditEntitiesContainer>
         <h2>Personal informations</h2>
         <styled.Bar/>
         <styled.UserSettings onSubmit={onSubmit}>
          
-          {/* não tem imagem no back */}
-
+          
           <styled.PersonalInformations >
-            <h2>Profile picture & personal informations.</h2>
-            <styled.ButtonUpload>Upload image</styled.ButtonUpload>
+            <h2>Personal informations.</h2>
+            <styled.Input onChange={handleChange} name="image" type="file" />
 
             <div>
               <h2>Company name / Your name</h2>
@@ -60,23 +66,19 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
           </styled.PersonalInformations>
           <styled.PersonalInformations>
             <h2>Security.</h2>
-            <h2>Change your password</h2>
-            <div>
-             <h2>Password</h2>
-              <styled.Input onChange={handleChange} name="password" type="" />
-            </div>
-            <div>
-              <h2>Confirm Password</h2>
-              <styled.Input onChange={handleChange} name="password" type="" />
-            </div>
             
-            <styled.DiscardButton>Discard changes</styled.DiscardButton>
-            <styled.DiscardButton>Reset Password</styled.DiscardButton>
-          </styled.PersonalInformations> 
-        
-        </styled.UserSettings>
-      </styled.EditEntityContainer>
-    </styled.SettingsContainer>
+            <div>
+            </div>
+            <styled.Buttons>
+          
+            <styled.DiscardButton onClick={handleOpenModal}>Reset Password</styled.DiscardButton>
+         
+            </styled.Buttons>
+            
+          </styled.PersonalInformations>     
+        </styled.UserSettings>   
+      </gStyled.EditEntitiesContainer>
+    </gStyled.SettingsContainer>
   );
 };
 

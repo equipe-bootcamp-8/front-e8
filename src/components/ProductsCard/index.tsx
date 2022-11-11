@@ -12,12 +12,12 @@ const ProductsCard = ({ product }: ProductCardProps) => {
   return (
     <Styled.ProductsCardList
       onClick={() => {
-        Navigate(`/productdetails/${product.id}`);
+        if (localStorage.getItem("token")) Navigate(`/productdetails/${product.id}`);
       }}
     >
       <img src={product.image} alt={product.name} />
       <h3>{product.name}</h3>
-      <h3>Product Category</h3>
+      <h3>{product.categoryName}</h3>
       <div>
         <h4>Price:</h4>
         <h3>${product.price}</h3>

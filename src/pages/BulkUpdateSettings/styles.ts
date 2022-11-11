@@ -1,15 +1,4 @@
 import styled, { css } from "styled-components";
-import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
-
-export const SettingsContainer = styled.div`
-  ${({ theme }) => css`
-    background-image: url(${backgroundUpdate});
-    min-width: 100%;
-    min-height: 100%;
-    color: ${theme.colors.textColor};
-    display: flex;
-  `}
-`;
 
 export const Bar = styled.div`
   ${() => css`
@@ -136,3 +125,26 @@ export const userData = styled.div`
   }
   `}
 `;
+
+export const SendButton = styled.div`
+ ${({ theme }) => css`
+  width: 25rem;
+    height: 5rem;
+    border-radius: 8px;
+    background-color: ${theme.colors.baseMainBlue};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      color: ${theme.colors.textColor2};
+    }
+    color: ${theme.colors.textColor2};
+    cursor: pointer;
+  `}
+`
+
+export const WrapperInputButton = styled.div`
+  display: flex;
+  gap: 5rem;
+`

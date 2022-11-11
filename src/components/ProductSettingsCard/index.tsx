@@ -32,18 +32,18 @@ const ProductSettingsCard = ({
   
       <section>
         <styled.ProductSettingsEditCardButton
-        onClick={() => {
-          setProduct(product);
-          handleOpenModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenModal();
+          }}
         >
           Edit
         </styled.ProductSettingsEditCardButton>
         <styled.ProductSettingsDeleteCardButton
-         onClick={() => {
-          setProduct(product);
-          handleOpenDeleteModal();
-        }}
+          onClick={() => {
+            setProduct(product);
+            handleOpenDeleteModal();
+          }}
         >
           Delete
         </styled.ProductSettingsDeleteCardButton>

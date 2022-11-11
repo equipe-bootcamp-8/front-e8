@@ -7,12 +7,15 @@ import { useProducts } from "contexts/products";
 import { useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
+import * as gStyled from "../../assets/styles/globalStyles";
+import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
+import ConfirmModal from "components/Modal/ConfirmModal";
 
 const ProductSettings = () => {
   const { products } = useProducts();
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const [search, setSearch] = useState("");
-
+  const [state, setState] = useState(false);
 
   /* ----MODAL---    */
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -26,23 +29,31 @@ const ProductSettings = () => {
   /* --------- */
 
   return (
-    <styled.SettingsContainer>
-      <SettingsMenu 
-      path={"products"} />
-      <styled.EditEntitiesContainer>
+    <gStyled.SettingsContainer
+      style={{ backgroundImage: `url(${backgroundProduct})` }}
+    >
+      <SettingsMenu path={"products"} />
+      <gStyled.EditEntitiesContainer>
         <h2>Manage Products</h2>
 
         <styled.SettingsNav>
-        <styled.AddEntitieCard onClick={handleOpenModal}>
+          <styled.AddEntitieCard onClick={handleOpenModal}>
             <p>Create Product</p>
-         </styled.AddEntitieCard>
-        <styled.SearchInputContainer>
-          <input type="text" placeholder="Search by NFT name..." onChange={(event) => setSearch(event.target.value)} />
-        </styled.SearchInputContainer>
-
+          </styled.AddEntitieCard>
+          <gStyled.SearchProduct>
+            <div>
+              <SearchIcon />
+            </div>
+            <input
+              type="text"
+              placeholder="Search by NFT name..."
+              onChange={(event) => setSearch(event.target.value)}
+            />
+          </gStyled.SearchProduct>
         </styled.SettingsNav>
         <styled.Bar />
         <styled.Header>
+
           <div>
           <h2>Code</h2>
           </div>
@@ -67,10 +78,10 @@ const ProductSettings = () => {
    
       
      
+
         </styled.Header>
         <styled.Bar />
         <styled.EntitiesList>
-        
           {products
             .filter((element) => {
               if (element.name.toLowerCase().includes(search.toLowerCase())) {
@@ -78,16 +89,35 @@ const ProductSettings = () => {
               } else return false;
             })
             .map((element) => (
-              <ProductSettingsCard handleOpenModal={handleOpenModal} handleOpenDeleteModal={handleOpenDeleteModal} setProduct={setProduct} product={element} key={element.id} />
+              <ProductSettingsCard
+                handleOpenModal={handleOpenModal}
+                handleOpenDeleteModal={handleOpenDeleteModal}
+                setProduct={setProduct}
+                product={element}
+                key={element.id}
+              />
             ))}
         </styled.EntitiesList>
+      </gStyled.EditEntitiesContainer>
 
-      </styled.EditEntitiesContainer>
+      {openModal && (
+        <ProductModal
+          setProduct={setProduct}
+          product={product}
+          handleOpenModal={handleOpenModal}
+        />
+      )}
 
-      {openModal && <ProductModal setProduct={setProduct} product={product} handleOpenModal={handleOpenModal} />}
+      {openDeleteModal && (
+        <DeleteProductModal
+          setProduct={setProduct}
+          productId={product?.id}
+          handleOpenDeleteModal={handleOpenDeleteModal}
+        />
+      )}
 
-      {openDeleteModal && <DeleteProductModal setProduct={setProduct} productId={product?.id} handleOpenDeleteModal={handleOpenDeleteModal} />}
-    </styled.SettingsContainer>
+      {false && <ConfirmModal setState={setState} />}
+    </gStyled.SettingsContainer>
   );
 };
 
