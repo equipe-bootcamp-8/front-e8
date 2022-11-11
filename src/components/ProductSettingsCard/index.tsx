@@ -1,5 +1,6 @@
 import { Product } from "types";
 import * as styled from "./styles";
+import formatPrice from "components/utils/format-prices"
 
 interface SettingsProductCardProps {
   product: Product;
@@ -17,7 +18,7 @@ const ProductSettingsCard = ({
       <h3>{product.code}</h3>
       <h3>{product.name}</h3>
       <h3>{product.categoryName}</h3>
-      <h3>{product.price}</h3>
+      <h3>{formatPrice(product.price)}</h3>
       <img src={product.image}/> 
       <div>
         <styled.ProductSettingsEditCardButton

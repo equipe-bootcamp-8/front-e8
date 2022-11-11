@@ -3,7 +3,7 @@ import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
 import * as XLSX from "xlsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
 
@@ -110,7 +110,7 @@ const BulkUpdateSettings = () => {
           </styled.WrapperInputButton>
           <styled.DownloadButton onClick={() => handleOnExport()}>Download File</styled.DownloadButton>
         </styled.BoardButtons>
-        <div>
+        {/* <div>
           <h2>Change history</h2>
           <styled.Bar />
           <styled.Header>
@@ -123,7 +123,7 @@ const BulkUpdateSettings = () => {
             <h3>00/00/0000 at 11:11</h3>
           </styled.userData>
           <styled.Bar />
-        </div>
+        </div> */}
       </styled.UpdateContainer>
     </gStyled.SettingsContainer>
   );
