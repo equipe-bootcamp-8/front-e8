@@ -4,6 +4,19 @@ interface ActiveButtonProps {
   active?: boolean;
 }
 
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+    background-image: url(${backgroundProduct});
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
+  `}
+`;
+
+
 export const Bar = styled.div`
   ${() => css`
     width: 100%;
@@ -15,22 +28,25 @@ export const Bar = styled.div`
 
 export const Header = styled.div`
   ${() => css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-    margin-top: 1rem;
-    padding: 2rem;
-    width: 100%;
-    font-size: 1.5rem;
-    text-align: center;
-    div {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  div {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
+      width: 8rem;
+    }
+    section {
+      display: flex;
       justify-content: center;
       width: 23rem;
-      padding: 1rem;
-      gap: 0.5rem;
     }
   `}
 `;

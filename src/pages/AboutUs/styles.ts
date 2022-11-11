@@ -26,7 +26,7 @@ export const Header = styled.div`
         }
         h1 {
             font-weight: 300;
-            color: ${theme.colors.textColor2}
+            color: ${theme.colors.textColor2};
         }
         img {
             width: 50rem;
@@ -51,6 +51,32 @@ export const TextBox = styled.div`
             display: flex;
             flex-direction: column;
             gap: 2rem;
+        }
+	`}
+`;
+
+export const MiddleTextBox = styled.div`
+	${({ theme }) => css`
+     background-color: ${theme.colors.baseMainBlue};
+     
+        justify-content: center;
+        h1 {
+            font-size: 4rem;
+        }
+        p { 
+            font-size: 3rem;
+            font-weight: 200;
+        }
+        div { 
+            color: ${theme.colors.textColor2};
+            display: flex;
+            margin-left: 15rem;
+            flex-direction: column;
+            gap: 2rem;
+            width: 80rem;     
+            margin-bottom: 3rem;
+            margin-top: 3rem;  
+            
         }
 	`}
 `;
