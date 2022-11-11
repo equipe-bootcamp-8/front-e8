@@ -2,23 +2,25 @@ import CloseIcon from "assets/icons/closeicon.svg";
 import { ModalOverlay } from "assets/styles/globalStyles";
 import * as Styled from "./styles";
 
-interface ValidationModalProps {
+/* interface ValidationModalProps {
   handleOpenModal: () => void;
-}
+} */
 
-const ValidationModal = ({ handleOpenModal }: ValidationModalProps) => {
+
+
+const ValidationModal = (/* { handleOpenModal }: ValidationModalProps */) => {
   return (
     <ModalOverlay>
       <Styled.Container>
         <Styled.FormHeader>
           <h1>Thanks for signing up!</h1>
-          <img
+       {/*    <img
             src={CloseIcon}
             alt="close-icon"
             onClick={() => {
-              handleOpenModal();
+              handleOpenModal(); 
             }}
-          />
+          /> */}
         </Styled.FormHeader>
         <Styled.Copy>
           <p>We send you a confirmation email.</p>

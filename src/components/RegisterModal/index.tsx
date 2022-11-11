@@ -123,7 +123,7 @@ const RegisterModal = () => {
             Create
           </Styled.CreateButton>
 
-          {openModal && <ValidationModal handleOpenModal={handleOpenModal} />}
+          {/* {openModal && <ValidationModal handleOpenModal={handleOpenModal} />} */}
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
