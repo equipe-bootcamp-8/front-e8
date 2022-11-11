@@ -27,7 +27,7 @@ export default function ConfirmModal({
             type="submit"
             onClick={(e) => {
               handleUpdateExcel(e);
-              handleGetProducts()
+              setState(true)
             }}
           />
           <ButtonLarge

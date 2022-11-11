@@ -4,7 +4,7 @@ import ProductModal from "components/Modal/ProductModal";
 import ProductSettingsCard from "components/ProductSettingsCard";
 import SettingsMenu from "components/SettingsMenu";
 import { useProducts } from "contexts/products";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
@@ -27,6 +27,12 @@ const ProductSettings = () => {
     setOpenDeleteModal(!openDeleteModal);
   };
   /* --------- */
+
+  const { handleGetProducts } = useProducts();
+
+  useEffect(() => {
+    handleGetProducts();
+  }, [handleGetProducts, state]);
 
   return (
     <gStyled.SettingsContainer
