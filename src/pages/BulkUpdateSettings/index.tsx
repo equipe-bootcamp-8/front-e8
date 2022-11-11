@@ -6,10 +6,9 @@ import * as XLSX from "xlsx";
 import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
-
+import {  toast } from 'react-toastify';
 import ConfirmModal from "components/Modal/ConfirmModal";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
@@ -35,6 +34,7 @@ const BulkUpdateSettings = () => {
   };
 
   const handleFile = async (e: any) => {
+
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
@@ -52,7 +52,7 @@ const BulkUpdateSettings = () => {
   };
 
   const handleUpdateExcel = (e: { preventDefault: () => void }) => {
-    // e.preventDefault();
+     e.preventDefault();
     sheet.map((item: { code: number; discount: number }) => {
       products.map((product) => {
         if (item.code === product.code) {
@@ -63,19 +63,29 @@ const BulkUpdateSettings = () => {
         }
       });
     });
-    toast.success("Success update");
-
-    navigate("/settings/products");
+    toast.info('Loading update!', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+    setTimeout(() => {
+      navigate("/settings/products");
+    }, 4500);
   };
 
   const handleOnExport = () => {
-    const wb = XLSX.utils.book_new()
-    const ws = XLSX.utils.json_to_sheet(products)
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(products);
 
-    XLSX.utils.book_append_sheet(wb, ws, "MySheet1")
+    XLSX.utils.book_append_sheet(wb, ws, "MySheet1");
 
-    XLSX.writeFile(wb, "AllProducts.xlsx")
-  }
+    XLSX.writeFile(wb, "AllProducts.xlsx");
+  };
 
   return (
     <gStyled.SettingsContainer
@@ -87,6 +97,7 @@ const BulkUpdateSettings = () => {
         <ConfirmModal
           handleOpenModal={handleOpenModal}
           handleUpdateExcel={handleUpdateExcel}
+          openModal2={openModal2}
         />
       )}
 
@@ -108,7 +119,9 @@ const BulkUpdateSettings = () => {
               </styled.SendButton>
             )}
           </styled.WrapperInputButton>
-          <styled.DownloadButton onClick={() => handleOnExport()}>Download File</styled.DownloadButton>
+          <styled.DownloadButton onClick={() => handleOnExport()}>
+            Download File
+          </styled.DownloadButton>
         </styled.BoardButtons>
         {/* <div>
           <h2>Change history</h2>
