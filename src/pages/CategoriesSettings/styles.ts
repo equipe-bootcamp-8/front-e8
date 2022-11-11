@@ -4,12 +4,25 @@ interface ActiveButtonProps {
   active?: boolean;
 }
 
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
+  `}
+`;
+
+
 export const Bar = styled.div`
   ${() => css`
     width: 100%;
     margin: 1rem 1rem 1rem 1rem;
     height: 0.3rem;
     background-color: #0c0e4f;
+    
   `}
 `;
 

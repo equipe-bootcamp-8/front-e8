@@ -5,6 +5,9 @@ import * as Styled from "./styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import SendEmailVerification from "services/email";
+import { useState } from "react";
+import ValidationModal from "components/Modal/ValidationModal";
 
 interface LoginData {
   email: string;
@@ -26,7 +29,7 @@ const loginSchema = yup.object().shape({
     .string()
     .min(8, "Your password must be at least 8 characters long")
     .matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#.])[0-9a-zA-Z$*&@#.]{8,}$/,
       "Your password must have at least one special character, one number and one capital letter."
     )
     .required("Required password field"),
@@ -39,7 +42,9 @@ const RegisterModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
+  } = useForm<LoginData>({
+    resolver: yupResolver(loginSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -52,13 +57,26 @@ const RegisterModal = () => {
 
     api
       .post("/users", data)
-      .then(() => {
-        navigate("/");
+      .then((res: any) => {
+        navigate("/validate");
         toast.success("Successfully registered user");
+        const user = {
+          id: res.data.id,
+          name: res.data.name,
+          email: res.data.email,
+        };
+        SendEmailVerification(user);
       })
       .catch(() => {
         toast.error("User already registered");
       });
+  };
+
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
   };
 
   return (
@@ -102,7 +120,9 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <button type="submit">Create</button>
+          <Styled.CreateButton onClick={handleOpenModal}>Create</Styled.CreateButton>
+         
+          {openModal && <ValidationModal handleOpenModal={handleOpenModal} />}
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
@@ -111,7 +131,9 @@ const RegisterModal = () => {
       <Styled.a onClick={() => navigate("/")}>
         I already have an account
       </Styled.a>
+    
     </Styled.Body>
+    
   );
 };
 

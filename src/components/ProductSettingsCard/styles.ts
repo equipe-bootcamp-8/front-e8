@@ -18,6 +18,12 @@ export const ProductSettingsCardContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: center;
+      width: 10rem;
+    }
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       width: 23rem;
       padding: 1rem;
       gap: .5rem; 
