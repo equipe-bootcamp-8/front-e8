@@ -10,6 +10,7 @@ import Settings from "pages/Settings";
 import AboutUs from "pages/AboutUs";
 import ProductDetails from "pages/ProductDetails";
 import CategoriesSettings from "pages/CategoriesSettings";
+import Validations from "pages/Validations";
 
 const Router = () => {
   const token = localStorage.getItem("token");
@@ -32,6 +33,8 @@ const Router = () => {
           <Route path={RoutePath.LOGIN} element={<Login />} />
           <Route path={RoutePath.CREATE_USER} element={<Createuser />} />
           <Route path={RoutePath.ABOUT_US} element={<AboutUs />} />
+          <Route path={RoutePath.VALIDATE} element={<Validations />} />
+          <Route path={RoutePath.VALIDATE_USER} element={<Validations />} />
         </>
       )}
       <Route
