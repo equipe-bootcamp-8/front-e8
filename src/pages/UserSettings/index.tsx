@@ -51,8 +51,10 @@ const handleOpenModal = () => {
           
           <styled.PersonalInformations >
             <h2>Personal informations.</h2>
-            <styled.Input onChange={handleChange} name="image" type="file" />
 
+            <label htmlFor="image">Upload Image</label>
+            <styled.UploadBtn onChange={handleChange} id="image" name="image" type="file" />
+          
             <div>
               <h2>Company name / Your name</h2>
               <styled.Input onChange={handleChange} name="name" type="name" />
