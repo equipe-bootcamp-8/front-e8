@@ -1,4 +1,5 @@
 import { useAuth } from "contexts/auth";
+import { useNavigate } from "react-router-dom";
 import SendEmailVerification from "services/email";
 import * as Styled from "./styles";
 
@@ -7,12 +8,13 @@ const idUrl = urlParams.get("id");
 
 const RegisterValidation = () => {
   const { user } = useAuth();
-
   const userData = {
     name: user.name,
     id: user.id,
     email: user.email,
   };
+
+  let Navigate = useNavigate();
 
   console.log(user);
   return (
@@ -22,16 +24,18 @@ const RegisterValidation = () => {
           <>
             <Styled.Container>
               <Styled.FormHeader>
-                <h1>Clique no Ok pra validar email</h1>
+                <h1>Your account has been activated!</h1>
               </Styled.FormHeader>
               <Styled.Copy>
-                <p>We send you a confirmation email.</p>
-                <p>Please confirm your email to complete account activation.</p>
-                <Styled.SendEmailButton
-                  onClick={() => SendEmailVerification(userData)}
+                <p>Welcome, <strong>{user.name}</strong>.</p>
+                <p>Click the button below to manage your store or use the navbar to access the other pages.</p>
+                <Styled.Button
+                   onClick={() => {
+                    Navigate(`/settings`);
+                  }}
                 >
-                  Resend confirmation email
-                </Styled.SendEmailButton>
+                 Manage my store
+                </Styled.Button>
               </Styled.Copy>
             </Styled.Container>
           </>
@@ -44,11 +48,11 @@ const RegisterValidation = () => {
               <Styled.Copy>
                 <p>We send you a confirmation email.</p>
                 <p>Please confirm your email to complete account activation.</p>
-                <Styled.SendEmailButton
+                <Styled.Button
                   onClick={() => SendEmailVerification(userData)}
                 >
                   Resend confirmation email
-                </Styled.SendEmailButton>
+                </Styled.Button>
               </Styled.Copy>
             </Styled.Container>
           </>
