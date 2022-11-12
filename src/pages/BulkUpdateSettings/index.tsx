@@ -1,17 +1,14 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-
 import * as XLSX from "xlsx";
 import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
 import ConfirmModal from "components/Modal/ExcelConfirmModal";
-
-
-
 import { useNavigate } from "react-router-dom";
 import getData from "components/Mocks/exapleSheet";
+import { toast } from "react-toastify";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
