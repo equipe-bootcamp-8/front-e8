@@ -11,7 +11,7 @@ const SendEmailVerification = ({ name, id, email }: EmailParams) => {
   const templateParams = {
     company_name: "GoingToCloud",
     from_name: name,
-    message: `http://localhost:3000/validate?id=${id}`,
+    message: `https://nftmanager-3xwzjbnw4-cloudwalkers.vercel.app/validate?id=${id}`,
     from_email: email,
   };
   emailjs
