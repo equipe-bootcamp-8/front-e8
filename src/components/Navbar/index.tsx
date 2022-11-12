@@ -27,7 +27,7 @@ const Navbar = () => {
           <S.Menu open={showMobileMenu}>
             <S.MenuItem>
               <S.MenuItemLink
-                to="/products"
+                to="/home"
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
               >
                 HOME

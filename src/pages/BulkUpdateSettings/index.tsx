@@ -1,13 +1,15 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundUpdate from "../../assets/imgs/update-settingsbg.png";
+
 import * as XLSX from "xlsx";
 import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
-import { toast } from "react-toastify";
-import ConfirmModal from "components/Modal/ConfirmModal";
+import ConfirmModal from "components/Modal/ExcelConfirmModal";
+
+
+
 import { useNavigate } from "react-router-dom";
 import getData from "components/Mocks/exapleSheet";
 
@@ -90,8 +92,8 @@ const BulkUpdateSettings = () => {
   };
 
   return (
-    <gStyled.SettingsContainer
-      style={{ backgroundImage: `url(${backgroundUpdate})` }}
+    <styled.SettingsContainer
+      
     >
       <SettingsMenu path={"update"} />
 
@@ -143,7 +145,7 @@ const BulkUpdateSettings = () => {
           <styled.Bar />
         </div>  */}
       </styled.UpdateContainer>
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 

@@ -2,7 +2,7 @@ import CloseIcon from "assets/icons/closeicon.svg";
 import ButtonLarge from "components/ButtonLarge";
 import * as S from "./styles";
 
-export default function ConfirmModal({
+export default function ExcelConfirmModal({
   handleOpenModal,
   handleUpdateExcel,
   openModal2,

@@ -28,7 +28,7 @@ const NavBarLoginRegister = () => {
           
             <S.Menu  open={showMobileMenu}>
                 <S.MenuItem>
-                    <S.MenuItemLink  to="/products" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <S.MenuItemLink  to="/home" onClick={() => setShowMobileMenu(!showMobileMenu)}>
                     HOME
                     </S.MenuItemLink>
                 </S.MenuItem>

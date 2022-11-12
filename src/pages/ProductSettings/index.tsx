@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 import { Product } from "types";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
-import ConfirmModal from "components/Modal/ConfirmModal";
+
+import ConfirmModal from "components/Modal/ExcelConfirmModal";
 
 const ProductSettings = () => {
   const { products } = useProducts();
@@ -35,8 +35,8 @@ const ProductSettings = () => {
   }, [handleGetProducts, state]);
 
   return (
-    <gStyled.SettingsContainer
-      style={{ backgroundImage: `url(${backgroundProduct})` }}
+    <styled.SettingsContainer
+      
     >
       <SettingsMenu path={"products"} />
       <gStyled.EditEntitiesContainer>
@@ -122,7 +122,7 @@ const ProductSettings = () => {
       )}
 
       {false && <ConfirmModal setState={setState} />}
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 

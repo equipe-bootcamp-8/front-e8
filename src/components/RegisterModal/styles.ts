@@ -50,7 +50,7 @@ export const FormLogin = styled.form`
  
 `;
 
-export const CreateButton = styled.div`
+export const CreateButton = styled.button`
   ${() => css`
   display: flex;
   align-items: center;

@@ -1,8 +1,24 @@
 import styled, { css } from "styled-components";
+import backgroundProduct from "../../assets/imgs/product-settingsbg.png";
+
 
 interface ActiveButtonProps {
   active?: boolean;
 }
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+  background-image: url(${backgroundProduct});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
+  `}
+`;
 
 export const Bar = styled.div`
   ${() => css`

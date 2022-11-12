@@ -21,9 +21,8 @@ const ResetPasswordModal = ({ handleOpenModal }: resetPasswordModalProps) => {
           />
         </Styled.FormHeader>
         <Styled.Copy>
-          <p>We send you a confirmation email.</p>
+          <p>We send a reset email</p>
         <p>By clicking on the link, you will be directed to the site to change your password.</p>
-        <p></p>
           <Styled.ConfirmButton>Resend reset email</Styled.ConfirmButton>
         </Styled.Copy>
       </Styled.Container>

@@ -1,12 +1,10 @@
 import SettingsMenu from "components/SettingsMenu";
 import * as styled from "./styles";
 import settingsIcon from "assets/imgs/settings-icon.png";
-import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundSettings from "../../assets/imgs/settings-bg.png";
 
 const Settings = () => {
   return (
-    <gStyled.SettingsContainer style={{ backgroundImage: `url(${backgroundSettings})` }}>
+    <styled.SettingsContainer>
       <SettingsMenu path={"settings"} />
       <styled.Container>
         <div>
@@ -21,7 +19,7 @@ const Settings = () => {
           <img src={settingsIcon} alt="a" />
         </div>
       </styled.Container>
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 

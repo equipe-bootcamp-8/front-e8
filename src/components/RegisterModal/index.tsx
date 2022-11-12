@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SendEmailVerification from "services/email";
-import { useState } from "react";
-import ValidationModal from "components/Modal/ValidationModal";
+import { useContext } from "react";
+import { AuthContext } from "contexts/auth";
 
 interface LoginData {
   email: string;
@@ -38,6 +38,8 @@ const loginSchema = yup.object().shape({
 });
 
 const RegisterModal = () => {
+  const { login } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -57,26 +59,21 @@ const RegisterModal = () => {
 
     api
       .post("/users", data)
-      .then((res: any) => {
-        navigate("/validate");
-        toast.success("Successfully registered user");
+      .then(async (res: any) => {
         const user = {
           id: res.data.id,
           name: res.data.name,
           email: res.data.email,
         };
+        await login(data.email, data.password);
         SendEmailVerification(user);
+        navigate("/validate");
+        toast.success("User registered successfully registered");
       })
       .catch(() => {
         toast.error("User already registered");
       });
-  };
 
-
-  const [openModal, setOpenModal] = useState<boolean>(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
   };
 
   return (
@@ -120,9 +117,7 @@ const RegisterModal = () => {
             />
             <div className="error">{errors.password?.message}</div>
           </Styled.FormInternal>
-          <Styled.CreateButton onClick={handleOpenModal}>Create</Styled.CreateButton>
-         
-          {openModal && <ValidationModal handleOpenModal={handleOpenModal} />}
+          <Styled.CreateButton type="submit">Create</Styled.CreateButton>
         </Styled.FormLogin>
         <p>
           By signing up you agree to the Terms of Service and Privacy Policy
@@ -131,9 +126,7 @@ const RegisterModal = () => {
       <Styled.a onClick={() => navigate("/")}>
         I already have an account
       </Styled.a>
-    
     </Styled.Body>
-    
   );
 };
 

@@ -1,11 +1,10 @@
 import SettingsMenu from "components/SettingsMenu";
 import { useAuth } from "contexts/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "services";
 import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
-import backgroundUser from "../../assets/imgs/user-settingsbg.png";
+
 import ResetPasswordModal from "components/Modal/ResetModal";
 
 const UserSettings = () => {
@@ -41,7 +40,7 @@ const handleOpenModal = () => {
 
   return (
 
-    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundUser})`}}>
+    <styled.SettingsContainer>
       <SettingsMenu path={"user"}/>
       {openModal && <ResetPasswordModal handleOpenModal={handleOpenModal} />}
       <gStyled.EditEntitiesContainer>
@@ -51,9 +50,11 @@ const handleOpenModal = () => {
          
           
           <styled.PersonalInformations >
-            <h2>Personal informations.</h2>
-            <styled.Input onChange={handleChange} name="image" type="file" />
+           
 
+            <label htmlFor="image">Upload Image</label>
+            <styled.UploadBtn onChange={handleChange} id="image" name="image" type="file" />
+          
             <div>
               <h2>Company name / Your name</h2>
               <styled.Input onChange={handleChange} name="name" type="name" />
@@ -62,23 +63,17 @@ const handleOpenModal = () => {
               <h2>E-mail address</h2>
               <styled.Input onChange={handleChange} name="email" type="email" />
             </div>
-            <styled.SaveButton>Save Changes</styled.SaveButton>
-          </styled.PersonalInformations>
-          <styled.PersonalInformations>
-            <h2>Security.</h2>
-            
-            <div>
-            </div>
             <styled.Buttons>
           
+            <styled.SaveButton>Save Changes</styled.SaveButton>
             <styled.DiscardButton onClick={handleOpenModal}>Reset Password</styled.DiscardButton>
          
-            </styled.Buttons>
-            
-          </styled.PersonalInformations>     
+          </styled.Buttons>
+          </styled.PersonalInformations>
+             
         </styled.UserSettings>   
       </gStyled.EditEntitiesContainer>
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
   );
 };
 

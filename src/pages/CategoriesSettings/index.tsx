@@ -26,8 +26,10 @@ const CategoriesSettings = () => {
   /* --------- */
 
   return (
-    <gStyled.SettingsContainer style={{backgroundImage: `url(${backgroundProduct})`}}>
+   
+  <styled.SettingsContainer>
       <SettingsMenu path={"categories"} />
+
       <styled.EditEntitiesContainer>
         <h2>Manage Categories</h2>
         <styled.AddEntitieCard onClick={handleOpenModal}>
@@ -50,7 +52,9 @@ const CategoriesSettings = () => {
             />
           ))} 
         </styled.EntitiesEditList>
+        
       </styled.EditEntitiesContainer>
+      
        {openModal && (
         <CategoryModal
           setCategory={setCategory}
@@ -65,7 +69,9 @@ const CategoriesSettings = () => {
           handleOpenDeleteModal={handleOpenDeleteModal}
         />
       )} 
-    </gStyled.SettingsContainer>
+    </styled.SettingsContainer>
+
+  
   );
 };
 

@@ -1,4 +1,19 @@
 import styled, { css } from "styled-components";
+import backgroundSettings from "../../assets/imgs/settings-bg.png";
+
+export const SettingsContainer = styled.div`
+  ${({ theme }) => css`
+  background-image: url(${backgroundSettings});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    min-width: 90vw;
+    height: calc(100vh - 10vh);
+    color: ${theme.colors.textColor};
+    display: flex;
+    overflow-y: hidden;
+  `}
+`;
 
 export const Bar = styled.div`
   ${() => css`
