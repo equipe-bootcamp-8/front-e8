@@ -138,7 +138,8 @@ export const ButtonsContainer = styled.div`
   }
 
   button:focus {
-    background-color: white;
+    background-color: #3c4167;
+    transform: scale(1.1);
   }
 `;
 

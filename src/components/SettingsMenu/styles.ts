@@ -9,7 +9,7 @@ export const SettingsNavigationContainer = styled.div`
 	${({ theme }) => css`
 		width: 25%;
 		height: calc(100vh - 10vh);
-		border-radius: 0 2rem 0 0;
+		border-radius: 0 0 4rem 0;
 		padding: 1.5rem;
 		background-image: url(${backgroundMenu}); 
 		color: ${theme.colors.textColor2};

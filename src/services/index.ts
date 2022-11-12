@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const api: any = axios.create({ baseURL: "http://localhost:3333" });
+const api: any = axios.create({ baseURL: "https://cloudwalk-backend.onrender.com/docs" });
 
 export default api;

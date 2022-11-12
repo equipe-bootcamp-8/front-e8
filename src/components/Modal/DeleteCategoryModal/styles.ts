@@ -4,8 +4,8 @@ export const DeleteModalContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    width: 25vw;
-    height: 20vh;
+    width: 40rem;
+    height: 20rem;
     border-radius: 8px;
     background-color: ${theme.colors.baseBg1};
     margin: 0;

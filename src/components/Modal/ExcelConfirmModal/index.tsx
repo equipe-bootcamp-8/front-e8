@@ -1,14 +1,13 @@
 import CloseIcon from "assets/icons/closeicon.svg";
 import ButtonLarge from "components/ButtonLarge";
-import { useProducts } from "contexts/products";
 import * as S from "./styles";
 
 export default function ExcelConfirmModal({
   handleOpenModal,
   handleUpdateExcel,
+  openModal2,
   setState,
 }: any) {
-  const { handleGetProducts } = useProducts();
   return (
     <S.Modal>
       <S.ModalContainer>
@@ -27,6 +26,7 @@ export default function ExcelConfirmModal({
             type="submit"
             onClick={(e) => {
               handleUpdateExcel(e);
+              openModal2()
               setState(true)
             }}
           />

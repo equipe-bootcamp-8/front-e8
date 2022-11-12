@@ -3,19 +3,22 @@ import * as styled from "./styles";
 import * as gStyled from "../../assets/styles/globalStyles";
 
 import * as XLSX from "xlsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import api from "services";
 import { useProducts } from "contexts/products";
-
 import ConfirmModal from "components/Modal/ExcelConfirmModal";
+
+
+
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import getData from "components/Mocks/exapleSheet";
 
 const BulkUpdateSettings = () => {
   const [sheet, setSheet] = useState<any>([]);
-  const { products, handleGetProducts } = useProducts();
+  const { products } = useProducts();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [state, setState] = useState(false);
+  const [fileName, setFileName] = useState("");
   const navigate = useNavigate();
 
   const openModal2 = () => {
@@ -45,6 +48,7 @@ const BulkUpdateSettings = () => {
 
     setSheet(jsonData);
     setState(true);
+    setFileName(file.name);
   };
 
   const handleOpenModal = () => {
@@ -52,7 +56,7 @@ const BulkUpdateSettings = () => {
   };
 
   const handleUpdateExcel = (e: { preventDefault: () => void }) => {
-    // e.preventDefault();
+    e.preventDefault();
     sheet.map((item: { code: number; discount: number }) => {
       products.map((product) => {
         if (item.code === product.code) {
@@ -63,9 +67,28 @@ const BulkUpdateSettings = () => {
         }
       });
     });
-    toast.success("Success update");
+    toast.info("Loading update!", {
+      position: "top-right",
+      autoClose: 5500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+    setTimeout(() => {
+      navigate("/settings/products");
+    }, 6000);
+  };
 
-    navigate("/settings/products");
+  const handleOnExport = () => {
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(getData());
+
+    XLSX.utils.book_append_sheet(wb, ws, "MySheet1");
+
+    XLSX.writeFile(wb, "ExampleSheet.xlsx");
   };
 
   return (
@@ -78,6 +101,7 @@ const BulkUpdateSettings = () => {
         <ConfirmModal
           handleOpenModal={handleOpenModal}
           handleUpdateExcel={handleUpdateExcel}
+          openModal2={openModal2}
         />
       )}
 
@@ -92,16 +116,21 @@ const BulkUpdateSettings = () => {
               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
               onChange={(e) => handleFile(e)}
             />
-            <styled.Label htmlFor="file">Import file</styled.Label>
+            <styled.Label htmlFor="file">
+              <span>{fileName ? fileName: "Import sheet"}</span>
+              <span>Search</span>
+            </styled.Label>
             {state && (
               <styled.SendButton onClick={() => openModal2()}>
                 Send file
               </styled.SendButton>
             )}
           </styled.WrapperInputButton>
-          <styled.DownloadButton>Download File</styled.DownloadButton>
+          <styled.DownloadButton onClick={() => handleOnExport()}>
+            Download example sheet
+          </styled.DownloadButton>
         </styled.BoardButtons>
-        <div>
+        {/* <div>
           <h2>Change history</h2>
           <styled.Bar />
           <styled.Header>
@@ -114,7 +143,7 @@ const BulkUpdateSettings = () => {
             <h3>00/00/0000 at 11:11</h3>
           </styled.userData>
           <styled.Bar />
-        </div>
+        </div>  */}
       </styled.UpdateContainer>
     </styled.SettingsContainer>
   );
